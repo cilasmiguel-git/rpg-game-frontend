@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 96" shape-rendering="crispEdges">
+      <rect x="6" y="8" width="116" height="84" fill="#000" opacity="0.3"/>
+      <!-- Main Obsidian Body -->
+      <rect x="14" y="16" width="100" height="76" fill="#2d3436" stroke="#000" stroke-width="2"/>
+      <rect x="18" y="20" width="92" height="68" fill="#353b48"/>
+      <!-- Spiked Battlements -->
+      <polygon points="18,16 24,4 30,16" fill="#2d3436" stroke="#000" stroke-width="1.5"/>
+      <polygon points="38,16 44,4 50,16" fill="#2d3436" stroke="#000" stroke-width="1.5"/>
+      <polygon points="58,16 64,4 70,16" fill="#2d3436" stroke="#000" stroke-width="1.5"/>
+      <polygon points="78,16 84,4 90,16" fill="#2d3436" stroke="#000" stroke-width="1.5"/>
+      <polygon points="98,16 104,4 110,16" fill="#2d3436" stroke="#000" stroke-width="1.5"/>
+      <!-- Glowing Red Runes -->
+      <polygon points="64,28 72,40 56,40" fill="#e74c3c" opacity="0.9"/>
+      <line x1="64" y1="40" x2="64" y2="54" stroke="#e74c3c" stroke-width="2"/>
+      <circle cx="64" cy="56" r="3" fill="#ff7675"/>
+      <!-- Heavy Gate with Iron Studs -->
+      <rect x="46" y="58" width="36" height="34" fill="#1e272e" stroke="#000" stroke-width="2"/>
+      <circle cx="52" cy="66" r="2" fill="#d63031"/>
+      <circle cx="76" cy="66" r="2" fill="#d63031"/>
+      <circle cx="52" cy="80" r="2" fill="#d63031"/>
+      <circle cx="76" cy="80" r="2" fill="#d63031"/>
+      <!-- Side Watch Towers -->
+      <rect x="8" y="28" width="14" height="64" fill="#1e272e" stroke="#000" stroke-width="2"/>
+      <rect x="106" y="28" width="14" height="64" fill="#1e272e" stroke="#000" stroke-width="2"/>
+    </svg>

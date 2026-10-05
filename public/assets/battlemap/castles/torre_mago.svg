@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96" shape-rendering="crispEdges">
+      <rect x="4" y="6" width="56" height="86" fill="#000" opacity="0.3"/>
+      <!-- Floating Arcane Crystal at top -->
+      <polygon points="32,2 40,14 32,22 24,14" fill="#00d2d3" stroke="#01a3a4" stroke-width="1.5"/>
+      <polygon points="32,6 36,14 32,18 28,14" fill="#ffffff"/>
+      <!-- Pointy Steeple Roof -->
+      <polygon points="32,18 52,40 12,40" fill="#5f27cd" stroke="#341f97" stroke-width="2"/>
+      <polygon points="32,22 46,38 18,38" fill="#6c5ce7"/>
+      <!-- Tower Stone Body -->
+      <rect x="14" y="40" width="36" height="52" fill="#485460" stroke="#1e272e" stroke-width="2"/>
+      <rect x="18" y="42" width="28" height="48" fill="#576574"/>
+      <!-- Arcane Glowing Spiral Window -->
+      <circle cx="32" cy="54" r="6" fill="#00d2d3" stroke="#fff" stroke-width="1.5"/>
+      <!-- Wooden Reinforced Door -->
+      <path d="M24 74 Q32 66 40 74 L40 92 L24 92 Z" fill="#3e2723" stroke="#1e272e" stroke-width="2"/>
+      <circle cx="36" cy="82" r="1.5" fill="#f1c40f"/>
+    </svg>

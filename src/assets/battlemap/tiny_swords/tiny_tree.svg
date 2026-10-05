@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+      <ellipse cx="32" cy="58" rx="26" ry="5" fill="#000" opacity="0.3"/>
+      <!-- Tree Trunk -->
+      <rect x="28" y="36" width="8" height="22" fill="#5c2b09" stroke="#3e2723" stroke-width="2"/>
+      <!-- Fluffy Lush Foliage Spheres (Tiny Swords style) -->
+      <circle cx="32" cy="24" r="22" fill="#20bf6b" stroke="#0fb9b1" stroke-width="2"/>
+      <circle cx="32" cy="22" r="18" fill="#2ed573"/>
+      <circle cx="26" cy="18" r="12" fill="#7bed9f"/>
+      <circle cx="40" cy="20" r="10" fill="#7bed9f"/>
+      <circle cx="32" cy="12" r="8" fill="#a8ff78"/>
+    </svg>

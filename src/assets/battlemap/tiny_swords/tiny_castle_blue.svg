@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" shape-rendering="crispEdges">
+      <!-- Shadow on Ground -->
+      <ellipse cx="64" cy="118" rx="58" ry="8" fill="#000" opacity="0.3"/>
+      
+      <!-- Central Keep Body -->
+      <rect x="28" y="44" width="72" height="72" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <rect x="32" y="48" width="64" height="64" fill="#95afc0"/>
+      
+      <!-- Stone Brick Lines -->
+      <line x1="32" y1="64" x2="96" y2="64" stroke="#535c68" stroke-width="1.5"/>
+      <line x1="32" y1="80" x2="96" y2="80" stroke="#535c68" stroke-width="1.5"/>
+      <line x1="32" y1="96" x2="96" y2="96" stroke="#535c68" stroke-width="1.5"/>
+      <line x1="52" y1="48" x2="52" y2="64" stroke="#535c68" stroke-width="1.5"/>
+      <line x1="76" y1="48" x2="76" y2="64" stroke="#535c68" stroke-width="1.5"/>
+      <line x1="64" y1="64" x2="64" y2="80" stroke="#535c68" stroke-width="1.5"/>
+      <line x1="44" y1="80" x2="44" y2="96" stroke="#535c68" stroke-width="1.5"/>
+      <line x1="84" y1="80" x2="84" y2="96" stroke="#535c68" stroke-width="1.5"/>
+
+      <!-- Left Tower -->
+      <rect x="12" y="28" width="24" height="88" fill="#57606f" stroke="#2f3640" stroke-width="2"/>
+      <rect x="16" y="32" width="16" height="80" fill="#747d8c"/>
+      <!-- Left Blue Conical Roof -->
+      <polygon points="24,6 40,28 8,28" fill="#22a6b3" stroke="#130f40" stroke-width="2"/>
+      <polygon points="24,9 36,26 12,26" fill="#7ed6df"/>
+      <!-- Left Golden Finial -->
+      <circle cx="24" cy="4" r="2.5" fill="#f9ca24" stroke="#f0932b" stroke-width="1"/>
+
+      <!-- Right Tower -->
+      <rect x="92" y="28" width="24" height="88" fill="#57606f" stroke="#2f3640" stroke-width="2"/>
+      <rect x="96" y="32" width="16" height="80" fill="#747d8c"/>
+      <!-- Right Blue Conical Roof -->
+      <polygon points="104,6 120,28 88,28" fill="#22a6b3" stroke="#130f40" stroke-width="2"/>
+      <polygon points="104,9 116,26 92,26" fill="#7ed6df"/>
+      <!-- Right Golden Finial -->
+      <circle cx="104" cy="4" r="2.5" fill="#f9ca24" stroke="#f0932b" stroke-width="1"/>
+
+      <!-- Main Center Roof & Battlements -->
+      <rect x="40" y="32" width="48" height="14" fill="#22a6b3" stroke="#130f40" stroke-width="2"/>
+      <rect x="42" y="34" width="44" height="10" fill="#7ed6df"/>
+      <rect x="44" y="24" width="8" height="8" fill="#22a6b3" stroke="#130f40" stroke-width="1.5"/>
+      <rect x="60" y="24" width="8" height="8" fill="#22a6b3" stroke="#130f40" stroke-width="1.5"/>
+      <rect x="76" y="24" width="8" height="8" fill="#22a6b3" stroke="#130f40" stroke-width="1.5"/>
+
+      <!-- Royal Blue Lion Banner -->
+      <rect x="54" y="52" width="20" height="24" fill="#30336b" stroke="#130f40" stroke-width="1.5"/>
+      <polygon points="54,76 64,84 74,76" fill="#30336b" stroke="#130f40" stroke-width="1.5"/>
+      <circle cx="64" cy="62" r="4" fill="#f9ca24"/>
+      <rect x="62" y="66" width="4" height="6" fill="#f9ca24"/>
+
+      <!-- Huge Castle Wooden Gate -->
+      <path d="M48 116 L48 90 Q64 78 80 90 L80 116 Z" fill="#4b382a" stroke="#1e272e" stroke-width="2"/>
+      <line x1="56" y1="86" x2="56" y2="116" stroke="#f9ca24" stroke-width="1.5"/>
+      <line x1="64" y1="82" x2="64" y2="116" stroke="#f9ca24" stroke-width="1.5"/>
+      <line x1="72" y1="86" x2="72" y2="116" stroke="#f9ca24" stroke-width="1.5"/>
+      <line x1="48" y1="94" x2="80" y2="94" stroke="#f9ca24" stroke-width="1.5"/>
+      <line x1="48" y1="106" x2="80" y2="106" stroke="#f9ca24" stroke-width="1.5"/>
+    </svg>

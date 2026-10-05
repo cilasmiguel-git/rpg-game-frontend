@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96" shape-rendering="crispEdges">
+      <ellipse cx="32" cy="90" rx="26" ry="5" fill="#000" opacity="0.3"/>
+      <!-- Blue Steeple Roof -->
+      <polygon points="32,4 56,28 8,28" fill="#22a6b3" stroke="#130f40" stroke-width="2"/>
+      <polygon points="32,7 50,25 14,25" fill="#7ed6df"/>
+      <!-- Golden Flag Top -->
+      <line x1="32" y1="4" x2="32" y2="-4" stroke="#f9ca24" stroke-width="1.5"/>
+      <polygon points="32,-4 42,-1 32,2" fill="#f9ca24"/>
+      <!-- Tower Stone Body -->
+      <rect x="14" y="28" width="36" height="60" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <rect x="18" y="30" width="28" height="56" fill="#95afc0"/>
+      <!-- Balcony / Wooden Platform -->
+      <rect x="10" y="44" width="44" height="6" fill="#e1b12c" stroke="#2f3640" stroke-width="1.5"/>
+      <!-- Arrow Slit Window -->
+      <rect x="29" y="56" width="6" height="12" fill="#1e272e"/>
+      <!-- Arched Door -->
+      <path d="M24 88 L24 74 Q32 68 40 74 L40 88 Z" fill="#4b382a" stroke="#1e272e" stroke-width="2"/>
+      <circle cx="36" cy="80" r="1.5" fill="#f9ca24"/>
+    </svg>

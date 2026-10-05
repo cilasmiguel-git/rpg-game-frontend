@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+      <ellipse cx="16" cy="29" rx="9" ry="2.5" fill="#000" opacity="0.35"/>
+      <!-- Green Goblin Head -->
+      <circle cx="15" cy="11" r="5" fill="#2ed573" stroke="#1b4332" stroke-width="1.5"/>
+      <!-- Big Pointy Goblin Ears -->
+      <polygon points="10,10 4,8 10,14" fill="#2ed573" stroke="#1b4332" stroke-width="1"/>
+      <polygon points="20,10 26,8 20,14" fill="#2ed573" stroke="#1b4332" stroke-width="1"/>
+      <!-- Red Eyes & Horned Helm -->
+      <circle cx="14" cy="11" r="1" fill="#eb4d4b"/>
+      <circle cx="17" cy="11" r="1" fill="#eb4d4b"/>
+      <polygon points="15,6 18,1 12,1" fill="#636e72"/>
+      <!-- Leather Rag Tunic -->
+      <rect x="11" y="16" width="8" height="7" fill="#8d5b32" stroke="#3e2723" stroke-width="1.5"/>
+      <!-- Long Wooden Spear with Flint Tip -->
+      <line x1="22" y1="2" x2="22" y2="28" stroke="#8B4513" stroke-width="2"/>
+      <polygon points="22,0 25,6 19,6" fill="#718093" stroke="#2f3640" stroke-width="1"/>
+      <!-- Tiny Green Feet -->
+      <rect x="11" y="23" width="3" height="5" fill="#2ed573"/>
+      <rect x="16" y="23" width="3" height="5" fill="#2ed573"/>
+    </svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+      <ellipse cx="16" cy="22" rx="14" ry="8" fill="#000" opacity="0.35"/>
+      <!-- Fire Logs Cross -->
+      <line x1="6" y1="24" x2="26" y2="18" stroke="#5c2b09" stroke-width="3"/>
+      <line x1="6" y1="18" x2="26" y2="24" stroke="#5c2b09" stroke-width="3"/>
+      <!-- Fire Flames -->
+      <polygon points="16,6 22,20 10,20" fill="#e74c3c"/>
+      <polygon points="16,8 20,18 12,18" fill="#f39c12"/>
+      <polygon points="16,12 18,17 14,17" fill="#f1c40f"/>
+      <!-- Iron Tripod and Pot -->
+      <line x1="8" y1="24" x2="16" y2="6" stroke="#2f3542" stroke-width="1.5"/>
+      <line x1="24" y1="24" x2="16" y2="6" stroke="#2f3542" stroke-width="1.5"/>
+      <ellipse cx="16" cy="16" rx="5" ry="4" fill="#1e272e" stroke="#2f3542" stroke-width="1.5"/>
+    </svg>

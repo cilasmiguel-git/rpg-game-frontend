@@ -1,0 +1,70 @@
+<div class="app-layout">
+  <!-- Master Sidebar (Full Height, spans alongside header and content) -->
+  @if (isMaster()) {
+    <app-master-sidebar></app-master-sidebar>
+  }
+
+  <div class="app-main-wrapper">
+    <!-- Top Navigation Header -->
+    <header class="app-navbar">
+      <div class="navbar-brand">
+        <a routerLink="/lobby" class="brand-link">
+          <span class="brand-icon">🛡️⚔️</span>
+          <div class="brand-text">
+            <span class="brand-title">RPG BATTLEMAP</span>
+            <span class="brand-subtitle">Party & Lore AI</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center Status: Health of MongoDB / Backend -->
+      <div class="navbar-center">
+        <div
+          class="health-pill"
+          [class.connected]="health()?.connected"
+          [title]="'Status do Servidor: ' + (health()?.connected ? 'Conectado (' + (health()?.latencyMs || 'OK') + ')' : 'Indisponível')"
+        >
+          <span class="status-dot"></span>
+          <span class="status-text">
+            @if (health()?.connected) {
+              MongoDB Atlas {{ health()?.latencyMs }}
+            } @else if (healthQuery.isError()) {
+              Servidor indisponível
+            } @else if (health()) {
+              Banco de dados desconectado
+            } @else {
+              Verificando Servidor...
+            }
+          </span>
+        </div>
+      </div>
+
+      <!-- Right Side: User profile & Logout -->
+      <div class="navbar-right">
+        @if (currentUser(); as user) {
+          <div class="user-pill">
+            <span class="role-tag" [class.master]="user.role === 'MASTER'">
+              {{ user.role === 'MASTER' ? '👑 Mestre' : '🎲 Jogador' }}
+            </span>
+            <span class="user-name">{{ user.username || user.playerName || 'Aventureiro' }}</span>
+          </div>
+          <button class="logout-btn" (click)="logout()" title="Sair da sessão">
+            🚪 Sair
+          </button>
+        } @else {
+          <a routerLink="/auth" class="login-link">Entrar</a>
+        }
+      </div>
+    </header>
+
+    <!-- Main View Outlet -->
+    <main class="app-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <!-- Right Game Session Sidebar (Jitsi Meet / Chat / Mesa) - Full height alongside Header & Content -->
+  @if (isInGameSession()) {
+    <app-party-sidebar></app-party-sidebar>
+  }
+</div>

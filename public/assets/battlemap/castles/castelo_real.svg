@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" shape-rendering="crispEdges">
+      <!-- Shadow -->
+      <rect x="6" y="10" width="116" height="114" fill="#000" opacity="0.3"/>
+      
+      <!-- Central Keep Wall -->
+      <rect x="24" y="32" width="80" height="88" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <rect x="28" y="36" width="72" height="80" fill="#8395a7"/>
+      
+      <!-- Left Tower -->
+      <rect x="8" y="16" width="28" height="104" fill="#57606f" stroke="#2f3640" stroke-width="2"/>
+      <rect x="12" y="20" width="20" height="96" fill="#747d8c"/>
+      <!-- Left Tower Roof Conical -->
+      <polygon points="22,2 38,16 6,16" fill="#c0392b" stroke="#78281f" stroke-width="1.5"/>
+      <polygon points="22,4 35,14 9,14" fill="#e74c3c"/>
+      <!-- Left Flag -->
+      <line x1="22" y1="2" x2="22" y2="-6" stroke="#f1c40f" stroke-width="1.5"/>
+      <polygon points="22,-6 32,-3 22,0" fill="#f1c40f"/>
+      
+      <!-- Right Tower -->
+      <rect x="92" y="16" width="28" height="104" fill="#57606f" stroke="#2f3640" stroke-width="2"/>
+      <rect x="96" y="20" width="20" height="96" fill="#747d8c"/>
+      <!-- Right Tower Roof Conical -->
+      <polygon points="106,2 122,16 90,16" fill="#c0392b" stroke="#78281f" stroke-width="1.5"/>
+      <polygon points="106,4 119,14 93,14" fill="#e74c3c"/>
+      <!-- Right Flag -->
+      <line x1="106" y1="2" x2="106" y2="-6" stroke="#f1c40f" stroke-width="1.5"/>
+      <polygon points="106,-6 116,-3 106,0" fill="#f1c40f"/>
+
+      <!-- Center Great Keep Top Battlements -->
+      <rect x="36" y="22" width="56" height="14" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <rect x="38" y="16" width="10" height="8" fill="#8395a7" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="54" y="16" width="10" height="8" fill="#8395a7" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="70" y="16" width="10" height="8" fill="#8395a7" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="84" y="16" width="10" height="8" fill="#8395a7" stroke="#2f3640" stroke-width="1.5"/>
+
+      <!-- Stone Masonry Textures -->
+      <line x1="28" y1="52" x2="100" y2="52" stroke="#57606f" stroke-width="1.5"/>
+      <line x1="28" y1="70" x2="100" y2="70" stroke="#57606f" stroke-width="1.5"/>
+      <line x1="28" y1="88" x2="100" y2="88" stroke="#57606f" stroke-width="1.5"/>
+      <line x1="48" y1="36" x2="48" y2="52" stroke="#57606f" stroke-width="1.5"/>
+      <line x1="76" y1="36" x2="76" y2="52" stroke="#57606f" stroke-width="1.5"/>
+      <line x1="62" y1="52" x2="62" y2="70" stroke="#57606f" stroke-width="1.5"/>
+      <line x1="40" y1="70" x2="40" y2="88" stroke="#57606f" stroke-width="1.5"/>
+      <line x1="84" y1="70" x2="84" y2="88" stroke="#57606f" stroke-width="1.5"/>
+
+      <!-- Royal Crest / Banner -->
+      <polygon points="64,36 74,48 54,48" fill="#f1c40f" stroke="#d35400" stroke-width="1"/>
+      <circle cx="64" cy="44" r="3" fill="#e74c3c"/>
+
+      <!-- Arrow Slit Windows -->
+      <rect x="18" y="44" width="4" height="14" fill="#1e272e"/>
+      <rect x="18" y="74" width="4" height="14" fill="#1e272e"/>
+      <rect x="106" y="44" width="4" height="14" fill="#1e272e"/>
+      <rect x="106" y="74" width="4" height="14" fill="#1e272e"/>
+      <rect x="42" y="58" width="6" height="12" fill="#1e272e" stroke="#2f3640" stroke-width="1"/>
+      <rect x="80" y="58" width="6" height="12" fill="#1e272e" stroke="#2f3640" stroke-width="1"/>
+
+      <!-- Massive Portcullis & Gate -->
+      <path d="M48 120 L48 92 Q64 80 80 92 L80 120 Z" fill="#2d3436" stroke="#2f3640" stroke-width="2"/>
+      <line x1="56" y1="88" x2="56" y2="120" stroke="#f39c12" stroke-width="2"/>
+      <line x1="64" y1="84" x2="64" y2="120" stroke="#f39c12" stroke-width="2"/>
+      <line x1="72" y1="88" x2="72" y2="120" stroke="#f39c12" stroke-width="2"/>
+      <line x1="48" y1="96" x2="80" y2="96" stroke="#f39c12" stroke-width="2"/>
+      <line x1="48" y1="108" x2="80" y2="108" stroke="#f39c12" stroke-width="2"/>
+    </svg>

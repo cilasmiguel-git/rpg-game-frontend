@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+      <ellipse cx="16" cy="28" rx="12" ry="3" fill="#000" opacity="0.3"/>
+      <!-- Wool Fluffy Body -->
+      <ellipse cx="15" cy="18" rx="10" ry="8" fill="#ffffff" stroke="#dcdde1" stroke-width="1.5"/>
+      <circle cx="10" cy="14" r="4" fill="#ffffff"/>
+      <circle cx="18" cy="13" r="5" fill="#ffffff"/>
+      <!-- Sheep Face -->
+      <circle cx="22" cy="17" r="4" fill="#ffcccc" stroke="#333" stroke-width="1"/>
+      <!-- Eyes & Horns -->
+      <circle cx="24" cy="16" r="1" fill="#000"/>
+      <!-- 4 Tiny Legs -->
+      <rect x="9" y="24" width="2" height="4" fill="#333"/>
+      <rect x="13" y="24" width="2" height="4" fill="#333"/>
+      <rect x="17" y="24" width="2" height="4" fill="#333"/>
+      <rect x="21" y="24" width="2" height="4" fill="#333"/>
+    </svg>

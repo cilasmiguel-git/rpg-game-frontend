@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+      <ellipse cx="16" cy="29" rx="9" ry="2.5" fill="#000" opacity="0.35"/>
+      <!-- Hood & Face -->
+      <circle cx="15" cy="10" r="5.5" fill="#22a6b3" stroke="#130f40" stroke-width="1.5"/>
+      <circle cx="16" cy="11" r="3" fill="#ffdd59"/>
+      <circle cx="17" cy="10" r="0.8" fill="#000"/>
+      <!-- Tunics -->
+      <rect x="11" y="15" width="8" height="8" fill="#22a6b3" stroke="#130f40" stroke-width="1.5"/>
+      <!-- Wooden Bow Drawn -->
+      <path d="M22 6 Q28 16 22 26" fill="none" stroke="#8B4513" stroke-width="2"/>
+      <line x1="22" y1="6" x2="22" y2="26" stroke="#dcdde1" stroke-width="1"/>
+      <line x1="14" y1="16" x2="26" y2="16" stroke="#f5f6fa" stroke-width="1.5"/>
+      <!-- Quiver on Back -->
+      <line x1="9" y1="12" x2="12" y2="22" stroke="#8B4513" stroke-width="2.5"/>
+      <!-- Boots -->
+      <rect x="11" y="23" width="3" height="5" fill="#5c2b09"/>
+      <rect x="16" y="23" width="3" height="5" fill="#5c2b09"/>
+    </svg>

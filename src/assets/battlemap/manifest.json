@@ -1,0 +1,2734 @@
+{
+  "version": "3.0.0",
+  "updatedAt": "2026-10-05T00:40:00Z",
+  "description": "Catálogo Oficial Completo Tiny Swords (Pixel Frog)",
+  "assets": [
+    {
+      "id": "ts_ts_barracks_blue",
+      "name": "Barracks Azul (Cavaleiros) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_barracks_blue.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house1_blue",
+      "name": "House1 Azul (Cavaleiros) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house1_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_tower_blue",
+      "name": "Tower Azul (Cavaleiros) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_castle_blue",
+      "name": "Castle Azul (Cavaleiros) (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_castle_blue.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house2_blue",
+      "name": "House2 Azul (Cavaleiros) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house2_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house3_blue",
+      "name": "House3 Azul (Cavaleiros) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house3_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_monastery_blue",
+      "name": "Monastery Azul (Cavaleiros) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_monastery_blue.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_archery_blue",
+      "name": "Archery Azul (Cavaleiros) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_archery_blue.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_barracks_red",
+      "name": "Barracks Vermelho (Goblins/Rebeldes) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_barracks_red.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house1_red",
+      "name": "House1 Vermelho (Goblins/Rebeldes) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house1_red.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_tower_red",
+      "name": "Tower Vermelho (Goblins/Rebeldes) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_red.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_castle_red",
+      "name": "Castle Vermelho (Goblins/Rebeldes) (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_castle_red.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house2_red",
+      "name": "House2 Vermelho (Goblins/Rebeldes) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house2_red.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house3_red",
+      "name": "House3 Vermelho (Goblins/Rebeldes) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house3_red.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_monastery_red",
+      "name": "Monastery Vermelho (Goblins/Rebeldes) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_monastery_red.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_archery_red",
+      "name": "Archery Vermelho (Goblins/Rebeldes) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_archery_red.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_barracks_yellow",
+      "name": "Barracks Dourado (Império) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_barracks_yellow.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house1_yellow",
+      "name": "House1 Dourado (Império) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house1_yellow.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_tower_yellow",
+      "name": "Tower Dourado (Império) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_yellow.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_castle_yellow",
+      "name": "Castle Dourado (Império) (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_castle_yellow.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house2_yellow",
+      "name": "House2 Dourado (Império) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house2_yellow.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house3_yellow",
+      "name": "House3 Dourado (Império) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house3_yellow.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_monastery_yellow",
+      "name": "Monastery Dourado (Império) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_monastery_yellow.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_archery_yellow",
+      "name": "Archery Dourado (Império) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_archery_yellow.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_barracks_purple",
+      "name": "Barracks Púrpura (Arcano) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_barracks_purple.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house1_purple",
+      "name": "House1 Púrpura (Arcano) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house1_purple.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_tower_purple",
+      "name": "Tower Púrpura (Arcano) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_purple.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_castle_purple",
+      "name": "Castle Púrpura (Arcano) (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_castle_purple.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house2_purple",
+      "name": "House2 Púrpura (Arcano) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house2_purple.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house3_purple",
+      "name": "House3 Púrpura (Arcano) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house3_purple.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_monastery_purple",
+      "name": "Monastery Púrpura (Arcano) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_monastery_purple.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_archery_purple",
+      "name": "Archery Púrpura (Arcano) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_archery_purple.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_barracks_black",
+      "name": "Barracks Sombrio (Legião Negra) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_barracks_black.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house1_black",
+      "name": "House1 Sombrio (Legião Negra) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house1_black.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_tower_black",
+      "name": "Tower Sombrio (Legião Negra) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_black.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_castle_black",
+      "name": "Castle Sombrio (Legião Negra) (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_castle_black.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house2_black",
+      "name": "House2 Sombrio (Legião Negra) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house2_black.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_house3_black",
+      "name": "House3 Sombrio (Legião Negra) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_house3_black.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_monastery_black",
+      "name": "Monastery Sombrio (Legião Negra) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_monastery_black.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ts_archery_black",
+      "name": "Archery Sombrio (Legião Negra) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_archery_black.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_unit_archer_archer_run_blue",
+      "name": "Archer Cavaleiro Azul - Archer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_run_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_idle_blue",
+      "name": "Archer Cavaleiro Azul - Archer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_idle_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_shoot_blue",
+      "name": "Archer Cavaleiro Azul - Archer_Shoot (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_shoot_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_arrow_blue",
+      "name": "Archer Cavaleiro Azul - Arrow (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run knife_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run knife_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle axe_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle axe_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run gold_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run gold_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run pickaxe_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run pickaxe_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle hammer_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle hammer_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run meat_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run meat_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact hammer_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Interact Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact hammer_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact knife_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Interact Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact knife_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle knife_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle knife_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run hammer_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run hammer_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle gold_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle gold_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle meat_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle meat_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run axe_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run axe_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run wood_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Run Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run wood_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact pickaxe_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Interact Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact pickaxe_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact axe_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Interact Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact axe_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle wood_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle wood_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle pickaxe_blue",
+      "name": "Pawn Cavaleiro Azul - Pawn_Idle Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle pickaxe_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_run_blue",
+      "name": "Monk Cavaleiro Azul - Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_run_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_blue",
+      "name": "Monk Cavaleiro Azul - Heal (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_effect_blue",
+      "name": "Monk Cavaleiro Azul - Heal_Effect (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_effect_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_idle_blue",
+      "name": "Monk Cavaleiro Azul - Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_idle_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_defence_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Right_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_defence_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_run_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_attack_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Right_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_attack_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_idle_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_defence_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_UpRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_defence_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_attack_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Up_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_defence_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_DownRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_defence_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_attack_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_DownRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_attack_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_attack_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_UpRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_attack_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_attack_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Down_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_attack_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_defence_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Down_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_defence_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_defence_blue",
+      "name": "Lancer Cavaleiro Azul - Lancer_Up_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_idle_blue",
+      "name": "Warrior Cavaleiro Azul - Warrior_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_idle_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack2_blue",
+      "name": "Warrior Cavaleiro Azul - Warrior_Attack2 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack2_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_run_blue",
+      "name": "Warrior Cavaleiro Azul - Warrior_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_run_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_guard_blue",
+      "name": "Warrior Cavaleiro Azul - Warrior_Guard (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_guard_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack1_blue",
+      "name": "Warrior Cavaleiro Azul - Warrior_Attack1 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack1_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_run_red",
+      "name": "Archer Guerreiro Vermelho - Archer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_run_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_idle_red",
+      "name": "Archer Guerreiro Vermelho - Archer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_idle_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_shoot_red",
+      "name": "Archer Guerreiro Vermelho - Archer_Shoot (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_shoot_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_arrow_red",
+      "name": "Archer Guerreiro Vermelho - Arrow (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run knife_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run knife_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle axe_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle axe_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run gold_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run gold_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run pickaxe_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run pickaxe_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle hammer_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle hammer_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run meat_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run meat_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact hammer_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Interact Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact hammer_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact knife_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Interact Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact knife_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle knife_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle knife_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run hammer_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run hammer_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle gold_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle gold_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle meat_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle meat_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run axe_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run axe_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run wood_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Run Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run wood_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact pickaxe_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Interact Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact pickaxe_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact axe_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Interact Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact axe_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle wood_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle wood_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle pickaxe_red",
+      "name": "Pawn Guerreiro Vermelho - Pawn_Idle Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle pickaxe_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_run_red",
+      "name": "Monk Guerreiro Vermelho - Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_run_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_red",
+      "name": "Monk Guerreiro Vermelho - Heal (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_effect_red",
+      "name": "Monk Guerreiro Vermelho - Heal_Effect (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_effect_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_idle_red",
+      "name": "Monk Guerreiro Vermelho - Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_idle_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_defence_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Right_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_defence_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_run_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_attack_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Right_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_attack_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_idle_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_defence_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_UpRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_defence_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_attack_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Up_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_defence_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_DownRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_defence_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_attack_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_DownRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_attack_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_attack_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_UpRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_attack_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_attack_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Down_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_attack_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_defence_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Down_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_defence_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_defence_red",
+      "name": "Lancer Guerreiro Vermelho - Lancer_Up_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_idle_red",
+      "name": "Warrior Guerreiro Vermelho - Warrior_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_idle_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack2_red",
+      "name": "Warrior Guerreiro Vermelho - Warrior_Attack2 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack2_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_run_red",
+      "name": "Warrior Guerreiro Vermelho - Warrior_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_run_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_guard_red",
+      "name": "Warrior Guerreiro Vermelho - Warrior_Guard (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_guard_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack1_red",
+      "name": "Warrior Guerreiro Vermelho - Warrior_Attack1 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack1_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_run_yellow",
+      "name": "Archer Guarda Dourada - Archer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_run_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_idle_yellow",
+      "name": "Archer Guarda Dourada - Archer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_idle_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_shoot_yellow",
+      "name": "Archer Guarda Dourada - Archer_Shoot (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_shoot_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_arrow_yellow",
+      "name": "Archer Guarda Dourada - Arrow (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run knife_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run knife_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle axe_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle axe_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run gold_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run gold_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run pickaxe_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run pickaxe_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle hammer_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle hammer_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run meat_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run meat_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact hammer_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Interact Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact hammer_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact knife_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Interact Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact knife_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle knife_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle knife_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run hammer_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run hammer_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle gold_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle gold_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle meat_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle meat_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run axe_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run axe_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run wood_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Run Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run wood_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact pickaxe_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Interact Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact pickaxe_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact axe_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Interact Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact axe_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle wood_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle wood_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle pickaxe_yellow",
+      "name": "Pawn Guarda Dourada - Pawn_Idle Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle pickaxe_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_run_yellow",
+      "name": "Monk Guarda Dourada - Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_run_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_yellow",
+      "name": "Monk Guarda Dourada - Heal (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_effect_yellow",
+      "name": "Monk Guarda Dourada - Heal_Effect (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_effect_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_idle_yellow",
+      "name": "Monk Guarda Dourada - Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_idle_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_defence_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Right_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_defence_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_run_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_attack_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Right_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_attack_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_idle_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_defence_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_UpRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_defence_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_attack_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Up_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_defence_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_DownRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_defence_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_attack_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_DownRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_attack_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_attack_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_UpRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_attack_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_attack_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Down_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_attack_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_defence_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Down_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_defence_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_defence_yellow",
+      "name": "Lancer Guarda Dourada - Lancer_Up_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_idle_yellow",
+      "name": "Warrior Guarda Dourada - Warrior_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_idle_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack2_yellow",
+      "name": "Warrior Guarda Dourada - Warrior_Attack2 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack2_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_run_yellow",
+      "name": "Warrior Guarda Dourada - Warrior_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_run_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_guard_yellow",
+      "name": "Warrior Guarda Dourada - Warrior_Guard (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_guard_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack1_yellow",
+      "name": "Warrior Guarda Dourada - Warrior_Attack1 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack1_yellow.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_run_purple",
+      "name": "Archer Ordem Púrpura - Archer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_run_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_idle_purple",
+      "name": "Archer Ordem Púrpura - Archer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_idle_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_shoot_purple",
+      "name": "Archer Ordem Púrpura - Archer_Shoot (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_shoot_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_arrow_purple",
+      "name": "Archer Ordem Púrpura - Arrow (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run knife_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run knife_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle axe_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle axe_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run gold_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run gold_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run pickaxe_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run pickaxe_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle hammer_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle hammer_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run meat_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run meat_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact hammer_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Interact Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact hammer_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact knife_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Interact Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact knife_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle knife_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle knife_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run hammer_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run hammer_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle gold_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle gold_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle meat_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle meat_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run axe_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run axe_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run wood_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Run Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run wood_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact pickaxe_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Interact Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact pickaxe_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact axe_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Interact Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact axe_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle wood_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle wood_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle pickaxe_purple",
+      "name": "Pawn Ordem Púrpura - Pawn_Idle Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle pickaxe_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_run_purple",
+      "name": "Monk Ordem Púrpura - Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_run_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_purple",
+      "name": "Monk Ordem Púrpura - Heal (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_effect_purple",
+      "name": "Monk Ordem Púrpura - Heal_Effect (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_effect_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_idle_purple",
+      "name": "Monk Ordem Púrpura - Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_idle_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_defence_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Right_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_defence_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_run_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_attack_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Right_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_attack_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_idle_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_defence_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_UpRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_defence_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_attack_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Up_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_defence_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_DownRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_defence_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_attack_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_DownRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_attack_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_attack_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_UpRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_attack_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_attack_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Down_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_attack_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_defence_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Down_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_defence_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_defence_purple",
+      "name": "Lancer Ordem Púrpura - Lancer_Up_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_idle_purple",
+      "name": "Warrior Ordem Púrpura - Warrior_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_idle_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack2_purple",
+      "name": "Warrior Ordem Púrpura - Warrior_Attack2 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack2_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_run_purple",
+      "name": "Warrior Ordem Púrpura - Warrior_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_run_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_guard_purple",
+      "name": "Warrior Ordem Púrpura - Warrior_Guard (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_guard_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack1_purple",
+      "name": "Warrior Ordem Púrpura - Warrior_Attack1 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack1_purple.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_run_black",
+      "name": "Archer Legião Negra - Archer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_run_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_idle_black",
+      "name": "Archer Legião Negra - Archer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_idle_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_archer_shoot_black",
+      "name": "Archer Legião Negra - Archer_Shoot (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_archer_shoot_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_archer_arrow_black",
+      "name": "Archer Legião Negra - Arrow (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run knife_black",
+      "name": "Pawn Legião Negra - Pawn_Run Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run knife_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle axe_black",
+      "name": "Pawn Legião Negra - Pawn_Idle Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle axe_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle_black",
+      "name": "Pawn Legião Negra - Pawn_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run gold_black",
+      "name": "Pawn Legião Negra - Pawn_Run Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run gold_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run pickaxe_black",
+      "name": "Pawn Legião Negra - Pawn_Run Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run pickaxe_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle hammer_black",
+      "name": "Pawn Legião Negra - Pawn_Idle Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle hammer_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run meat_black",
+      "name": "Pawn Legião Negra - Pawn_Run Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run meat_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact hammer_black",
+      "name": "Pawn Legião Negra - Pawn_Interact Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact hammer_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact knife_black",
+      "name": "Pawn Legião Negra - Pawn_Interact Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact knife_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle knife_black",
+      "name": "Pawn Legião Negra - Pawn_Idle Knife (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle knife_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run hammer_black",
+      "name": "Pawn Legião Negra - Pawn_Run Hammer (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run hammer_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle gold_black",
+      "name": "Pawn Legião Negra - Pawn_Idle Gold (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle gold_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run_black",
+      "name": "Pawn Legião Negra - Pawn_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle meat_black",
+      "name": "Pawn Legião Negra - Pawn_Idle Meat (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle meat_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run axe_black",
+      "name": "Pawn Legião Negra - Pawn_Run Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run axe_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_run wood_black",
+      "name": "Pawn Legião Negra - Pawn_Run Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_run wood_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact pickaxe_black",
+      "name": "Pawn Legião Negra - Pawn_Interact Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact pickaxe_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_interact axe_black",
+      "name": "Pawn Legião Negra - Pawn_Interact Axe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_interact axe_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle wood_black",
+      "name": "Pawn Legião Negra - Pawn_Idle Wood (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle wood_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_pawn_pawn_idle pickaxe_black",
+      "name": "Pawn Legião Negra - Pawn_Idle Pickaxe (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_pawn_pawn_idle pickaxe_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_run_black",
+      "name": "Monk Legião Negra - Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_run_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_black",
+      "name": "Monk Legião Negra - Heal (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_heal_effect_black",
+      "name": "Monk Legião Negra - Heal_Effect (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_heal_effect_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_monk_idle_black",
+      "name": "Monk Legião Negra - Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_monk_idle_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_defence_black",
+      "name": "Lancer Legião Negra - Lancer_Right_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_defence_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_run_black",
+      "name": "Lancer Legião Negra - Lancer_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_right_attack_black",
+      "name": "Lancer Legião Negra - Lancer_Right_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_right_attack_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_idle_black",
+      "name": "Lancer Legião Negra - Lancer_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_defence_black",
+      "name": "Lancer Legião Negra - Lancer_UpRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_defence_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_attack_black",
+      "name": "Lancer Legião Negra - Lancer_Up_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_defence_black",
+      "name": "Lancer Legião Negra - Lancer_DownRight_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_defence_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_downright_attack_black",
+      "name": "Lancer Legião Negra - Lancer_DownRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_downright_attack_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_upright_attack_black",
+      "name": "Lancer Legião Negra - Lancer_UpRight_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_upright_attack_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_attack_black",
+      "name": "Lancer Legião Negra - Lancer_Down_Attack (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_attack_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_down_defence_black",
+      "name": "Lancer Legião Negra - Lancer_Down_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_down_defence_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_lancer_lancer_up_defence_black",
+      "name": "Lancer Legião Negra - Lancer_Up_Defence (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_idle_black",
+      "name": "Warrior Legião Negra - Warrior_Idle (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_idle_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack2_black",
+      "name": "Warrior Legião Negra - Warrior_Attack2 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack2_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_run_black",
+      "name": "Warrior Legião Negra - Warrior_Run (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_run_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_guard_black",
+      "name": "Warrior Legião Negra - Warrior_Guard (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_guard_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_unit_warrior_warrior_attack1_black",
+      "name": "Warrior Legião Negra - Warrior_Attack1 (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_warrior_warrior_attack1_black.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tree_tree4",
+      "name": "Carvalho Tree4 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_tree4.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tree_stump 4",
+      "name": "Carvalho Stump 4 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_stump 4.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tree_stump 1",
+      "name": "Carvalho Stump 1 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_stump 1.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tree_stump 3",
+      "name": "Carvalho Stump 3 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_stump 3.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tree_tree3",
+      "name": "Carvalho Tree3 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_tree3.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tree_tree2",
+      "name": "Carvalho Tree2 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_tree2.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tree_tree1",
+      "name": "Carvalho Tree1 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_tree1.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tree_stump 2",
+      "name": "Carvalho Stump 2 (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_stump 2.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 1_highlight",
+      "name": "Rocha de Ouro (Gold Stone 1_Highlight) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 1_highlight.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 4",
+      "name": "Rocha de Ouro (Gold Stone 4) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 4.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 4_highlight",
+      "name": "Rocha de Ouro (Gold Stone 4_Highlight) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 4_highlight.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 5_highlight",
+      "name": "Rocha de Ouro (Gold Stone 5_Highlight) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 5_highlight.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 2_highlight",
+      "name": "Rocha de Ouro (Gold Stone 2_Highlight) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 2_highlight.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 3",
+      "name": "Rocha de Ouro (Gold Stone 3) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 3.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 6_highlight",
+      "name": "Rocha de Ouro (Gold Stone 6_Highlight) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 6_highlight.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 3_highlight",
+      "name": "Rocha de Ouro (Gold Stone 3_Highlight) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 3_highlight.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 1",
+      "name": "Rocha de Ouro (Gold Stone 1) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 1.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 6",
+      "name": "Rocha de Ouro (Gold Stone 6) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 6.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 2",
+      "name": "Rocha de Ouro (Gold Stone 2) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 2.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_gold_gold stone 5",
+      "name": "Rocha de Ouro (Gold Stone 5) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/gold_gold stone 5.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_sheep_sheep_idle",
+      "name": "Ovelha (Sheep_Idle) (1x1)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/sheep_sheep_idle.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_bushes_bushe4",
+      "name": "Bushes Bushe4 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_bushes_bushe4.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_bushes_bushe2",
+      "name": "Bushes Bushe2 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_bushes_bushe2.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_bushes_bushe3",
+      "name": "Bushes Bushe3 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_bushes_bushe3.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_bushes_bushe1",
+      "name": "Bushes Bushe1 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_bushes_bushe1.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_rocks_rock2",
+      "name": "Rocks Rock2 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_rocks_rock2.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_rocks_rock4",
+      "name": "Rocks Rock4 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_rocks_rock4.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_rocks_rock1",
+      "name": "Rocks Rock1 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_rocks_rock1.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_rocks_rock3",
+      "name": "Rocks Rock3 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_rocks_rock3.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_rubber duck_rubber duck",
+      "name": "Rubber Duck Rubber duck (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_rubber duck_rubber duck.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_04",
+      "name": "Clouds Clouds_04 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_04.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_01",
+      "name": "Clouds Clouds_01 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_01.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_03",
+      "name": "Clouds Clouds_03 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_03.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_05",
+      "name": "Clouds Clouds_05 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_05.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_02",
+      "name": "Clouds Clouds_02 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_02.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_06",
+      "name": "Clouds Clouds_06 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_06.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_07",
+      "name": "Clouds Clouds_07 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_07.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_clouds_clouds_08",
+      "name": "Clouds Clouds_08 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_08.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    }
+  ]
+}

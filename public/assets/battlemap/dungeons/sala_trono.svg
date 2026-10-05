@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" shape-rendering="crispEdges">
+      <rect width="128" height="128" fill="#1e272e"/>
+      <!-- Stone Flagstone Tiles Grid -->
+      <rect x="4" y="4" width="120" height="120" fill="#2f3640" stroke="#485460" stroke-width="2"/>
+      <line x1="4" y1="34" x2="124" y2="34" stroke="#485460" stroke-width="1"/>
+      <line x1="4" y1="64" x2="124" y2="64" stroke="#485460" stroke-width="1"/>
+      <line x1="4" y1="94" x2="124" y2="94" stroke="#485460" stroke-width="1"/>
+      <line x1="34" y1="4" x2="34" y2="124" stroke="#485460" stroke-width="1"/>
+      <line x1="64" y1="4" x2="64" y2="124" stroke="#485460" stroke-width="1"/>
+      <line x1="94" y1="4" x2="94" y2="124" stroke="#485460" stroke-width="1"/>
+      
+      <!-- Regal Crimson Carpet with Golden Borders -->
+      <rect x="52" y="4" width="24" height="120" fill="#c0392b" stroke="#f1c40f" stroke-width="1.5"/>
+      <rect x="56" y="8" width="16" height="112" fill="#e74c3c"/>
+
+      <!-- Throne Dais Steps -->
+      <rect x="42" y="12" width="44" height="32" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <rect x="46" y="16" width="36" height="24" fill="#f1c40f" stroke="#d35400" stroke-width="1.5"/>
+      <!-- Golden Royal Throne -->
+      <polygon points="64,18 74,28 54,28" fill="#f1c40f" stroke="#b7950b" stroke-width="1.5"/>
+      <rect x="56" y="26" width="16" height="14" fill="#9b59b6" stroke="#f1c40f" stroke-width="1.5"/>
+      
+      <!-- Torches on Pillars -->
+      <circle cx="20" cy="24" r="5" fill="#e67e22"/>
+      <circle cx="20" cy="24" r="3" fill="#f1c40f"/>
+      <circle cx="108" cy="24" r="5" fill="#e67e22"/>
+      <circle cx="108" cy="24" r="3" fill="#f1c40f"/>
+      <circle cx="20" cy="80" r="5" fill="#e67e22"/>
+      <circle cx="20" cy="80" r="3" fill="#f1c40f"/>
+      <circle cx="108" cy="80" r="5" fill="#e67e22"/>
+      <circle cx="108" cy="80" r="3" fill="#f1c40f"/>
+    </svg>

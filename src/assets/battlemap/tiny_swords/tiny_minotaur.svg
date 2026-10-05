@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+      <ellipse cx="32" cy="58" rx="26" ry="5" fill="#000" opacity="0.35"/>
+      <!-- Minotaur Huge Horns -->
+      <path d="M18 16 Q8 4 14 0 Q20 8 26 14" fill="#f5f6fa" stroke="#2f3640" stroke-width="1.5"/>
+      <path d="M46 16 Q56 4 50 0 Q44 8 38 14" fill="#f5f6fa" stroke="#2f3640" stroke-width="1.5"/>
+      <!-- Bull Head & Snout -->
+      <circle cx="32" cy="18" r="12" fill="#5c2b09" stroke="#2c1606" stroke-width="2"/>
+      <ellipse cx="32" cy="22" rx="7" ry="5" fill="#8d5b32"/>
+      <circle cx="32" cy="24" r="2.5" fill="none" stroke="#f9ca24" stroke-width="1.5"/>
+      <circle cx="28" cy="16" r="1.5" fill="#eb4d4b"/>
+      <circle cx="36" cy="16" r="1.5" fill="#eb4d4b"/>
+      <!-- Muscular Torso -->
+      <rect x="20" y="28" width="24" height="20" fill="#5c2b09" stroke="#2c1606" stroke-width="2"/>
+      <!-- Dual Greataxe -->
+      <line x1="48" y1="10" x2="48" y2="54" stroke="#8B4513" stroke-width="3"/>
+      <path d="M48 14 C58 8, 62 26, 48 24 Z" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <path d="M48 14 C38 8, 34 26, 48 24 Z" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <!-- Hooves -->
+      <rect x="22" y="48" width="8" height="10" fill="#2c1606"/>
+      <rect x="34" y="48" width="8" height="10" fill="#2c1606"/>
+    </svg>

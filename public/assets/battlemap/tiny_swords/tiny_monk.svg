@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+      <ellipse cx="16" cy="29" rx="9" ry="2.5" fill="#000" opacity="0.35"/>
+      <!-- Holy Glowing Halo -->
+      <circle cx="15" cy="4" r="3" fill="none" stroke="#f9ca24" stroke-width="1.5"/>
+      <!-- Head with Red Hood -->
+      <circle cx="15" cy="10" r="5" fill="#eb4d4b" stroke="#300" stroke-width="1.5"/>
+      <circle cx="16" cy="10.5" r="2.5" fill="#ffdd59"/>
+      <!-- Red Robe -->
+      <polygon points="10,15 20,15 22,27 8,27" fill="#eb4d4b" stroke="#300" stroke-width="1.5"/>
+      <polygon points="12,15 18,15 19,27 11,27" fill="#ff7979"/>
+      <!-- Golden Staff / Relic -->
+      <line x1="24" y1="4" x2="24" y2="28" stroke="#f9ca24" stroke-width="2"/>
+      <circle cx="24" cy="5" r="3" fill="#f9ca24" stroke="#f0932b" stroke-width="1"/>
+    </svg>

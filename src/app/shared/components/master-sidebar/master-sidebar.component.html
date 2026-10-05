@@ -1,0 +1,757 @@
+<aside class="master-sidebar" [class.collapsed]="isCollapsed">
+  <!-- Top Brand / Toggle Header -->
+  <div class="sidebar-header">
+    <div class="header-content" *ngIf="!isCollapsed">
+      <div class="master-badge">
+        <span class="crown-icon">👑</span>
+        <div class="badge-texts">
+          <span class="title font-rpg">PAINEL DO MESTRE</span>
+          <span class="subtitle">Controles de Mesa & Sessão</span>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="collapse-toggle-btn"
+      (click)="toggleCollapse()"
+      [title]="isCollapsed ? 'Expandir Painel do Mestre' : 'Recolher Painel'"
+      [attr.aria-label]="isCollapsed ? 'Expandir' : 'Recolher'"
+    >
+      {{ isCollapsed ? '❯' : '❮' }}
+    </button>
+  </div>
+
+  <!-- Collapsed Mini Nav Rail -->
+  <nav class="collapsed-nav" *ngIf="isCollapsed">
+    <button
+      class="rail-btn"
+      [class.active]="activeTab === 'parties'"
+      (click)="selectTab('parties')"
+      title="Salas & Campanhas"
+    >
+      <span class="icon">🏰</span>
+      <span class="mini-label">Salas</span>
+    </button>
+
+    @if (isInGameSession()) {
+      <button
+        class="rail-btn"
+        [class.active]="activeTab === 'players'"
+        (click)="selectTab('players')"
+        title="Heróis na Mesa"
+      >
+        <span class="icon">👥</span>
+        <span class="mini-label">Mesa</span>
+        <span class="counter-badge" *ngIf="characters().length">{{ characters().length }}</span>
+      </button>
+
+      <button
+        class="rail-btn"
+        [class.active]="activeTab === 'notes'"
+        (click)="selectTab('notes')"
+        title="Diário & Segredos"
+      >
+        <span class="icon">📜</span>
+        <span class="mini-label">Notas</span>
+      </button>
+
+      <button
+        class="rail-btn"
+        [class.active]="activeTab === 'dice'"
+        (click)="selectTab('dice')"
+        title="Mesa de Dados"
+      >
+        <span class="icon">🎲</span>
+        <span class="mini-label">Dados</span>
+      </button>
+    }
+
+    <button
+      class="rail-btn"
+      [class.active]="activeTab === 'settings'"
+      (click)="selectTab('settings')"
+      title="Configurações"
+    >
+      <span class="icon">⚙️</span>
+      <span class="mini-label">Config</span>
+    </button>
+  </nav>
+
+  <!-- Expanded Sidebar Body -->
+  <div class="expanded-body" *ngIf="!isCollapsed">
+    @if (!isInGameSession()) {
+      <!-- LOBBY MAIN MENU: Navegação entre Telas na Área Central -->
+      <div class="lobby-menu-wrapper">
+        <div class="menu-heading">MENU DO MESTRE</div>
+        <nav class="lobby-nav-list">
+          <button
+            type="button"
+            class="lobby-menu-item"
+            [class.active]="activeTab === 'parties'"
+            (click)="selectTab('parties')"
+          >
+            <span class="item-icon">🏰</span>
+            <div class="item-texts">
+              <span class="item-title">Salas & Jogos</span>
+              <span class="item-desc">Gerenciar e entrar em salas</span>
+            </div>
+            <span class="item-arrow" *ngIf="activeTab === 'parties'">➔</span>
+          </button>
+
+          <button
+            type="button"
+            class="lobby-menu-item"
+            [class.active]="activeTab === 'settings'"
+            (click)="selectTab('settings')"
+          >
+            <span class="item-icon">⚙️</span>
+            <div class="item-texts">
+              <span class="item-title">Configurações</span>
+              <span class="item-desc">Áudio, visual e sistema</span>
+            </div>
+            <span class="item-arrow" *ngIf="activeTab === 'settings'">➔</span>
+          </button>
+        </nav>
+
+        <!-- Master Status Card in Lobby Navigation -->
+        <div class="lobby-menu-footer">
+          <div class="master-status-card">
+            <div class="card-status-header">
+              <span class="status-indicator-dot"></span>
+              <span class="status-label">Mestre Conectado</span>
+            </div>
+            <div class="card-details">
+              <div class="detail-row">
+                <span>Campanhas:</span>
+                <strong>{{ myParties().length }}</strong>
+              </div>
+              <div class="detail-row" *ngIf="party()?.code">
+                <span>Sala Atual:</span>
+                <strong class="gold-text">{{ party()?.code }}</strong>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-new-room" (click)="openCreateParty()">
+            ✨ Criar Nova Sala
+          </button>
+        </div>
+      </div>
+    } @else {
+      <!-- IN-GAME TABS SELECTOR -->
+      <div class="tabs-nav">
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'parties'"
+          (click)="selectTab('parties')"
+        >
+          <span class="tab-icon">🏰</span>
+          <span>Salas</span>
+        </button>
+
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'players'"
+          (click)="selectTab('players')"
+        >
+          <span class="tab-icon">👥</span>
+          <span>Heróis</span>
+          <span class="tab-count" *ngIf="characters().length">{{ characters().length }}</span>
+        </button>
+
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'notes'"
+          (click)="selectTab('notes')"
+        >
+          <span class="tab-icon">📜</span>
+          <span>Diário</span>
+        </button>
+
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'dice'"
+          (click)="selectTab('dice')"
+        >
+          <span class="tab-icon">🎲</span>
+          <span>Dados</span>
+        </button>
+
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'settings'"
+          (click)="selectTab('settings')"
+        >
+          <span class="tab-icon">⚙️</span>
+          <span>Config</span>
+        </button>
+      </div>
+
+      <!-- Active Tab Content Inside Game Session -->
+      <div class="tab-content-container">
+        <!-- TAB 1: SALAS & CAMPANHAS -->
+        <section class="tab-section" *ngIf="activeTab === 'parties'">
+          <!-- Active Session Card -->
+          <div class="active-room-card" *ngIf="party()?.code; else noActiveRoomTpl">
+            <div class="card-top-row">
+              <span class="theme-tag">⚔️ {{ party()?.themeTitle || party()?.themeKey }}</span>
+              <span class="status-indicator" [class.in-progress]="party()?.status === 'IN_PROGRESS'">
+                {{ party()?.status === 'IN_PROGRESS' ? 'Em Aventura' : 'No Lobby' }}
+              </span>
+            </div>
+
+          <h3 class="room-title font-rpg">{{ party()?.title || 'Campanha Ativa' }}</h3>
+          <p class="room-desc" *ngIf="party()?.description">{{ party()?.description }}</p>
+
+          <!-- Room Code & Quick Copy -->
+          <div class="code-box">
+            <span class="code-label">Código da Sala:</span>
+            <div class="code-row" (click)="copyCode()">
+              <span class="code-value">{{ party()?.code }}</span>
+              <button class="mini-copy-btn">{{ codeCopied() ? 'Copiado! ✅' : 'Copiar' }}</button>
+            </div>
+          </div>
+
+          <!-- Invite link quick copy -->
+          <button class="invite-link-btn" (click)="copyInvite()">
+            <span>🔗 {{ linkCopied() ? 'Link de Convite Copiado!' : 'Copiar Link para Jogadores' }}</span>
+          </button>
+
+          <!-- Quick Navigation Actions -->
+          <div class="room-actions-grid">
+            <button class="action-card-btn primary" (click)="goToLobby()">
+              🏰 Ir para o Lobby
+            </button>
+            <button
+              class="action-card-btn accent"
+              *ngIf="party()?.status !== 'IN_PROGRESS'"
+              (click)="startAdventure()"
+            >
+              🚀 Iniciar Aventura
+            </button>
+            <button
+              class="action-card-btn success"
+              *ngIf="party()?.status === 'IN_PROGRESS'"
+              (click)="goToGame()"
+            >
+              🗺️ Ir ao Battlemap
+            </button>
+          </div>
+        </div>
+
+        <ng-template #noActiveRoomTpl>
+          <div class="no-room-box">
+            <span class="empty-icon">🏰</span>
+            <h4>Nenhuma Sala Selecionada</h4>
+            <p>Crie uma nova sessão de RPG ou conecte-se a uma sala existente usando o código.</p>
+          </div>
+        </ng-template>
+
+        <!-- Quick Switch Room by Code -->
+        <div class="sidebar-block">
+          <h4 class="block-title font-rpg">Alternar / Entrar em Sala</h4>
+          <div class="switch-input-group">
+            <input
+              type="text"
+              placeholder="Código (Ex: UR54V3)"
+              [value]="quickCodeInput()"
+              (input)="quickCodeInput.set($any($event.target).value)"
+              (keyup.enter)="switchParty(quickCodeInput())"
+              maxlength="10"
+            />
+            <button class="switch-btn" (click)="switchParty(quickCodeInput())" [disabled]="!quickCodeInput()">
+              Carregar
+            </button>
+          </div>
+        </div>
+
+        <!-- Minhas Campanhas Criadas no Banco de Dados -->
+        <div class="sidebar-block" *ngIf="myParties().length">
+          <div class="flex items-center justify-between">
+            <h4 class="block-title font-rpg">Minhas Campanhas ({{ myParties().length }})</h4>
+            <span class="text-[10px] text-amber-400 font-bold">👑 Mestre</span>
+          </div>
+          <div class="recent-list">
+            <div
+              class="recent-item"
+              *ngFor="let room of myParties()"
+              [class.current]="room.code === party()?.code"
+              (click)="switchParty(room.code)"
+            >
+              <div class="recent-info">
+                <div class="flex items-center gap-1.5">
+                  <span class="recent-code">{{ room.code }}</span>
+                  <span class="status-pill-mini" [class.in-prog]="room.status === 'IN_PROGRESS'">
+                    {{ room.status === 'IN_PROGRESS' ? 'Em Jogo' : 'Lobby' }}
+                  </span>
+                </div>
+                <span class="recent-name">{{ room.title }}</span>
+                <span class="text-[10px] text-slate-400 font-sans" *ngIf="room.characters?.length">
+                  👥 {{ room.characters?.length }} herói(s)
+                </span>
+              </div>
+              <span class="recent-arrow">➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Rooms History (if different) -->
+        <div class="sidebar-block" *ngIf="masterTools.recentRooms().length && !myParties().length">
+          <h4 class="block-title font-rpg">Salas Recentes</h4>
+          <div class="recent-list">
+            <div
+              class="recent-item"
+              *ngFor="let room of masterTools.recentRooms()"
+              [class.current]="room.code === party()?.code"
+              (click)="switchParty(room.code)"
+            >
+              <div class="recent-info">
+                <span class="recent-code">{{ room.code }}</span>
+                <span class="recent-name">{{ room.title }}</span>
+              </div>
+              <span class="recent-arrow">➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Create New Campaign Button -->
+        <div class="sidebar-footer-action">
+          <button class="create-campaign-btn" (click)="openCreateParty()">
+            <span>✨ Criar Nova Campanha</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- TAB 2: JOGADORES & HERÓIS -->
+      <section class="tab-section" *ngIf="activeTab === 'players'">
+        <div class="players-header">
+          <div class="stats-summary">
+            <span class="total-heroes">⚔️ <strong>{{ characters().length }}</strong> heróis na mesa</span>
+            <span class="ready-badge" [class.all-ready]="characters().length > 0 && readyCount === characters().length">
+              {{ readyCount }}/{{ characters().length }} Prontos
+            </span>
+          </div>
+
+          <button class="invite-quick-btn" (click)="copyInvite()" title="Copiar Link de Convite">
+            🔗 {{ linkCopied() ? 'Copiado!' : 'Convidar' }}
+          </button>
+        </div>
+
+        <!-- Hero List -->
+        <div class="heroes-list" *ngIf="characters().length; else noHeroesTpl">
+          <div class="hero-mini-card" *ngFor="let char of characters()" [class.ready]="char.isReady">
+            <div class="hero-card-main">
+              <div
+                class="hero-avatar"
+                [style.backgroundColor]="char.appearance.skinColor"
+                [style.borderColor]="char.appearance.outfitPrimaryColor"
+              >
+                {{ char.name.charAt(0) }}
+              </div>
+
+              <div class="hero-meta">
+                <div class="hero-name-row">
+                  <span class="name">{{ char.name }}</span>
+                  <span class="ready-dot" [class.is-ready]="char.isReady" [title]="char.isReady ? 'Pronto' : 'Preparando'">
+                    {{ char.isReady ? '✔' : '⏳' }}
+                  </span>
+                </div>
+                <div class="hero-subtext">
+                  <span>{{ char.appearance.race }} {{ char.characterClass || 'Aventureiro' }}</span>
+                  <span class="player-tag">({{ char.playerName }})</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Health & Energy bars -->
+            <div class="hero-bars">
+              <div class="mini-bar hp">
+                <div class="fill" [style.width.%]="(char.health / char.maxHealth) * 100"></div>
+                <span class="bar-label">HP {{ char.health }}/{{ char.maxHealth }}</span>
+              </div>
+              <div class="mini-bar mp">
+                <div class="fill" [style.width.%]="(char.energy / 100) * 100"></div>
+                <span class="bar-label">MP {{ char.energy }}</span>
+              </div>
+            </div>
+
+            <!-- Master action: toggle ready -->
+            <div class="hero-actions">
+              <button
+                class="ready-toggle-btn"
+                [class.active]="char.isReady"
+                (click)="toggleHeroReady(char.id)"
+              >
+                {{ char.isReady ? 'Desmarcar Pronto' : 'Marcar Pronto' }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noHeroesTpl>
+          <div class="no-heroes-box">
+            <span class="empty-icon">🧙‍♂️</span>
+            <h4>Nenhum herói entrou ainda</h4>
+            <p>Envie o link de convite para os jogadores criarem seus personagens para esta aventura.</p>
+            <button class="invite-link-btn" (click)="copyInvite()">
+              🔗 Copiar Link de Convite
+            </button>
+          </div>
+        </ng-template>
+      </section>
+
+      <!-- TAB 3: DIÁRIO & SEGREDO DO MESTRE -->
+      <section class="tab-section" *ngIf="activeTab === 'notes'">
+        <div class="notes-header">
+          <h4 class="section-title font-rpg">Diário Secreto do Mestre</h4>
+          <button class="add-note-btn" (click)="openNewNote()">
+            ➕ Nova Nota
+          </button>
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="note-filters">
+          <button
+            class="chip-btn"
+            [class.active]="noteFilter() === 'all'"
+            (click)="noteFilter.set('all')"
+          >
+            Todas
+          </button>
+          <button
+            class="chip-btn"
+            [class.active]="noteFilter() === 'plot'"
+            (click)="noteFilter.set('plot')"
+          >
+            📜 Enredo
+          </button>
+          <button
+            class="chip-btn"
+            [class.active]="noteFilter() === 'npc'"
+            (click)="noteFilter.set('npc')"
+          >
+            👤 NPCs
+          </button>
+          <button
+            class="chip-btn"
+            [class.active]="noteFilter() === 'secret'"
+            (click)="noteFilter.set('secret')"
+          >
+            🗝️ Segredos
+          </button>
+          <button
+            class="chip-btn"
+            [class.active]="noteFilter() === 'loot'"
+            (click)="noteFilter.set('loot')"
+          >
+            💎 Tesouros
+          </button>
+        </div>
+
+        <!-- Notes List -->
+        <div class="notes-list" *ngIf="filteredNotes.length; else noNotesTpl">
+          <div class="note-card" *ngFor="let note of filteredNotes">
+            <div class="note-card-top">
+              <span class="category-tag" [attr.data-cat]="note.category">
+                {{ note.category === 'plot' ? '📜 Enredo' : note.category === 'npc' ? '👤 NPC' : note.category === 'secret' ? '🗝️ Segredo' : note.category === 'loot' ? '💎 Tesouro' : '📝 Geral' }}
+              </span>
+              <div class="note-actions">
+                <button class="icon-action-btn" (click)="editNote(note)" title="Editar Nota">✏️</button>
+                <button class="icon-action-btn danger" (click)="deleteNote(note.id)" title="Excluir Nota">🗑️</button>
+              </div>
+            </div>
+
+            <h5 class="note-title">{{ note.title }}</h5>
+            <p class="note-content">{{ note.content }}</p>
+          </div>
+        </div>
+
+        <ng-template #noNotesTpl>
+          <div class="no-notes-box">
+            <span class="empty-icon">📜</span>
+            <h4>Nenhuma anotação nesta categoria</h4>
+            <p>Anote ganchos de trama, segredos de masmorras, fichas rápidas de monstros ou ideias de tesouros.</p>
+            <button class="add-note-btn" (click)="openNewNote()">
+              ✨ Criar Primeira Anotação
+            </button>
+          </div>
+        </ng-template>
+      </section>
+
+      <!-- TAB 4: MESA DE DADOS -->
+      <section class="tab-section" *ngIf="activeTab === 'dice'">
+        <div class="dice-panel">
+          <h4 class="section-title font-rpg">Rolador de Dados do Mestre</h4>
+
+          <!-- Latest Roll Spotlight Display -->
+          <div
+            class="roll-display-spotlight"
+            *ngIf="latestRoll() as r"
+            [class.critical]="r.isCritical"
+            [class.fumble]="r.isFumble"
+          >
+            <div class="roll-formula">{{ r.notation }}</div>
+            <div class="roll-total">{{ r.total }}</div>
+            <div class="roll-details">
+              <span *ngIf="r.diceCount > 1">Resultados: [{{ r.rolls.join(', ') }}]</span>
+              <span *ngIf="r.modifier !== 0">Modificador: {{ r.modifier > 0 ? '+' + r.modifier : r.modifier }}</span>
+              <span class="crit-badge" *ngIf="r.isCritical">💥 SUCESSO DECISIVO (20 CRÍTICO)!</span>
+              <span class="fumble-badge" *ngIf="r.isFumble">💀 FALHA CRÍTICA (1 NATURAL)!</span>
+            </div>
+          </div>
+
+          <!-- Modifiers & Count Controls -->
+          <div class="dice-controls-row">
+            <div class="control-group">
+              <label>Qtd:</label>
+              <div class="btn-group">
+                <button class="counter-btn" [class.active]="diceCount() === 1" (click)="setDiceCount(1)">1x</button>
+                <button class="counter-btn" [class.active]="diceCount() === 2" (click)="setDiceCount(2)">2x</button>
+                <button class="counter-btn" [class.active]="diceCount() === 3" (click)="setDiceCount(3)">3x</button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label>Modificador:</label>
+              <div class="btn-group">
+                <button class="counter-btn" (click)="adjustModifier(-1)">-1</button>
+                <span class="mod-val">{{ diceModifier() >= 0 ? '+' + diceModifier() : diceModifier() }}</span>
+                <button class="counter-btn" (click)="adjustModifier(1)">+1</button>
+                <button class="counter-btn" (click)="setModifier(0)" title="Zerar Modificador">0</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Dice Grid -->
+          <div class="dice-grid">
+            <button class="dice-btn d20" (click)="roll(20)">
+              <span class="dice-icon">⬡</span>
+              <span class="dice-name">D20</span>
+            </button>
+            <button class="dice-btn d12" (click)="roll(12)">
+              <span class="dice-icon">⬢</span>
+              <span class="dice-name">D12</span>
+            </button>
+            <button class="dice-btn d10" (click)="roll(10)">
+              <span class="dice-icon">◈</span>
+              <span class="dice-name">D10</span>
+            </button>
+            <button class="dice-btn d8" (click)="roll(8)">
+              <span class="dice-icon">◇</span>
+              <span class="dice-name">D8</span>
+            </button>
+            <button class="dice-btn d6" (click)="roll(6)">
+              <span class="dice-icon">▢</span>
+              <span class="dice-name">D6</span>
+            </button>
+            <button class="dice-btn d4" (click)="roll(4)">
+              <span class="dice-icon">▲</span>
+              <span class="dice-name">D4</span>
+            </button>
+            <button class="dice-btn d100" (click)="roll(100)">
+              <span class="dice-icon">⚪</span>
+              <span class="dice-name">D100%</span>
+            </button>
+          </div>
+
+          <!-- Roll History -->
+          <div class="history-block" *ngIf="masterTools.diceHistory().length">
+            <div class="history-header">
+              <span class="history-title">Histórico de Rolagens</span>
+              <button class="clear-history-btn" (click)="masterTools.clearDiceHistory()">Limpar</button>
+            </div>
+            <div class="history-list">
+              <div
+                class="history-item"
+                *ngFor="let h of masterTools.diceHistory()"
+                [class.critical]="h.isCritical"
+                [class.fumble]="h.isFumble"
+              >
+                <span class="h-notation">{{ h.notation }}</span>
+                <span class="h-total">➔ <strong>{{ h.total }}</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: CONFIGURAÇÕES -->
+      <section class="tab-section settings-section" *ngIf="activeTab === 'settings'">
+        <div class="settings-panel">
+          <h4 class="section-title font-rpg">⚙️ Configurações</h4>
+
+          <!-- Audio & SFX -->
+          <div class="setting-item">
+            <div class="setting-info">
+              <span class="setting-title">🔊 Efeitos Sonoros 8-Bit</span>
+              <span class="setting-desc">Áudio retro de rolagem e cliques</span>
+            </div>
+            <button
+              type="button"
+              class="setting-toggle-btn"
+              [class.active]="masterTools.soundEffectsEnabled()"
+              (click)="masterTools.setSoundEffects(!masterTools.soundEffectsEnabled())"
+            >
+              {{ masterTools.soundEffectsEnabled() ? 'ON' : 'OFF' }}
+            </button>
+          </div>
+
+          <!-- CRT Scanlines -->
+          <div class="setting-item">
+            <div class="setting-info">
+              <span class="setting-title">📺 Scanlines CRT Retro</span>
+              <span class="setting-desc">Filtro visual de arcade/CRT</span>
+            </div>
+            <button
+              type="button"
+              class="setting-toggle-btn"
+              [class.active]="masterTools.crtScanlinesEnabled()"
+              (click)="masterTools.setCrtScanlines(!masterTools.crtScanlinesEnabled())"
+            >
+              {{ masterTools.crtScanlinesEnabled() ? 'ON' : 'OFF' }}
+            </button>
+          </div>
+
+
+          <!-- Master Profile Info -->
+          <div class="setting-item col profile-box">
+            <div class="setting-info">
+              <span class="setting-title">👑 Perfil do Mestre</span>
+            </div>
+            <div class="profile-details">
+              <div class="profile-row">
+                <span class="lbl">Usuário:</span>
+                <span class="val">{{ currentUser?.username || 'Mestre' }}</span>
+              </div>
+              <div class="profile-row">
+                <span class="lbl">Papel:</span>
+                <span class="val gold">Mestre da Mesa</span>
+              </div>
+              <div class="profile-row">
+                <span class="lbl">Interface:</span>
+                <span class="val">8bitcn/ui Retro</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Danger / Maintenance Zone -->
+          <div class="setting-item col danger-box">
+            <div class="setting-info">
+              <span class="setting-title">🧹 Manutenção Local</span>
+            </div>
+            <div class="danger-actions">
+              <button type="button" class="danger-btn" (click)="masterTools.clearAllRecentRooms()">
+                Limpar Salas Recentes
+              </button>
+              <button type="button" class="danger-btn" (click)="masterTools.clearDiceHistory()">
+                Limpar Histórico de Dados
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  }
+</div>
+
+  <!-- Modal: Criar Nova Campanha (Acessível de qualquer lugar) -->
+  <app-modal
+    [isOpen]="isCreateModalOpen()"
+    title="👑 Criar Nova Campanha de RPG"
+    maxWidth="560px"
+    (close)="isCreateModalOpen.set(false)"
+  >
+    <form (ngSubmit)="submitCreateParty()" class="modal-form">
+      <div class="form-group">
+        <label>Título da Campanha:</label>
+        <input
+          type="text"
+          [(ngModel)]="createPartyForm.title"
+          name="mPartyTitle"
+          placeholder="Ex: As Crônicas de Eldoria"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Temática Visual e Narrativa:</label>
+        <select [(ngModel)]="createPartyForm.themeKey" name="mPartyTheme" required>
+          @for (theme of themes(); track theme.key) {
+            <option [value]="theme.key">{{ theme.title }} ({{ theme.genre }})</option>
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Descrição ou Premissa:</label>
+        <textarea
+          [(ngModel)]="createPartyForm.description"
+          name="mPartyDesc"
+          rows="3"
+          placeholder="O que os aventureiros encontrarão neste mundo?"
+        ></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" (click)="isCreateModalOpen.set(false)">
+          Cancelar
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="createPartyMutation.isPending()">
+          {{ createPartyMutation.isPending() ? 'Criando...' : '✨ Criar Campanha' }}
+        </button>
+      </div>
+    </form>
+  </app-modal>
+
+  <!-- Modal: Editor de Anotação do Mestre -->
+  <app-modal
+    [isOpen]="isNoteEditorOpen()"
+    [title]="editingNoteId() ? '✏️ Editar Anotação Secreta' : '📜 Nova Anotação do Mestre'"
+    maxWidth="520px"
+    (close)="isNoteEditorOpen.set(false)"
+  >
+    <form (ngSubmit)="saveNote()" class="modal-form">
+      <div class="form-group">
+        <label>Título do Tópico:</label>
+        <input
+          type="text"
+          [(ngModel)]="noteForm.title"
+          name="noteTitle"
+          placeholder="Ex: Segredo da Torre Alta / Estatísticas do Dragão"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Categoria:</label>
+        <select [(ngModel)]="noteForm.category" name="noteCat">
+          <option value="plot">📜 Enredo & Roteiro</option>
+          <option value="npc">👤 NPC / Monstro</option>
+          <option value="secret">🗝️ Segredo / Pista</option>
+          <option value="loot">💎 Tesouro / Recompensa</option>
+          <option value="general">📝 Geral</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Conteúdo Secreto:</label>
+        <textarea
+          [(ngModel)]="noteForm.content"
+          name="noteContent"
+          rows="5"
+          placeholder="Descreva aqui detalhes da cena, fraquezas de inimigos, nomes secretos ou itens..."
+          required
+        ></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" (click)="isNoteEditorOpen.set(false)">
+          Cancelar
+        </button>
+        <button type="submit" class="btn-primary">
+          💾 Salvar Anotação
+        </button>
+      </div>
+    </form>
+  </app-modal>
+</aside>

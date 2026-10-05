@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" shape-rendering="crispEdges">
+      <ellipse cx="48" cy="36" rx="44" ry="24" fill="#000" opacity="0.3"/>
+      <polygon points="12,52 24,16 68,8 88,44 76,56" fill="#4b6584" stroke="#1e272e" stroke-width="2"/>
+      <polygon points="20,48 30,22 64,16 80,42 70,52" fill="#778ca3"/>
+      <!-- Crags and moss -->
+      <polygon points="34,22 52,20 44,36" fill="#2ed573"/>
+      <line x1="40" y1="22" x2="56" y2="48" stroke="#2f3542" stroke-width="1.5"/>
+    </svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 32" shape-rendering="crispEdges">
+      <rect x="2" y="4" width="124" height="26" fill="#000" opacity="0.25"/>
+      <rect x="2" y="8" width="124" height="22" fill="#718093" stroke="#2f3640" stroke-width="2"/>
+      <rect x="4" y="10" width="120" height="18" fill="#8395a7"/>
+      <!-- Crenellations (Battlements) -->
+      <rect x="4" y="2" width="14" height="8" fill="#718093" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="26" y="2" width="14" height="8" fill="#718093" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="48" y="2" width="14" height="8" fill="#718093" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="70" y="2" width="14" height="8" fill="#718093" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="92" y="2" width="14" height="8" fill="#718093" stroke="#2f3640" stroke-width="1.5"/>
+      <rect x="110" y="2" width="14" height="8" fill="#718093" stroke="#2f3640" stroke-width="1.5"/>
+      <!-- Wall Stitches -->
+      <line x1="4" y1="18" x2="124" y2="18" stroke="#57606f" stroke-width="1.5"/>
+    </svg>

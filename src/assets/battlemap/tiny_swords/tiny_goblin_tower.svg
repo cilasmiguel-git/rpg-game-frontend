@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96" shape-rendering="crispEdges">
+      <ellipse cx="32" cy="90" rx="24" ry="5" fill="#000" opacity="0.3"/>
+      <!-- Goblin Red Spiky Roof -->
+      <polygon points="32,4 58,26 6,26" fill="#eb4d4b" stroke="#300" stroke-width="2"/>
+      <polygon points="32,8 52,24 12,24" fill="#ff7979"/>
+      <!-- Bone Spikes on Roof -->
+      <polygon points="12,18 8,10 16,16" fill="#f5f6fa" stroke="#2f3640" stroke-width="1"/>
+      <polygon points="52,18 56,10 48,16" fill="#f5f6fa" stroke="#2f3640" stroke-width="1"/>
+      <!-- Rough Wood Logs Structure -->
+      <rect x="16" y="26" width="32" height="62" fill="#6d4c41" stroke="#3e2723" stroke-width="2"/>
+      <line x1="16" y1="42" x2="48" y2="42" stroke="#3e2723" stroke-width="2"/>
+      <line x1="16" y1="58" x2="48" y2="58" stroke="#3e2723" stroke-width="2"/>
+      <line x1="16" y1="74" x2="48" y2="74" stroke="#3e2723" stroke-width="2"/>
+      <!-- Cross Beams -->
+      <line x1="16" y1="26" x2="48" y2="58" stroke="#4e342e" stroke-width="2"/>
+      <line x1="48" y1="26" x2="16" y2="58" stroke="#4e342e" stroke-width="2"/>
+      <!-- Goblin Banner / Red Rag -->
+      <polygon points="26,32 38,32 32,44" fill="#c0392b" stroke="#000" stroke-width="1"/>
+      <!-- Skull on Top -->
+      <circle cx="32" cy="6" r="3" fill="#f5f6fa"/>
+    </svg>
