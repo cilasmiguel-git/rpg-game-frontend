@@ -1,7 +1,7 @@
 {
-  "version": "3.0.0",
-  "updatedAt": "2026-10-05T00:40:00Z",
-  "description": "Catálogo Oficial Completo Tiny Swords (Pixel Frog)",
+  "version": "3.1.0",
+  "updatedAt": "2026-10-05T21:00:00Z",
+  "description": "Catálogo Oficial Completo Tiny Swords com Suporte a Animações de Spritesheet",
   "assets": [
     {
       "id": "ts_ts_barracks_blue",
@@ -28,7 +28,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_blue.png",
       "widthTiles": 2,
       "heightTiles": 3,
-      "isObstacle": true
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_ts_castle_blue",
@@ -100,7 +106,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_red.png",
       "widthTiles": 2,
       "heightTiles": 3,
-      "isObstacle": true
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_ts_castle_red",
@@ -172,7 +184,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_yellow.png",
       "widthTiles": 2,
       "heightTiles": 3,
-      "isObstacle": true
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_ts_castle_yellow",
@@ -244,7 +262,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_purple.png",
       "widthTiles": 2,
       "heightTiles": 3,
-      "isObstacle": true
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_ts_castle_purple",
@@ -316,7 +340,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/buildings/ts_tower_black.png",
       "widthTiles": 2,
       "heightTiles": 3,
-      "isObstacle": true
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_ts_castle_black",
@@ -397,7 +427,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_blue.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "horizontal",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_pawn_pawn_run knife_blue",
@@ -631,7 +667,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_blue.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_right_attack_blue",
@@ -649,7 +691,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_blue.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_upright_defence_blue",
@@ -667,7 +715,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_blue.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "vertical",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_downright_defence_blue",
@@ -721,7 +775,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_blue.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_warrior_warrior_idle_blue",
@@ -802,7 +862,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_red.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "horizontal",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_pawn_pawn_run knife_red",
@@ -1036,7 +1102,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_red.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_right_attack_red",
@@ -1054,7 +1126,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_red.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_upright_defence_red",
@@ -1072,7 +1150,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_red.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "vertical",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_downright_defence_red",
@@ -1126,7 +1210,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_red.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_warrior_warrior_idle_red",
@@ -1207,7 +1297,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_yellow.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "horizontal",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_pawn_pawn_run knife_yellow",
@@ -1441,7 +1537,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_yellow.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_right_attack_yellow",
@@ -1459,7 +1561,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_yellow.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_upright_defence_yellow",
@@ -1477,7 +1585,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_yellow.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "vertical",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_downright_defence_yellow",
@@ -1531,7 +1645,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_yellow.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_warrior_warrior_idle_yellow",
@@ -1612,7 +1732,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_purple.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "horizontal",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_pawn_pawn_run knife_purple",
@@ -1846,7 +1972,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_purple.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_right_attack_purple",
@@ -1864,7 +1996,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_purple.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_upright_defence_purple",
@@ -1882,7 +2020,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_purple.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "vertical",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_downright_defence_purple",
@@ -1936,7 +2080,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_purple.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_warrior_warrior_idle_purple",
@@ -2017,7 +2167,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_archer_arrow_black.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "horizontal",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_pawn_pawn_run knife_black",
@@ -2251,7 +2407,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_run_black.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_right_attack_black",
@@ -2269,7 +2431,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_idle_black.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_upright_defence_black",
@@ -2287,7 +2455,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_attack_black.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "vertical",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_unit_lancer_lancer_downright_defence_black",
@@ -2341,7 +2515,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/troops/unit_lancer_lancer_up_defence_black.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_unit_warrior_warrior_idle_black",
@@ -2656,7 +2836,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_rubber duck_rubber duck.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 3,
+        "orientation": "horizontal",
+        "duration": "0.45s"
+      }
     },
     {
       "id": "ts_deco_clouds_clouds_04",
@@ -2674,7 +2860,13 @@
       "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_01.png",
       "widthTiles": 1,
       "heightTiles": 1,
-      "isObstacle": false
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
     },
     {
       "id": "ts_deco_clouds_clouds_03",
@@ -2726,6 +2918,882 @@
       "name": "Clouds Clouds_08 (1x1)",
       "category": "props",
       "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_clouds_clouds_08.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_castelo_real",
+      "name": "Castelo Real (1x1)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/castles/castelo_real.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_fortaleza_pedra",
+      "name": "Fortaleza Pedra (1x1)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/castles/fortaleza_pedra.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_muralha_ameias",
+      "name": "Muralha Ameias (1x1)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/castles/muralha_ameias.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_torre_mago",
+      "name": "Torre Mago (1x1)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/castles/torre_mago.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_barraca_mercador",
+      "name": "Barraca Mercador (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/props/barraca_mercador.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_fogueira_caldeirao",
+      "name": "Fogueira Caldeirao (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/props/fogueira_caldeirao.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_arvore_gigante",
+      "name": "Arvore Gigante (1x1)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/nature/arvore_gigante.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_penhasco_rochas",
+      "name": "Penhasco Rochas (1x1)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/nature/penhasco_rochas.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_casa_nobre",
+      "name": "Casa Nobre (1x1)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/buildings/casa_nobre.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_ferreiro_vila",
+      "name": "Ferreiro Vila (1x1)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/buildings/ferreiro_vila.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_taverna_dragao",
+      "name": "Taverna Dragao (1x1)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/buildings/taverna_dragao.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_buildings_01",
+      "name": "Buildings 01 (Animado) (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/Buildings_01.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 4,
+        "orientation": "horizontal",
+        "duration": "0.6s"
+      }
+    },
+    {
+      "id": "ts_tiny_archer_blue",
+      "name": "Tiny Archer Blue (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_archer_blue.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_archery_red",
+      "name": "Tiny Archery Red (Animado) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_archery_red.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_barracks_blue",
+      "name": "Tiny Barracks Blue (Animado) (3x3)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_barracks_blue.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_castle_blue",
+      "name": "Tiny Castle Blue (Animado) (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_castle_blue.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_castle_blue",
+      "name": "Tiny Castle Blue (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_castle_blue.svg",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tiny_castle_red",
+      "name": "Tiny Castle Red (Animado) (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_castle_red.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_goblin_tower",
+      "name": "Tiny Goblin Tower (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_goblin_tower.svg",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tiny_gold_mine",
+      "name": "Tiny Gold Mine (1x1)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_gold_mine.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_house_blue",
+      "name": "Tiny House Blue (Animado) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_house_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_house_blue",
+      "name": "Tiny House Blue (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_house_blue.svg",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tiny_house_red",
+      "name": "Tiny House Red (Animado) (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_house_red.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_minotaur",
+      "name": "Tiny Minotaur (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_minotaur.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_monk",
+      "name": "Tiny Monk (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_monk.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_sheep",
+      "name": "Tiny Sheep (1x1)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_sheep.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_spear_goblin",
+      "name": "Tiny Spear Goblin (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_spear_goblin.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_tower_blue",
+      "name": "Tiny Tower Blue (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_tower_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_tower_blue",
+      "name": "Tiny Tower Blue (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_tower_blue.svg",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_tiny_tower_red",
+      "name": "Tiny Tower Red (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_tower_red.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_tiny_tree",
+      "name": "Tiny Tree (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_tree.svg",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_troll",
+      "name": "Tiny Troll (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_troll.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tiny_warrior_blue",
+      "name": "Tiny Warrior Blue (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/tiny_warrior_blue.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_goldmine_goldmine_active",
+      "name": "Goldmine Goldmine Active (3x3)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/goldmine_goldmine_active.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_goldmine_goldmine_inactive",
+      "name": "Goldmine Goldmine Inactive (3x3)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/goldmine_goldmine_inactive.png",
+      "widthTiles": 3,
+      "heightTiles": 3,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_sheep_happysheep_idle",
+      "name": "Sheep Happysheep Idle (1x1)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/sheep_happysheep_idle.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_tree_tree",
+      "name": "Tree Tree (Animado) (2x2)",
+      "category": "nature",
+      "imageUrl": "/assets/battlemap/tiny_swords/resources/tree_tree.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 5,
+        "orientation": "vertical",
+        "duration": "0.75s"
+      }
+    },
+    {
+      "id": "ts_goblin_barrel_barrel_red",
+      "name": "Goblin Barrel Barrel Red (Animado) (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/goblin_barrel_barrel_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 5,
+        "orientation": "vertical",
+        "duration": "0.75s"
+      }
+    },
+    {
+      "id": "ts_goblin_tnt_tnt_red",
+      "name": "Goblin Tnt Tnt Red (Animado) (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/goblin_tnt_tnt_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 5,
+        "orientation": "vertical",
+        "duration": "0.75s"
+      }
+    },
+    {
+      "id": "ts_goblin_torch_torch_red",
+      "name": "Goblin Torch Torch Red (Animado) (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/goblin_torch_torch_red.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 6,
+        "orientation": "vertical",
+        "duration": "0.9s"
+      }
+    },
+    {
+      "id": "ts_knight_archer_archer_blue",
+      "name": "Knight Archer Archer Blue (Animado) (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/knight_archer_archer_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 16,
+        "orientation": "vertical",
+        "duration": "2.4s"
+      }
+    },
+    {
+      "id": "ts_knight_pawn_pawn_blue",
+      "name": "Knight Pawn Pawn Blue (Animado) (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/knight_pawn_pawn_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 12,
+        "orientation": "vertical",
+        "duration": "1.8s"
+      }
+    },
+    {
+      "id": "ts_knight_warrior_warrior_blue",
+      "name": "Knight Warrior Warrior Blue (Animado) (1x1)",
+      "category": "tiny_swords",
+      "imageUrl": "/assets/battlemap/tiny_swords/troops/knight_warrior_warrior_blue.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 9,
+        "orientation": "vertical",
+        "duration": "1.35s"
+      }
+    },
+    {
+      "id": "ts_deco_01",
+      "name": "Deco 01 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_01.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_02",
+      "name": "Deco 02 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_02.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_03",
+      "name": "Deco 03 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_03.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_04",
+      "name": "Deco 04 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_04.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_05",
+      "name": "Deco 05 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_05.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_06",
+      "name": "Deco 06 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_06.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_07",
+      "name": "Deco 07 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_07.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_08",
+      "name": "Deco 08 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_08.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_09",
+      "name": "Deco 09 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_09.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_10",
+      "name": "Deco 10 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_10.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_11",
+      "name": "Deco 11 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_11.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_12",
+      "name": "Deco 12 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_12.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_13",
+      "name": "Deco 13 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_13.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_14",
+      "name": "Deco 14 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_14.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_15",
+      "name": "Deco 15 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_15.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_deco_16",
+      "name": "Deco 16 (Animado) (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_16.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_deco_17",
+      "name": "Deco 17 (Animado) (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_17.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_deco_18",
+      "name": "Deco 18 (1x1)",
+      "category": "props",
+      "imageUrl": "/assets/battlemap/tiny_swords/deco/deco_18.png",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_goblins_wood_house_goblin_house",
+      "name": "Goblins Wood House Goblin House (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/goblins_wood_house_goblin_house.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_goblins_wood_tower_wood_tower_blue",
+      "name": "Goblins Wood Tower Wood Tower Blue (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/goblins_wood_tower_wood_tower_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 5,
+        "orientation": "horizontal",
+        "duration": "0.75s"
+      }
+    },
+    {
+      "id": "ts_goblins_wood_tower_wood_tower_purple",
+      "name": "Goblins Wood Tower Wood Tower Purple (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/goblins_wood_tower_wood_tower_purple.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 5,
+        "orientation": "horizontal",
+        "duration": "0.75s"
+      }
+    },
+    {
+      "id": "ts_goblins_wood_tower_wood_tower_red",
+      "name": "Goblins Wood Tower Wood Tower Red (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/goblins_wood_tower_wood_tower_red.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 5,
+        "orientation": "horizontal",
+        "duration": "0.75s"
+      }
+    },
+    {
+      "id": "ts_goblins_wood_tower_wood_tower_yellow",
+      "name": "Goblins Wood Tower Wood Tower Yellow (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/goblins_wood_tower_wood_tower_yellow.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 5,
+        "orientation": "horizontal",
+        "duration": "0.75s"
+      }
+    },
+    {
+      "id": "ts_knights_castle_castle_blue",
+      "name": "Knights Castle Castle Blue (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_castle_castle_blue.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_castle_castle_purple",
+      "name": "Knights Castle Castle Purple (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_castle_castle_purple.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_castle_castle_red",
+      "name": "Knights Castle Castle Red (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_castle_castle_red.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_castle_castle_yellow",
+      "name": "Knights Castle Castle Yellow (4x4)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_castle_castle_yellow.png",
+      "widthTiles": 4,
+      "heightTiles": 4,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_house_house_blue",
+      "name": "Knights House House Blue (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_house_house_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_house_house_purple",
+      "name": "Knights House House Purple (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_house_house_purple.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_house_house_red",
+      "name": "Knights House House Red (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_house_house_red.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_house_house_yellow",
+      "name": "Knights House House Yellow (2x2)",
+      "category": "buildings",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_house_house_yellow.png",
+      "widthTiles": 2,
+      "heightTiles": 2,
+      "isObstacle": true
+    },
+    {
+      "id": "ts_knights_tower_tower_blue",
+      "name": "Knights Tower Tower Blue (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_tower_tower_blue.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_knights_tower_tower_purple",
+      "name": "Knights Tower Tower Purple (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_tower_tower_purple.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_knights_tower_tower_red",
+      "name": "Knights Tower Tower Red (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_tower_tower_red.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_knights_tower_tower_yellow",
+      "name": "Knights Tower Tower Yellow (Animado) (2x3)",
+      "category": "castles",
+      "imageUrl": "/assets/battlemap/tiny_swords/buildings/knights_tower_tower_yellow.png",
+      "widthTiles": 2,
+      "heightTiles": 3,
+      "isObstacle": true,
+      "animation": {
+        "isAnimated": true,
+        "frames": 2,
+        "orientation": "vertical",
+        "duration": "0.4s"
+      }
+    },
+    {
+      "id": "ts_portal_arcano",
+      "name": "Portal Arcano (1x1)",
+      "category": "dungeons",
+      "imageUrl": "/assets/battlemap/dungeons/portal_arcano.svg",
+      "widthTiles": 1,
+      "heightTiles": 1,
+      "isObstacle": false
+    },
+    {
+      "id": "ts_sala_trono",
+      "name": "Sala Trono (1x1)",
+      "category": "dungeons",
+      "imageUrl": "/assets/battlemap/dungeons/sala_trono.svg",
       "widthTiles": 1,
       "heightTiles": 1,
       "isObstacle": false

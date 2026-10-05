@@ -22,6 +22,13 @@ export interface PlacedTerrain {
   [coord: string]: GridTerrainType;
 }
 
+export interface SpriteAnimationConfig {
+  isAnimated: boolean;
+  frames: number;
+  orientation: 'horizontal' | 'vertical';
+  duration?: string;
+}
+
 export interface PlacedMultiTileAsset {
   id: string;
   assetId: string;
@@ -35,6 +42,7 @@ export interface PlacedMultiTileAsset {
   opacity: number; // 0.2 to 1.0
   isObstacle: boolean;
   layer: 'under' | 'over';
+  animation?: SpriteAnimationConfig;
 }
 
 export interface MultiTileAssetItem {
@@ -46,6 +54,7 @@ export interface MultiTileAssetItem {
   imageUrl: string;
   isObstacle: boolean;
   isCustom?: boolean;
+  animation?: SpriteAnimationConfig;
 }
 
 interface AssetManifest {
@@ -301,9 +310,10 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                 <label>Categoria:</label>
                 <select [ngModel]="selectedCategory()" (ngModelChange)="selectedCategory.set($event)" class="pixel-select">
                   <option value="all">⭐ Todos os Assets ({{ catalogAssets().length }})</option>
+                  <option value="animated">⚡ Assets Animados ({{ animatedAssetsCount() }})</option>
+                  <option value="tiny_swords">🗡️ Tropas & Heróis</option>
                   <option value="castles">🏰 Castelos & Torres</option>
                   <option value="buildings">🏠 Casas & Quartéis</option>
-                  <option value="tiny_swords">🗡️ Tropas & Heróis</option>
                   <option value="nature">🌲 Árvores & Recursos</option>
                   <option value="props">📦 Decorações & Props</option>
                   <option value="custom">📁 Minhas Imagens ({{ customAssetsCount() }})</option>
@@ -324,7 +334,22 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   (click)="selectAssetToPlace(asset)">
                   
                   <div class="asset-preview-box">
-                    <img [src]="asset.imageUrl" [alt]="asset.name" class="asset-thumb" loading="lazy" />
+                    @if (asset.animation?.isAnimated) {
+                      <div class="sprite-anim-container">
+                        <img 
+                          [src]="asset.imageUrl" 
+                          [alt]="asset.name" 
+                          [class.anim-strip-v]="asset.animation?.orientation === 'vertical'"
+                          [class.anim-strip-h]="asset.animation?.orientation === 'horizontal'"
+                          [style.--frames]="asset.animation?.frames || 2"
+                          [style.--duration]="asset.animation?.duration || '0.8s'"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span class="animated-indicator-badge" title="Frame animado ativo">⚡</span>
+                    } @else {
+                      <img [src]="asset.imageUrl" [alt]="asset.name" class="asset-thumb" loading="lazy" />
+                    }
                     <span class="dimension-badge">{{ asset.widthTiles }}x{{ asset.heightTiles }}</span>
                   </div>
                   
@@ -334,6 +359,9 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                       <span class="obstacle-tag" [class.is-wall]="asset.isObstacle">
                         {{ asset.isObstacle ? '🧱 Parede' : '🚶 Passável' }}
                       </span>
+                      @if (asset.animation?.isAnimated) {
+                        <span class="anim-pill">⚡ {{ asset.animation?.frames }}f</span>
+                      }
                       <span *ngIf="asset.isCustom" class="custom-pill">Custom</span>
                     </div>
                   </div>
@@ -412,7 +440,21 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   [style.transform]="'rotate(' + placed.rotation + 'deg)'"
                   (click)="selectPlacedAsset(placed, $event)">
                   
-                  <img [src]="placed.imageUrl" [alt]="placed.name" class="placed-image" draggable="false" />
+                  @if (placed.animation?.isAnimated) {
+                    <div class="sprite-anim-container placed-image">
+                      <img 
+                        [src]="placed.imageUrl" 
+                        [alt]="placed.name" 
+                        [class.anim-strip-v]="placed.animation?.orientation === 'vertical'"
+                        [class.anim-strip-h]="placed.animation?.orientation === 'horizontal'"
+                        [style.--frames]="placed.animation?.frames || 2"
+                        [style.--duration]="placed.animation?.duration || '0.8s'"
+                        draggable="false"
+                      />
+                    </div>
+                  } @else {
+                    <img [src]="placed.imageUrl" [alt]="placed.name" class="placed-image" draggable="false" />
+                  }
                   
                   <div class="placed-badge">
                     <span>{{ placed.name }}</span>
@@ -460,7 +502,22 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                 [style.top.%]="(hoverCell()!.y / gridSize()) * 100"
                 [style.width.%]="(selectedAssetToPlace()!.widthTiles / gridSize()) * 100"
                 [style.height.%]="(selectedAssetToPlace()!.heightTiles / gridSize()) * 100">
-                <img [src]="selectedAssetToPlace()!.imageUrl" class="ghost-img" />
+                
+                @if (selectedAssetToPlace()?.animation?.isAnimated) {
+                  <div class="sprite-anim-container ghost-img">
+                    <img 
+                      [src]="selectedAssetToPlace()!.imageUrl" 
+                      [alt]="selectedAssetToPlace()!.name" 
+                      [class.anim-strip-v]="selectedAssetToPlace()?.animation?.orientation === 'vertical'"
+                      [class.anim-strip-h]="selectedAssetToPlace()?.animation?.orientation === 'horizontal'"
+                      [style.--frames]="selectedAssetToPlace()?.animation?.frames || 2"
+                      [style.--duration]="selectedAssetToPlace()?.animation?.duration || '0.8s'"
+                      draggable="false"
+                    />
+                  </div>
+                } @else {
+                  <img [src]="selectedAssetToPlace()!.imageUrl" class="ghost-img" />
+                }
                 <span class="ghost-label">{{ selectedAssetToPlace()!.name }} ({{ selectedAssetToPlace()!.widthTiles }}x{{ selectedAssetToPlace()!.heightTiles }})</span>
               </div>
             }
@@ -1075,6 +1132,79 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
         padding: 1px 3px;
         font-size: 6px;
       }
+
+      .anim-pill {
+        background: #f39c12;
+        color: #000;
+        padding: 1px 4px;
+        font-size: 6px;
+        font-weight: bold;
+        border: 1px solid #000;
+        border-radius: 2px;
+      }
+    }
+
+    .animated-indicator-badge {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: #f1c40f;
+      color: #000;
+      font-size: 7px;
+      padding: 1px 3px;
+      font-weight: bold;
+      border: 1px solid #000;
+      box-shadow: 1px 1px 0px #000;
+      z-index: 2;
+    }
+
+    /* Animated Spritesheet System */
+    .sprite-anim-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img.anim-strip-v {
+        width: 100%;
+        height: calc(var(--frames, 2) * 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: none !important;
+        max-height: none !important;
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+        animation: strip-v-play var(--duration, 0.8s) steps(var(--frames, 2)) infinite;
+      }
+
+      img.anim-strip-h {
+        height: 100%;
+        width: calc(var(--frames, 2) * 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: none !important;
+        max-height: none !important;
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+        animation: strip-h-play var(--duration, 0.8s) steps(var(--frames, 2)) infinite;
+      }
+    }
+
+    @keyframes strip-v-play {
+      0% { transform: translateY(0%); }
+      100% { transform: translateY(-100%); }
+    }
+
+    @keyframes strip-h-play {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
     }
 
     .full-width {
@@ -1882,8 +2012,13 @@ export class BattlemapGridComponent implements OnInit {
     const cat = this.selectedCategory();
     const all = this.catalogAssets();
     if (cat === 'all') return all;
+    if (cat === 'animated') return all.filter(a => a.animation?.isAnimated);
     if (cat === 'custom') return all.filter(a => a.isCustom);
     return all.filter(a => a.category === cat);
+  });
+
+  animatedAssetsCount = computed(() => {
+    return this.catalogAssets().filter(a => a.animation?.isAnimated).length;
   });
 
   customAssetsCount = computed(() => {
@@ -2006,7 +2141,8 @@ export class BattlemapGridComponent implements OnInit {
           rotation: 0,
           opacity: 1.0,
           isObstacle: selected.isObstacle,
-          layer: 'under'
+          layer: 'under',
+          animation: selected.animation
         };
 
         this.placedAssets.update(all => [...all, newPlaced]);
