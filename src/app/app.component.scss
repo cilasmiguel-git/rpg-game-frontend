@@ -67,42 +67,6 @@
   font-family: 'Press Start 2P', monospace;
 }
 
-.navbar-center {
-  display: flex;
-  align-items: center;
-}
-
-.health-pill {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #0f0c09;
-  border: 2px solid #000000;
-  box-shadow: 2px 2px 0px 0px #000000;
-  padding: 0.35rem 0.65rem;
-  font-size: 0.6rem;
-  font-family: 'Press Start 2P', monospace;
-  font-weight: 700;
-  color: #a89b88;
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 0;
-    background: #8b0000;
-    border: 1px solid #000000;
-  }
-
-  &.connected {
-    border-color: #000000;
-    color: #86efac;
-
-    .status-dot {
-      background: #22c55e;
-      box-shadow: 0 0 6px #22c55e;
-    }
-  }
-}
 
 .navbar-right {
   display: flex;

@@ -37,9 +37,6 @@ export class AppComponent {
     return url.includes('/game');
   });
 
-  // Health check TanStack Query (refetches every 15s)
-  healthQuery = this.partyQueries.useHealth();
-  health = computed(() => this.healthQuery.data());
 
   currentUser = computed(() => this.storage.currentUser());
   isMaster = computed(() => this.storage.isMaster());

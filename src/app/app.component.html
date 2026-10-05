@@ -17,28 +17,6 @@
         </a>
       </div>
 
-      <!-- Center Status: Health of MongoDB / Backend -->
-      <div class="navbar-center">
-        <div
-          class="health-pill"
-          [class.connected]="health()?.connected"
-          [title]="'Status do Servidor: ' + (health()?.connected ? 'Conectado (' + (health()?.latencyMs || 'OK') + ')' : 'Indisponível')"
-        >
-          <span class="status-dot"></span>
-          <span class="status-text">
-            @if (health()?.connected) {
-              MongoDB Atlas {{ health()?.latencyMs }}
-            } @else if (healthQuery.isError()) {
-              Servidor indisponível
-            } @else if (health()) {
-              Banco de dados desconectado
-            } @else {
-              Verificando Servidor...
-            }
-          </span>
-        </div>
-      </div>
-
       <!-- Right Side: User profile & Logout -->
       <div class="navbar-right">
         @if (currentUser(); as user) {
