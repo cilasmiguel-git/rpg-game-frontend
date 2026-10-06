@@ -24,9 +24,14 @@ export class PhaseQueriesService {
           if (!id) return null;
           try {
             const data = await firstValueFrom(
-              this.http.get(`${this.apiUrl}/parties/${id}/phases/current`)
+              this.http.get<any>(`${this.apiUrl}/parties/${id}/phases/current`)
             );
-            return parseWithZod(PhaseSchema, data);
+            if (!data) return null;
+            const phaseObj = data?.phase ? data.phase : data;
+            if (!phaseObj || typeof phaseObj !== 'object' || (!phaseObj.id && !phaseObj.title)) {
+              return null;
+            }
+            return parseWithZod(PhaseSchema, phaseObj);
           } catch {
             return null;
           }
