@@ -1,7 +1,12 @@
-import { Component, ChangeDetectionStrategy, signal, computed, OnInit, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, computed, OnInit, inject, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { BattlemapService } from '../../../../core/services/battlemap.service';
+import { BattlemapState, PlacedAsset as BattlemapPlacedAsset, GridToken as BattlemapGridToken, SpriteAnimationConfig } from '../../../../core/models/battlemap.model';
+import { StorageService } from '../../../../core/services/storage.service';
+import { GameSessionService } from '../../../../core/services/game-session.service';
 
 export interface GridToken {
   id: string;
@@ -20,13 +25,6 @@ export type GridTerrainType = 'grass' | 'stone' | 'water' | 'lava' | 'wood' | 's
 
 export interface PlacedTerrain {
   [coord: string]: GridTerrainType;
-}
-
-export interface SpriteAnimationConfig {
-  isAnimated: boolean;
-  frames: number;
-  orientation: 'horizontal' | 'vertical';
-  duration?: string;
 }
 
 export interface PlacedMultiTileAsset {
@@ -271,8 +269,24 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
           }
         </div>
 
-        <!-- GRID UTILITIES -->
+        <!-- GRID UTILITIES & SYNC -->
         <div class="toolbar-section right-utils">
+          @if (isMaster()) {
+            <div class="sync-status-box">
+              @if (isSaving()) {
+                <span class="sync-pill saving" title="Sincronizando com o servidor...">⏳ Salvando...</span>
+              } @else if (saveError()) {
+                <button type="button" class="sync-pill error" (click)="saveNow()" [title]="saveError() || 'Erro ao salvar. Clique para tentar novamente.'">
+                  ⚠️ Erro (Tentar)
+                </button>
+              } @else {
+                <button type="button" class="sync-pill saved" (click)="saveNow()" [title]="lastSavedAt() ? 'Salvo às ' + lastSavedAt() + '. Clique para salvar manualmente.' : 'Mapa salvo na nuvem.'">
+                  💾 Salvo ✅
+                </button>
+              }
+            </div>
+          }
+
           <div class="size-control">
             <span class="label">Grade:</span>
             <button type="button" class="mini-btn" (click)="adjustGridSize(-2)" [disabled]="gridSize() <= 10">-</button>
@@ -310,10 +324,9 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                 <label>Categoria:</label>
                 <select [ngModel]="selectedCategory()" (ngModelChange)="selectedCategory.set($event)" class="pixel-select">
                   <option value="all">⭐ Todos os Assets ({{ catalogAssets().length }})</option>
-                  <option value="animated">⚡ Assets Animados ({{ animatedAssetsCount() }})</option>
-                  <option value="tiny_swords">🗡️ Tropas & Heróis</option>
                   <option value="castles">🏰 Castelos & Torres</option>
                   <option value="buildings">🏠 Casas & Quartéis</option>
+                  <option value="tiny_swords">🗡️ Tropas & Heróis</option>
                   <option value="nature">🌲 Árvores & Recursos</option>
                   <option value="props">📦 Decorações & Props</option>
                   <option value="custom">📁 Minhas Imagens ({{ customAssetsCount() }})</option>
@@ -334,22 +347,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   (click)="selectAssetToPlace(asset)">
                   
                   <div class="asset-preview-box">
-                    @if (asset.animation?.isAnimated) {
-                      <div class="sprite-anim-container">
-                        <img 
-                          [src]="asset.imageUrl" 
-                          [alt]="asset.name" 
-                          [class.anim-strip-v]="asset.animation?.orientation === 'vertical'"
-                          [class.anim-strip-h]="asset.animation?.orientation === 'horizontal'"
-                          [style.--frames]="asset.animation?.frames || 2"
-                          [style.--duration]="asset.animation?.duration || '0.8s'"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span class="animated-indicator-badge" title="Frame animado ativo">⚡</span>
-                    } @else {
-                      <img [src]="asset.imageUrl" [alt]="asset.name" class="asset-thumb" loading="lazy" />
-                    }
+                    <img [src]="asset.imageUrl" [alt]="asset.name" class="asset-thumb" loading="lazy" />
                     <span class="dimension-badge">{{ asset.widthTiles }}x{{ asset.heightTiles }}</span>
                   </div>
                   
@@ -359,9 +357,6 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                       <span class="obstacle-tag" [class.is-wall]="asset.isObstacle">
                         {{ asset.isObstacle ? '🧱 Parede' : '🚶 Passável' }}
                       </span>
-                      @if (asset.animation?.isAnimated) {
-                        <span class="anim-pill">⚡ {{ asset.animation?.frames }}f</span>
-                      }
                       <span *ngIf="asset.isCustom" class="custom-pill">Custom</span>
                     </div>
                   </div>
@@ -440,21 +435,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   [style.transform]="'rotate(' + placed.rotation + 'deg)'"
                   (click)="selectPlacedAsset(placed, $event)">
                   
-                  @if (placed.animation?.isAnimated) {
-                    <div class="sprite-anim-container placed-image">
-                      <img 
-                        [src]="placed.imageUrl" 
-                        [alt]="placed.name" 
-                        [class.anim-strip-v]="placed.animation?.orientation === 'vertical'"
-                        [class.anim-strip-h]="placed.animation?.orientation === 'horizontal'"
-                        [style.--frames]="placed.animation?.frames || 2"
-                        [style.--duration]="placed.animation?.duration || '0.8s'"
-                        draggable="false"
-                      />
-                    </div>
-                  } @else {
-                    <img [src]="placed.imageUrl" [alt]="placed.name" class="placed-image" draggable="false" />
-                  }
+                  <img [src]="placed.imageUrl" [alt]="placed.name" class="placed-image" draggable="false" />
                   
                   <div class="placed-badge">
                     <span>{{ placed.name }}</span>
@@ -502,22 +483,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                 [style.top.%]="(hoverCell()!.y / gridSize()) * 100"
                 [style.width.%]="(selectedAssetToPlace()!.widthTiles / gridSize()) * 100"
                 [style.height.%]="(selectedAssetToPlace()!.heightTiles / gridSize()) * 100">
-                
-                @if (selectedAssetToPlace()?.animation?.isAnimated) {
-                  <div class="sprite-anim-container ghost-img">
-                    <img 
-                      [src]="selectedAssetToPlace()!.imageUrl" 
-                      [alt]="selectedAssetToPlace()!.name" 
-                      [class.anim-strip-v]="selectedAssetToPlace()?.animation?.orientation === 'vertical'"
-                      [class.anim-strip-h]="selectedAssetToPlace()?.animation?.orientation === 'horizontal'"
-                      [style.--frames]="selectedAssetToPlace()?.animation?.frames || 2"
-                      [style.--duration]="selectedAssetToPlace()?.animation?.duration || '0.8s'"
-                      draggable="false"
-                    />
-                  </div>
-                } @else {
-                  <img [src]="selectedAssetToPlace()!.imageUrl" class="ghost-img" />
-                }
+                <img [src]="selectedAssetToPlace()!.imageUrl" class="ghost-img" />
                 <span class="ghost-label">{{ selectedAssetToPlace()!.name }} ({{ selectedAssetToPlace()!.widthTiles }}x{{ selectedAssetToPlace()!.heightTiles }})</span>
               </div>
             }
@@ -897,6 +863,46 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
       &.tile-void { background: #111; }
     }
 
+    .sync-status-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .sync-pill {
+      font-size: 8px;
+      font-family: inherit;
+      padding: 4px 8px;
+      border: 2px solid #000;
+      box-shadow: 2px 2px 0px #000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.1s;
+
+      &.saving {
+        background: #f39c12;
+        color: #000;
+        cursor: wait;
+      }
+
+      &.saved {
+        background: #27ae60;
+        color: #fff;
+        &:hover {
+          background: #2ecc71;
+        }
+      }
+
+      &.error {
+        background: #c0392b;
+        color: #fff;
+        &:hover {
+          background: #e74c3c;
+        }
+      }
+    }
+
     .size-control {
       display: flex;
       align-items: center;
@@ -1132,79 +1138,6 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
         padding: 1px 3px;
         font-size: 6px;
       }
-
-      .anim-pill {
-        background: #f39c12;
-        color: #000;
-        padding: 1px 4px;
-        font-size: 6px;
-        font-weight: bold;
-        border: 1px solid #000;
-        border-radius: 2px;
-      }
-    }
-
-    .animated-indicator-badge {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      background: #f1c40f;
-      color: #000;
-      font-size: 7px;
-      padding: 1px 3px;
-      font-weight: bold;
-      border: 1px solid #000;
-      box-shadow: 1px 1px 0px #000;
-      z-index: 2;
-    }
-
-    /* Animated Spritesheet System */
-    .sprite-anim-container {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      img.anim-strip-v {
-        width: 100%;
-        height: calc(var(--frames, 2) * 100%);
-        position: absolute;
-        top: 0;
-        left: 0;
-        max-width: none !important;
-        max-height: none !important;
-        image-rendering: pixelated;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: crisp-edges;
-        animation: strip-v-play var(--duration, 0.8s) steps(var(--frames, 2)) infinite;
-      }
-
-      img.anim-strip-h {
-        height: 100%;
-        width: calc(var(--frames, 2) * 100%);
-        position: absolute;
-        top: 0;
-        left: 0;
-        max-width: none !important;
-        max-height: none !important;
-        image-rendering: pixelated;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: crisp-edges;
-        animation: strip-h-play var(--duration, 0.8s) steps(var(--frames, 2)) infinite;
-      }
-    }
-
-    @keyframes strip-v-play {
-      0% { transform: translateY(0%); }
-      100% { transform: translateY(-100%); }
-    }
-
-    @keyframes strip-h-play {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
     }
 
     .full-width {
@@ -1887,6 +1820,22 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
 })
 export class BattlemapGridComponent implements OnInit {
   private http = inject(HttpClient);
+  private route = inject(ActivatedRoute);
+  private battlemapService = inject(BattlemapService);
+  storageService = inject(StorageService);
+  gameSessionService = inject(GameSessionService);
+
+  // Informações da Sala e Permissão
+  partyId = computed(() => this.gameSessionService.activeParty()?.id || this.storageService.getActiveParty()?.partyId || '');
+  partyCode = computed(() => this.route.snapshot.paramMap.get('code') || this.gameSessionService.activeParty()?.code || this.storageService.getActiveParty()?.partyCode || '');
+  isMaster = computed(() => this.storageService.isMaster() || this.storageService.getUser()?.role === 'MASTER');
+
+  // Estados de Sincronização / Auto-Save
+  isHydrated = signal<boolean>(false);
+  isSaving = signal<boolean>(false);
+  saveError = signal<string | null>(null);
+  lastSavedAt = signal<string | null>(null);
+  private saveTimeout: any = null;
 
   gridSize = signal<number>(18);
   gridRows = computed(() => Array.from({ length: this.gridSize() }, (_, i) => i));
@@ -1910,7 +1859,7 @@ export class BattlemapGridComponent implements OnInit {
   catalogAssets = signal<MultiTileAssetItem[]>([...FALLBACK_DEFAULT_ASSETS]);
   selectedCategory = signal<string>('all');
   selectedAssetToPlace = signal<MultiTileAssetItem | null>(FALLBACK_DEFAULT_ASSETS[0]);
-  
+
   placedAssets = signal<PlacedMultiTileAsset[]>([
     {
       id: 'placed_init_1',
@@ -2012,13 +1961,8 @@ export class BattlemapGridComponent implements OnInit {
     const cat = this.selectedCategory();
     const all = this.catalogAssets();
     if (cat === 'all') return all;
-    if (cat === 'animated') return all.filter(a => a.animation?.isAnimated);
     if (cat === 'custom') return all.filter(a => a.isCustom);
     return all.filter(a => a.category === cat);
-  });
-
-  animatedAssetsCount = computed(() => {
-    return this.catalogAssets().filter(a => a.animation?.isAnimated).length;
   });
 
   customAssetsCount = computed(() => {
@@ -2044,8 +1988,106 @@ export class BattlemapGridComponent implements OnInit {
     return map;
   });
 
+  constructor() {
+    effect(() => {
+      const pid = this.partyId();
+      const code = this.partyCode();
+      if ((pid || code) && !this.isHydrated()) {
+        this.loadBattlemapFromBackend(pid, code);
+      }
+    });
+  }
+
   ngOnInit(): void {
     this.loadAssetLibrary();
+    const pid = this.partyId();
+    const code = this.partyCode();
+    if ((pid || code) && !this.isHydrated()) {
+      this.loadBattlemapFromBackend(pid, code);
+    }
+  }
+
+  loadBattlemapFromBackend(partyId?: string, code?: string): void {
+    const targetId = partyId || this.partyId();
+    const targetCode = code || this.partyCode();
+
+    const req$ = targetId
+      ? this.battlemapService.getBattlemapById(targetId)
+      : targetCode
+        ? this.battlemapService.getBattlemapByCode(targetCode)
+        : null;
+
+    if (!req$) return;
+
+    req$.subscribe({
+      next: (state: BattlemapState) => {
+        this.applyBattlemapState(state);
+        this.isHydrated.set(true);
+        this.lastSavedAt.set(new Date().toLocaleTimeString('pt-BR'));
+      },
+      error: (err) => {
+        console.warn('Battlemap salvo não encontrado ou erro de carregamento. Mantendo estado padrão:', err);
+        this.isHydrated.set(true);
+      }
+    });
+  }
+
+  applyBattlemapState(state: BattlemapState): void {
+    if (!state) return;
+    if (typeof state.gridSize === 'number' && state.gridSize >= 10 && state.gridSize <= 30) {
+      this.gridSize.set(state.gridSize);
+    }
+    if (state.terrain && typeof state.terrain === 'object' && Object.keys(state.terrain).length > 0) {
+      this.terrainMap.set(state.terrain as PlacedTerrain);
+    }
+    if (Array.isArray(state.placedAssets) && state.placedAssets.length > 0) {
+      this.placedAssets.set(state.placedAssets as PlacedMultiTileAsset[]);
+    }
+    if (Array.isArray(state.tokens) && state.tokens.length > 0) {
+      this.tokens.set(state.tokens as GridToken[]);
+    }
+  }
+
+  triggerAutoSave(): void {
+    if (!this.isHydrated() || !this.isMaster()) return;
+
+    if (this.saveTimeout) {
+      clearTimeout(this.saveTimeout);
+    }
+
+    this.saveTimeout = setTimeout(() => {
+      this.saveNow();
+    }, 1000);
+  }
+
+  saveNow(): void {
+    const targetId = this.partyId();
+    if (!targetId) {
+      console.warn('Não há partyId ativo para salvar o Battlemap.');
+      return;
+    }
+
+    this.isSaving.set(true);
+    this.saveError.set(null);
+
+    const state: BattlemapState = {
+      gridSize: this.gridSize(),
+      terrain: this.terrainMap(),
+      placedAssets: this.placedAssets(),
+      tokens: this.tokens()
+    };
+
+    this.battlemapService.saveBattlemap(targetId, state).subscribe({
+      next: () => {
+        this.isSaving.set(false);
+        this.lastSavedAt.set(new Date().toLocaleTimeString('pt-BR'));
+      },
+      error: (err) => {
+        this.isSaving.set(false);
+        this.saveError.set(err?.error?.message || 'Falha ao sincronizar mapa.');
+        console.error('Erro ao salvar Battlemap:', err);
+      }
+    });
   }
 
   loadAssetLibrary(): void {
@@ -2100,6 +2142,7 @@ export class BattlemapGridComponent implements OnInit {
   adjustGridSize(delta: number): void {
     const next = Math.max(10, Math.min(30, this.gridSize() + delta));
     this.gridSize.set(next);
+    this.triggerAutoSave();
   }
 
   getTerrain(x: number, y: number): GridTerrainType {
@@ -2123,6 +2166,7 @@ export class BattlemapGridComponent implements OnInit {
         ...map,
         [coord]: this.selectedTerrain()
       }));
+      this.triggerAutoSave();
       return;
     }
 
@@ -2147,6 +2191,7 @@ export class BattlemapGridComponent implements OnInit {
 
         this.placedAssets.update(all => [...all, newPlaced]);
         this.selectedPlacedAsset.set(newPlaced);
+        this.triggerAutoSave();
         return;
       }
     }
@@ -2163,6 +2208,7 @@ export class BattlemapGridComponent implements OnInit {
           all.map(t => (t.id === activeTok.id ? { ...t, x, y } : t))
         );
         this.selectedToken.set(null);
+        this.triggerAutoSave();
       }
     }
   }
@@ -2205,6 +2251,7 @@ export class BattlemapGridComponent implements OnInit {
     );
     const updated = this.placedAssets().find(a => a.id === id);
     if (updated) this.selectedPlacedAsset.set(updated);
+    this.triggerAutoSave();
   }
 
   rotatePlacedAsset(id: string, deltaDeg: number): void {
@@ -2219,6 +2266,7 @@ export class BattlemapGridComponent implements OnInit {
     );
     const updated = this.placedAssets().find(a => a.id === id);
     if (updated) this.selectedPlacedAsset.set(updated);
+    this.triggerAutoSave();
   }
 
   setPlacedAssetOpacity(id: string, event: Event): void {
@@ -2228,6 +2276,7 @@ export class BattlemapGridComponent implements OnInit {
     );
     const updated = this.placedAssets().find(a => a.id === id);
     if (updated) this.selectedPlacedAsset.set(updated);
+    this.triggerAutoSave();
   }
 
   togglePlacedAssetObstacle(id: string): void {
@@ -2236,6 +2285,7 @@ export class BattlemapGridComponent implements OnInit {
     );
     const updated = this.placedAssets().find(a => a.id === id);
     if (updated) this.selectedPlacedAsset.set(updated);
+    this.triggerAutoSave();
   }
 
   movePlacedAsset(id: string, dx: number, dy: number): void {
@@ -2251,17 +2301,20 @@ export class BattlemapGridComponent implements OnInit {
     );
     const updated = this.placedAssets().find(a => a.id === id);
     if (updated) this.selectedPlacedAsset.set(updated);
+    this.triggerAutoSave();
   }
 
   removePlacedAsset(id: string): void {
     this.placedAssets.update(all => all.filter(a => a.id !== id));
     this.selectedPlacedAsset.set(null);
+    this.triggerAutoSave();
   }
 
   clearAllPlacedAssets(): void {
     if (confirm('Deseja realmente remover todas as construções e assets do mapa?')) {
       this.placedAssets.set([]);
       this.selectedPlacedAsset.set(null);
+      this.triggerAutoSave();
     }
   }
 
