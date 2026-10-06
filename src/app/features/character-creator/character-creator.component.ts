@@ -9,11 +9,12 @@ import { StorageService } from '../../core/services/storage.service';
 import { ButtonComponent } from '../../shared/components/ui';
 import { CreateCharacterInput } from '../../data/schemas/character.schema';
 import { Theme } from '../../data/schemas/theme.schema';
+import { GameIconComponent } from '../../shared/components/game-icon/game-icon.component';
 
 @Component({
   selector: 'app-character-creator',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonComponent],
+  imports: [CommonModule, FormsModule, ButtonComponent, GameIconComponent],
   template: `
     <div class="creator-page">
       <div class="creator-container">
@@ -21,7 +22,9 @@ import { Theme } from '../../data/schemas/theme.schema';
         <div class="creator-topbar">
           <button class="back-link" (click)="goBack()">⬅ Voltar ao Lobby</button>
           <div class="topbar-title-group">
-            <h1 class="creator-title">🧙‍♂️ Forja de Heróis & Customização Visual</h1>
+            <h1 class="creator-title flex items-center gap-2">
+              <game-icon name="wizard" [size]="24"></game-icon> Forja de Heróis & Customização Visual
+            </h1>
             <span class="theme-tag">Temática: {{ activeTheme()?.title || 'Fantasia' }}</span>
           </div>
         </div>
@@ -302,7 +305,7 @@ import { Theme } from '../../data/schemas/theme.schema';
                   [loading]="createCharMutation.isPending()"
                   (onClick)="submitCharacter()"
                 >
-                  ⚔️ Forjar Herói & Entrar no Lobby
+                  <game-icon name="swords" [size]="16"></game-icon> Forjar Herói & Entrar no Lobby
                 </app-button>
               </div>
             </div>

@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BattlemapGridComponent } from './components/battlemap-grid/battlemap-grid.component';
 import { PhaseNarrativeComponent } from './components/phase-narrative/phase-narrative.component';
 import { ButtonComponent, DialogComponent } from '../../shared/components/ui';
+import { GameIconComponent } from '../../shared/components/game-icon/game-icon.component';
 import { PartyQueriesService } from '../../data/queries/party.queries';
 import { PhaseQueriesService } from '../../data/queries/phase.queries';
 import { CharacterQueriesService } from '../../data/queries/character.queries';
@@ -23,6 +24,7 @@ import { CreatePhaseInput } from '../../data/schemas/phase.schema';
     PhaseNarrativeComponent,
     DialogComponent,
     ButtonComponent,
+    GameIconComponent,
   ],
   templateUrl: './game-session.component.html',
   styleUrls: ['./game-session.component.scss'],
@@ -70,10 +72,6 @@ export class GameSessionComponent implements OnDestroy {
 
   // Sistema de Dados D20 / RPG
   lastDiceRoll = signal<{ dice: string; value: number; critical: boolean; text: string } | null>(null);
-  sessionLog = signal<string[]>([
-    '⚔️ A sessão foi iniciada no Battlemap.',
-    '🎲 Role os dados para testes de iniciativa e ataques.',
-  ]);
 
   // Form para nova fase
   newPhaseForm: CreatePhaseInput = {
@@ -116,14 +114,14 @@ export class GameSessionComponent implements OnDestroy {
   onCharacterMoved(evt: { character: Character; x: number; y: number }) {
     const col = String.fromCharCode(65 + evt.x);
     const row = evt.y + 1;
-    this.addLog(`🚶 ${evt.character.name} moveu-se para a coordenada ${col}${row}.`);
+    this.addLog(`${evt.character.name} moveu-se para a coordenada ${col}${row}.`);
   }
 
   onTacticalAction(evt: { action: string; character: Character }) {
     if (evt.action === 'attack') {
       const roll = Math.floor(Math.random() * 20) + 1;
       const crit = roll === 20;
-      this.addLog(`⚔️ ${evt.character.name} atacou! Teste de acerto D20: [${roll}] ${crit ? '💥 CRÍTICO!' : ''}`);
+      this.addLog(`${evt.character.name} atacou! Teste de acerto D20: [${roll}] ${crit ? 'CRÍTICO!' : ''}`);
       this.lastDiceRoll.set({
         dice: 'D20 (Ataque)',
         value: roll,
@@ -131,9 +129,9 @@ export class GameSessionComponent implements OnDestroy {
         text: crit ? 'Acerto Crítico!' : roll >= 10 ? 'Acerto no Alvo!' : 'Errou o golpe!',
       });
     } else if (evt.action === 'skill') {
-      this.addLog(`✨ ${evt.character.name} conjurou uma técnica especial!`);
+      this.addLog(`${evt.character.name} conjurou uma técnica especial!`);
     } else if (evt.action === 'defend') {
-      this.addLog(`🛡️ ${evt.character.name} assumiu postura defensiva (+2 CA).`);
+      this.addLog(`${evt.character.name} assumiu postura defensiva (+2 CA).`);
     }
   }
 
@@ -143,8 +141,8 @@ export class GameSessionComponent implements OnDestroy {
     const fumble = sides === 20 && val === 1;
 
     let text = `Resultado: ${val}`;
-    if (crit) text = '💥 Sucesso Crítico!';
-    if (fumble) text = '💀 Falha Crítica!';
+    if (crit) text = 'Sucesso Crítico!';
+    if (fumble) text = 'Falha Crítica!';
 
     this.lastDiceRoll.set({
       dice: `D${sides}`,
@@ -153,7 +151,7 @@ export class GameSessionComponent implements OnDestroy {
       text,
     });
 
-    this.addLog(`🎲 Rolagem D${sides}: resultado [${val}] — ${text}`);
+    this.addLog(`Rolagem D${sides}: resultado [${val}] — ${text}`);
   }
 
   openPhaseModal() {
@@ -173,7 +171,7 @@ export class GameSessionComponent implements OnDestroy {
         phase: this.newPhaseForm,
       });
       this.isPhaseModalOpen.set(false);
-      this.addLog(`📖 O Mestre publicou uma nova fase: "${this.newPhaseForm.title}"!`);
+      this.addLog(`O Mestre publicou uma nova fase: "${this.newPhaseForm.title}"!`);
     } catch (err: any) {
       alert('Erro ao criar fase: ' + (err.message || 'Verifique a conexão'));
     }
@@ -182,7 +180,7 @@ export class GameSessionComponent implements OnDestroy {
   async onGenerateImage(phaseId: string) {
     try {
       await this.generateImageMutation.mutateAsync(phaseId);
-      this.addLog('🎨 Nova ilustração de cenário foi gerada pela IA!');
+      this.addLog('Nova ilustração de cenário foi gerada pela IA!');
     } catch (err: any) {
       alert('Erro ao gerar imagem: ' + err.message);
     }
@@ -193,6 +191,6 @@ export class GameSessionComponent implements OnDestroy {
   }
 
   private addLog(entry: string) {
-    this.sessionLog.update((logs) => [entry, ...logs.slice(0, 19)]);
+    this.gameSession.addSystemLog(entry);
   }
 }

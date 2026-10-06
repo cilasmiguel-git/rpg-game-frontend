@@ -8,6 +8,7 @@ import { BattlemapState, PlacedAsset as BattlemapPlacedAsset, GridToken as Battl
 import { StorageService } from '../../../../core/services/storage.service';
 import { GameSessionService } from '../../../../core/services/game-session.service';
 import { ApiConfig } from '../../../../core/config/api.config';
+import { GameIconComponent } from '../../../../shared/components/game-icon/game-icon.component';
 
 export interface GridToken {
   id: string;
@@ -202,7 +203,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
 @Component({
   selector: 'app-battlemap-grid',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, GameIconComponent],
   template: `
     <div class="battlemap-container nes-pixel-wrapper">
       <!-- TOP TOOLBAR -->
@@ -214,7 +215,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
             [class.active]="activeMode() === 'play'"
             (click)="setMode('play')"
             title="Modo Jogo (Mover tokens e interagir)">
-            <span class="btn-icon">⚔️</span>
+            <span class="btn-icon"><game-icon name="swords" [size]="14"></game-icon></span>
             <span class="btn-text">Jogar / Tokens</span>
           </button>
 
@@ -224,7 +225,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
             [class.active]="activeMode() === 'terrain'"
             (click)="setMode('terrain')"
             title="Modo Terreno (Pintar chão)">
-            <span class="btn-icon">🎨</span>
+            <span class="btn-icon"><game-icon name="game-icons:palette" [size]="14"></game-icon></span>
             <span class="btn-text">Pintar Terreno</span>
           </button>
 
@@ -234,7 +235,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
             [class.active]="activeMode() === 'multi_assets'"
             (click)="setMode('multi_assets')"
             title="Biblioteca de Castelos, Casas e Assets">
-            <span class="btn-icon">🏰</span>
+            <span class="btn-icon"><game-icon name="castle" [size]="14"></game-icon></span>
             <span class="btn-text">Biblioteca de Assets</span>
           </button>
 
@@ -244,7 +245,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
             [class.active]="activeMode() === 'measure'"
             (click)="setMode('measure')"
             title="Medir distância em pés/metros">
-            <span class="btn-icon">📏</span>
+            <span class="btn-icon"><game-icon name="game-icons:ruler" [size]="14"></game-icon></span>
             <span class="btn-text">Régua</span>
           </button>
         </div>
@@ -252,7 +253,9 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
         <!-- SUB-TOOLBAR CONTEXTUAL -->
         <div class="toolbar-section sub-controls">
           @if (activeMode() === 'multi_assets') {
-            <span class="active-mode-indicator">🏰 Modo Construção & Assets Ativo</span>
+            <span class="active-mode-indicator flex items-center gap-1">
+              <game-icon name="castle" [size]="14"></game-icon> Modo Construção & Assets Ativo
+            </span>
           }
 
           @if (activeMode() === 'terrain') {
@@ -275,14 +278,16 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
           @if (isMaster()) {
             <div class="sync-status-box">
               @if (isSaving()) {
-                <span class="sync-pill saving" title="Sincronizando com o servidor...">⏳ Salvando...</span>
+                <span class="sync-pill saving flex items-center gap-1" title="Sincronizando com o servidor...">
+                  <game-icon name="hourglass" [size]="11"></game-icon> Salvando...
+                </span>
               } @else if (saveError()) {
-                <button type="button" class="sync-pill error" (click)="saveNow()" [title]="saveError() || 'Erro ao salvar. Clique para tentar novamente.'">
-                  ⚠️ Erro (Tentar)
+                <button type="button" class="sync-pill error flex items-center gap-1" (click)="saveNow()" [title]="saveError() || 'Erro ao salvar. Clique para tentar novamente.'">
+                  <game-icon name="info" [size]="11"></game-icon> Erro (Tentar)
                 </button>
               } @else {
-                <button type="button" class="sync-pill saved" (click)="saveNow()" [title]="lastSavedAt() ? 'Salvo às ' + lastSavedAt() + '. Clique para salvar manualmente.' : 'Mapa salvo na nuvem.'">
-                  💾 Salvo ✅
+                <button type="button" class="sync-pill saved flex items-center gap-1" (click)="saveNow()" [title]="lastSavedAt() ? 'Salvo às ' + lastSavedAt() + '. Clique para salvar manualmente.' : 'Mapa salvo na nuvem.'">
+                  <game-icon name="save" [size]="11"></game-icon> Salvo <game-icon name="check" [size]="10"></game-icon>
                 </button>
               }
             </div>
@@ -294,8 +299,8 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
             <span class="value">{{ gridSize() }}x{{ gridSize() }}</span>
             <button type="button" class="mini-btn" (click)="adjustGridSize(2)" [disabled]="gridSize() >= 30">+</button>
           </div>
-          <button type="button" class="mini-btn danger" (click)="clearAllPlacedAssets()" title="Limpar todas as construções">
-            🗑️ Limpar Casas
+          <button type="button" class="mini-btn danger flex items-center gap-1" (click)="clearAllPlacedAssets()" title="Limpar todas as construções">
+            <game-icon name="trash" [size]="12"></game-icon> Limpar Casas
           </button>
         </div>
       </header>
@@ -309,15 +314,18 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
             <div class="drawer-header">
               <div class="title-row">
                 <h4 class="drawer-title">Catálogo de Assets</h4>
-                <button type="button" class="mini-refresh-btn" (click)="loadAssetLibrary()" title="Recarregar pasta public/assets/battlemap">🔄</button>
+                <button type="button" class="mini-refresh-btn" (click)="loadAssetLibrary()" title="Recarregar pasta public/assets/battlemap">
+                  <game-icon name="rotate" [size]="12"></game-icon>
+                </button>
               </div>
               
               <!-- Quick Import Button in Drawer -->
               <button 
                 type="button" 
-                class="pixel-action-btn primary full-width"
+                class="pixel-action-btn primary full-width flex items-center justify-center gap-1.5"
                 (click)="openImportModal()">
-                <span>📤 Importar Imagem / Casa</span>
+                <game-icon name="upload" [size]="14"></game-icon>
+                <span>Importar Imagem / Casa</span>
               </button>
 
               <!-- Category Dropdown Filter -->
@@ -325,17 +333,17 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                 <label>Categoria:</label>
                 <select [ngModel]="selectedCategory()" (ngModelChange)="selectedCategory.set($event)" class="pixel-select">
                   <option value="all">⭐ Todos os Assets ({{ catalogAssets().length }})</option>
-                  <option value="castles">🏰 Castelos & Torres</option>
-                  <option value="buildings">🏠 Casas & Quartéis</option>
-                  <option value="tiny_swords">🗡️ Tropas & Heróis</option>
-                  <option value="nature">🌲 Árvores & Recursos</option>
-                  <option value="props">📦 Decorações & Props</option>
-                  <option value="custom">📁 Minhas Imagens ({{ customAssetsCount() }})</option>
+                  <option value="castles">Castelos & Torres</option>
+                  <option value="buildings">Casas & Quartéis</option>
+                  <option value="tiny_swords">Tropas & Heróis</option>
+                  <option value="nature">Árvores & Recursos</option>
+                  <option value="props">Decorações & Props</option>
+                  <option value="custom">Minhas Imagens ({{ customAssetsCount() }})</option>
                 </select>
               </div>
 
               <div class="folder-hint-tag" title="Coloque suas imagens em public/assets/battlemap/">
-                📁 <code>public/assets/battlemap/</code>
+                <code>public/assets/battlemap/</code>
               </div>
             </div>
 
@@ -356,7 +364,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                     <span class="asset-title" [title]="asset.name">{{ asset.name }}</span>
                     <div class="asset-tags-row">
                       <span class="obstacle-tag" [class.is-wall]="asset.isObstacle">
-                        {{ asset.isObstacle ? '🧱 Parede' : '🚶 Passável' }}
+                        {{ asset.isObstacle ? 'Parede' : 'Passável' }}
                       </span>
                       <span *ngIf="asset.isCustom" class="custom-pill">Custom</span>
                     </div>
@@ -380,7 +388,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
               <div class="active-placement-banner">
                 <p><strong>Selecionado:</strong> {{ selectedAssetToPlace()?.name }}</p>
                 <span class="dim-tag">{{ selectedAssetToPlace()?.widthTiles }}x{{ selectedAssetToPlace()?.heightTiles }} blocos</span>
-                <p class="hint">👉 Clique no grid para colocar!</p>
+                <p class="hint">Clique no grid para colocar!</p>
                 <button type="button" class="cancel-btn" (click)="selectedAssetToPlace.set(null)">Cancelar Seleção</button>
               </div>
             }
@@ -448,15 +456,20 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   @if (selectedPlacedAsset()?.id === placed.id) {
                     <div class="selection-outline"></div>
 
-                    <!-- FLOATING QUICK ACTION TOOLBAR (DELETE & ROTATE & DRAG HINT) -->
+                    <!-- FLOATING QUICK ACTION TOOLBAR (DELETE & ROTATE & MORE & DRAG HINT) -->
                     <div class="floating-asset-toolbar" (click)="$event.stopPropagation()" (pointerdown)="$event.stopPropagation()">
                       <button type="button" class="floating-btn delete-btn" (click)="removePlacedAsset(placed.id)" title="Excluir Construção (Del)">
-                        🗑️ Excluir
+                        <game-icon name="trash" [size]="11"></game-icon> Excluir
                       </button>
                       <button type="button" class="floating-btn rotate-btn" (click)="rotatePlacedAsset(placed.id, 90)" title="Girar 90°">
-                        ↻ Girar
+                        <game-icon name="rotate" [size]="11"></game-icon> Girar
                       </button>
-                      <span class="drag-handle-hint" title="Clique e arraste pelo mapa">✋ Arraste</span>
+                      <button type="button" class="floating-btn more-btn" (click)="toggleAssetInspector(placed)" title="Ver Propriedades e Dimensões">
+                        <game-icon name="plus" [size]="11"></game-icon> + Mais
+                      </button>
+                      <span class="drag-handle-hint flex items-center gap-1" title="Clique e arraste pelo mapa">
+                        <game-icon name="hand" [size]="11"></game-icon> Arraste
+                      </span>
                     </div>
                   }
                 </div>
@@ -505,21 +518,25 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
 
           </div>
         </main>
+      </div>
 
-        <!-- RIGHT INSPECTOR -->
-        @if (selectedPlacedAsset()) {
-          <aside class="inspector-drawer nes-container is-dark">
-            <div class="inspector-header">
-              <h3>Propriedades do Asset</h3>
-              <button type="button" class="close-x" (click)="selectedPlacedAsset.set(null)">✕</button>
+      <!-- INSPECTOR POPUP MODAL (Overlay flutuante sem ocupar espaço no grid) -->
+      @if (selectedPlacedAsset() && showAssetInspector()) {
+        <div class="modal-backdrop" (click)="closeAssetInspector()">
+          <div class="modal-card nes-dialog is-rounded inspector-modal-card" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+              <h2 class="title flex items-center gap-1.5">
+                <game-icon name="castle" [size]="16"></game-icon> Propriedades da Construção
+              </h2>
+              <button type="button" class="close-btn" (click)="closeAssetInspector()">✕</button>
             </div>
 
-            <div class="inspector-content" *ngIf="selectedPlacedAsset() as asset">
+            <div class="modal-body" *ngIf="selectedPlacedAsset() as asset">
               <div class="asset-preview-sm">
                 <img [src]="asset.imageUrl" [alt]="asset.name" />
                 <div class="info">
                   <strong>{{ asset.name }}</strong>
-                  <span>Posição: ({{ asset.gridX }}, {{ asset.gridY }})</span>
+                  <span>Posição no Grid: ({{ asset.gridX }}, {{ asset.gridY }})</span>
                 </div>
               </div>
 
@@ -567,7 +584,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   [value]="asset.opacity"
                   (input)="setPlacedAssetOpacity(asset.id, $event)"
                   class="pixel-range" />
-                <span class="sub-hint">Dica: Diminua para ver o interior da casa!</span>
+                <span class="sub-hint">Dica: Diminua a opacidade para revelar o interior da construção!</span>
               </div>
 
               <!-- COLLISION / OBSTACLE TOGGLE -->
@@ -577,41 +594,76 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                     type="checkbox" 
                     [checked]="asset.isObstacle"
                     (change)="togglePlacedAssetObstacle(asset.id)" />
-                  <span>Bloquear passagem (Colisão / Parede)</span>
+                  <span>Bloquear passagem (Colisão / Parede intransponível)</span>
                 </label>
               </div>
 
-              <!-- POSITION ADJUSTMENT -->
+              <!-- LAYER & DEPTH (Abaixo / Acima dos Tokens) -->
               <div class="control-group">
-                <label>Mover no Grid:</label>
-                <div class="dpad-grid">
-                  <button type="button" (click)="movePlacedAsset(asset.id, 0, -1)" title="Mover Cima">▲</button>
-                  <div class="dpad-mid">
-                    <button type="button" (click)="movePlacedAsset(asset.id, -1, 0)" title="Mover Esquerda">◄</button>
-                    <button type="button" (click)="movePlacedAsset(asset.id, 1, 0)" title="Mover Direita">►</button>
-                  </div>
-                  <button type="button" (click)="movePlacedAsset(asset.id, 0, 1)" title="Mover Baixo">▼</button>
+                <label>Camada de Profundidade:</label>
+                <div class="layer-toggle-row flex gap-2">
+                  <button 
+                    type="button" 
+                    class="nes-btn mini flex-1 flex items-center justify-center gap-1"
+                    [class.is-primary]="asset.layer !== 'over'"
+                    (click)="setPlacedAssetLayer(asset.id, 'under')"
+                    title="Exibir no chão, abaixo dos heróis e monstros">
+                    <game-icon name="shield" [size]="12"></game-icon> Abaixo dos Tokens
+                  </button>
+                  <button 
+                    type="button" 
+                    class="nes-btn mini flex-1 flex items-center justify-center gap-1"
+                    [class.is-warning]="asset.layer === 'over'"
+                    (click)="setPlacedAssetLayer(asset.id, 'over')"
+                    title="Exibir como telhado/cobertura, acima dos heróis">
+                    <game-icon name="crown" [size]="12"></game-icon> Acima (Telhado)
+                  </button>
+                </div>
+              </div>
+
+              <!-- DUPLICATE & REORDER -->
+              <div class="control-group">
+                <label>Ações Rápidas:</label>
+                <div class="quick-actions-row flex gap-2">
+                  <button 
+                    type="button" 
+                    class="nes-btn is-success mini flex-1 flex items-center justify-center gap-1"
+                    (click)="duplicatePlacedAsset(asset.id)"
+                    title="Clonar esta construção com o mesmo tamanho e rotação">
+                    <game-icon name="plus" [size]="12"></game-icon> Duplicar Peça
+                  </button>
+                  <button 
+                    type="button" 
+                    class="nes-btn mini flex-1 flex items-center justify-center gap-1"
+                    (click)="bringPlacedAssetToFront(asset.id)"
+                    title="Trazer para a frente de outras construções">
+                    <game-icon name="sparkles" [size]="12"></game-icon> Trazer p/ Frente
+                  </button>
                 </div>
               </div>
 
               <!-- ACTIONS -->
-              <div class="inspector-actions">
-                <button type="button" class="nes-btn is-error" (click)="removePlacedAsset(asset.id)">
-                  🗑️ Remover Asset
+              <div class="inspector-actions flex items-center gap-3">
+                <button type="button" class="nes-btn is-error flex items-center justify-center gap-1.5" (click)="removePlacedAsset(asset.id)">
+                  <game-icon name="trash" [size]="14"></game-icon> Excluir Construção
+                </button>
+                <button type="button" class="nes-btn is-primary flex items-center justify-center gap-1.5" (click)="closeAssetInspector()">
+                  <game-icon name="save" [size]="14"></game-icon> Concluído
                 </button>
               </div>
             </div>
-          </aside>
-        }
-
-      </div>
+          </div>
+        </div>
+      }
 
       <!-- IMPORT MULTI-TILE ASSET MODAL -->
       @if (showImportModal()) {
         <div class="modal-backdrop" (click)="closeImportModal()">
           <div class="modal-card nes-dialog is-rounded" (click)="$event.stopPropagation()">
             <div class="modal-header">
-              <h2 class="title">📤 Importar Imagem de Asset / Casa</h2>
+              <h2 class="title flex items-center gap-1.5">
+                <game-icon name="upload" [size]="16"></game-icon> Importar Imagem de Asset / Casa
+              </h2>
               <button type="button" class="close-btn" (click)="closeImportModal()">✕</button>
             </div>
 
@@ -631,7 +683,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                       accept="image/png, image/jpeg, image/webp, image/svg+xml, image/gif" 
                       (change)="onFileSelected($event)" 
                       style="display:none;" />
-                    <span class="upload-icon">📁</span>
+                    <span class="upload-icon"><game-icon name="upload" [size]="20"></game-icon></span>
                     <span>Clique para carregar arquivo do PC</span>
                     <span class="formats">PNG, JPG, WebP, SVG, GIF</span>
                   </div>
@@ -681,13 +733,13 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   <div class="field">
                     <label>Categoria:</label>
                     <select [(ngModel)]="importCategory" class="pixel-select">
-                      <option value="tiny_swords">⚔️ Tiny Swords (Pixel Frog)</option>
-                      <option value="castles">🏰 Castelos & Fortalezas</option>
-                      <option value="buildings">🏠 Casas & Construções</option>
-                      <option value="dungeons">🗝️ Masmorras & Ruínas</option>
-                      <option value="nature">🌲 Natureza & Rochas</option>
-                      <option value="props">📦 Props & Itens</option>
-                      <option value="custom">⭐ Outros / Personalizado</option>
+                      <option value="tiny_swords">Tiny Swords (Pixel Frog)</option>
+                      <option value="castles">Castelos & Fortalezas</option>
+                      <option value="buildings">Casas & Construções</option>
+                      <option value="dungeons">Masmorras & Ruínas</option>
+                      <option value="nature">Natureza & Rochas</option>
+                      <option value="props">Props & Itens</option>
+                      <option value="custom">Outros / Personalizado</option>
                     </select>
                   </div>
 
@@ -705,10 +757,10 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
               <button type="button" class="nes-btn" (click)="closeImportModal()">Cancelar</button>
               <button 
                 type="button" 
-                class="nes-btn is-primary" 
+                class="nes-btn is-primary flex items-center gap-1.5" 
                 [disabled]="!canSaveImport()" 
                 (click)="saveImportedAsset()">
-                💾 Salvar & Adicionar ao Grid
+                <game-icon name="save" [size]="14"></game-icon> Salvar & Adicionar ao Grid
               </button>
             </div>
           </div>
@@ -1430,6 +1482,12 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
             color: #fff;
             border-color: #2980b9;
           }
+
+          &.more-btn {
+            background: #d97706;
+            color: #fff;
+            border-color: #b45309;
+          }
         }
 
         .drag-handle-hint {
@@ -1689,25 +1747,13 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
       }
     }
 
-    .dpad-grid {
+    .layer-toggle-row, .quick-actions-row {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
+      gap: 8px;
 
       button {
-        background: #2c3e50;
-        color: #fff;
-        border: 2px solid #000;
-        padding: 6px 12px;
-        font-size: 9px;
-        cursor: pointer;
-        &:hover { background: #34495e; }
-      }
-
-      .dpad-mid {
-        display: flex;
-        gap: 16px;
+        padding: 6px 8px;
+        font-size: 8px;
       }
     }
 
@@ -1715,9 +1761,11 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
       margin-top: 16px;
       border-top: 2px solid #000;
       padding-top: 12px;
+      display: flex;
+      gap: 10px;
 
       button {
-        width: 100%;
+        flex: 1;
         font-size: 8px;
         padding: 8px;
       }
@@ -1745,6 +1793,12 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
       box-sizing: border-box;
       max-height: 90vh;
       overflow-y: auto;
+
+      &.inspector-modal-card {
+        max-width: 480px;
+        background: #151a23;
+        border: 4px solid #f1c40f;
+      }
     }
 
     .modal-header {
@@ -2006,6 +2060,8 @@ export class BattlemapGridComponent implements OnInit {
   ]);
 
   selectedPlacedAsset = signal<PlacedMultiTileAsset | null>(null);
+  clipboardAsset = signal<PlacedMultiTileAsset | null>(null);
+  showAssetInspector = signal<boolean>(false);
   isDraggingAsset = signal<string | null>(null);
   isDraggingToken = signal<string | null>(null);
   hoverCell = signal<{ x: number; y: number } | null>(null);
@@ -2376,6 +2432,7 @@ export class BattlemapGridComponent implements OnInit {
 
         this.placedAssets.update(all => [...all, newPlaced]);
         this.selectedPlacedAsset.set(newPlaced);
+        this.gameSessionService.addSystemLog(`Construção "${selected.name}" posicionada no mapa.`);
         this.triggerAutoSave();
         return;
       }
@@ -2385,13 +2442,16 @@ export class BattlemapGridComponent implements OnInit {
       const activeTok = this.selectedToken();
       if (activeTok) {
         if (this.isMultiObstacle(x, y)) {
-          alert('🚫 Célula bloqueada por parede / construção!');
+          alert('Célula bloqueada por parede / construção!');
           return;
         }
 
         this.tokens.update(all =>
           all.map(t => (t.id === activeTok.id ? { ...t, x, y } : t))
         );
+        const col = String.fromCharCode(65 + x);
+        const row = y + 1;
+        this.gameSessionService.addSystemLog(`${activeTok.name || 'Personagem'} moveu-se para a coordenada ${col}${row}.`);
         this.selectedToken.set(null);
         this.triggerAutoSave();
       }
@@ -2400,7 +2460,19 @@ export class BattlemapGridComponent implements OnInit {
 
   onGridClick(event: MouseEvent): void {
     this.selectedPlacedAsset.set(null);
+    this.showAssetInspector.set(false);
     this.selectedToken.set(null);
+  }
+
+  toggleAssetInspector(placed?: PlacedMultiTileAsset): void {
+    if (placed) {
+      this.selectedPlacedAsset.set(placed);
+    }
+    this.showAssetInspector.update(v => !v);
+  }
+
+  closeAssetInspector(): void {
+    this.showAssetInspector.set(false);
   }
 
   selectAssetToPlace(asset: MultiTileAssetItem): void {
@@ -2473,6 +2545,41 @@ export class BattlemapGridComponent implements OnInit {
     this.triggerAutoSave();
   }
 
+  setPlacedAssetLayer(id: string, layer: 'under' | 'over'): void {
+    this.placedAssets.update(all =>
+      all.map(item => (item.id === id ? { ...item, layer } : item))
+    );
+    const updated = this.placedAssets().find(a => a.id === id);
+    if (updated) this.selectedPlacedAsset.set(updated);
+    this.triggerAutoSave();
+  }
+
+  duplicatePlacedAsset(id: string): void {
+    const original = this.placedAssets().find(a => a.id === id);
+    if (!original) return;
+
+    const clone: PlacedMultiTileAsset = {
+      ...original,
+      id: 'placed_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+      gridX: Math.min(this.gridSize() - original.widthTiles, original.gridX + 1),
+      gridY: Math.min(this.gridSize() - original.heightTiles, original.gridY + 1),
+    };
+
+    this.placedAssets.update(all => [...all, clone]);
+    this.selectedPlacedAsset.set(clone);
+    this.gameSessionService.addSystemLog(`Construção "${clone.name}" duplicada no mapa.`);
+    this.triggerAutoSave();
+  }
+
+  bringPlacedAssetToFront(id: string): void {
+    const item = this.placedAssets().find(a => a.id === id);
+    if (!item) return;
+
+    this.placedAssets.update(all => [...all.filter(a => a.id !== id), item]);
+    this.selectedPlacedAsset.set(item);
+    this.triggerAutoSave();
+  }
+
   movePlacedAsset(id: string, dx: number, dy: number): void {
     this.placedAssets.update(all =>
       all.map(item => {
@@ -2496,12 +2603,61 @@ export class BattlemapGridComponent implements OnInit {
       return;
     }
 
+    const isCtrlOrCmd = event.ctrlKey || event.metaKey;
+
+    // Delete / Backspace: Excluir item selecionado
     if (event.key === 'Delete' || event.key === 'Backspace') {
       const selected = this.selectedPlacedAsset();
       if (selected) {
         event.preventDefault();
         this.removePlacedAsset(selected.id);
       }
+      return;
+    }
+
+    // Ctrl+C / Cmd+C: Copiar item selecionado
+    if (isCtrlOrCmd && (event.key === 'c' || event.key === 'C')) {
+      const selected = this.selectedPlacedAsset();
+      if (selected) {
+        event.preventDefault();
+        this.clipboardAsset.set({ ...selected });
+        this.gameSessionService.addSystemLog(`Construção "${selected.name}" copiada (Ctrl+C).`);
+      }
+      return;
+    }
+
+    // Ctrl+V / Cmd+V: Colar item copiado
+    if (isCtrlOrCmd && (event.key === 'v' || event.key === 'V')) {
+      const copied = this.clipboardAsset();
+      if (copied) {
+        event.preventDefault();
+        const hover = this.hoverCell();
+        const targetX = hover ? hover.x : Math.min(this.gridSize() - copied.widthTiles, copied.gridX + 1);
+        const targetY = hover ? hover.y : Math.min(this.gridSize() - copied.heightTiles, copied.gridY + 1);
+
+        const newPlaced: PlacedMultiTileAsset = {
+          ...copied,
+          id: 'placed_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+          gridX: Math.max(0, Math.min(this.gridSize() - copied.widthTiles, targetX)),
+          gridY: Math.max(0, Math.min(this.gridSize() - copied.heightTiles, targetY)),
+        };
+
+        this.placedAssets.update(all => [...all, newPlaced]);
+        this.selectedPlacedAsset.set(newPlaced);
+        this.gameSessionService.addSystemLog(`Construção "${newPlaced.name}" colada no mapa (Ctrl+V).`);
+        this.triggerAutoSave();
+      }
+      return;
+    }
+
+    // Ctrl+D / Cmd+D: Duplicar item selecionado
+    if (isCtrlOrCmd && (event.key === 'd' || event.key === 'D')) {
+      const selected = this.selectedPlacedAsset();
+      if (selected) {
+        event.preventDefault();
+        this.duplicatePlacedAsset(selected.id);
+      }
+      return;
     }
   }
 
@@ -2624,8 +2780,13 @@ export class BattlemapGridComponent implements OnInit {
   }
 
   removePlacedAsset(id: string): void {
+    const asset = this.placedAssets().find(a => a.id === id);
     this.placedAssets.update(all => all.filter(a => a.id !== id));
     this.selectedPlacedAsset.set(null);
+    this.showAssetInspector.set(false);
+    if (asset) {
+      this.gameSessionService.addSystemLog(`Construção "${asset.name}" removida do mapa.`);
+    }
     this.triggerAutoSave();
   }
 
@@ -2633,6 +2794,8 @@ export class BattlemapGridComponent implements OnInit {
     if (confirm('Deseja realmente remover todas as construções e assets do mapa?')) {
       this.placedAssets.set([]);
       this.selectedPlacedAsset.set(null);
+      this.showAssetInspector.set(false);
+      this.gameSessionService.addSystemLog('Todas as construções foram removidas do mapa.');
       this.triggerAutoSave();
     }
   }

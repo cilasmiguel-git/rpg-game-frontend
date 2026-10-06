@@ -3,7 +3,7 @@
   <div class="sidebar-header">
     <div class="header-content" *ngIf="!isCollapsed">
       <div class="master-badge">
-        <span class="crown-icon">👑</span>
+        <span class="crown-icon"><game-icon name="crown" [size]="20" color="#f1c40f"></game-icon></span>
         <div class="badge-texts">
           <span class="title font-rpg">PAINEL DO MESTRE</span>
           <span class="subtitle">Controles de Mesa & Sessão</span>
@@ -29,7 +29,7 @@
       (click)="selectTab('parties')"
       title="Salas & Campanhas"
     >
-      <span class="icon">🏰</span>
+      <span class="icon"><game-icon name="castle" [size]="18"></game-icon></span>
       <span class="mini-label">Salas</span>
     </button>
 
@@ -40,7 +40,7 @@
         (click)="selectTab('players')"
         title="Heróis na Mesa"
       >
-        <span class="icon">👥</span>
+        <span class="icon"><game-icon name="users" [size]="18"></game-icon></span>
         <span class="mini-label">Mesa</span>
         <span class="counter-badge" *ngIf="characters().length">{{ characters().length }}</span>
       </button>
@@ -51,7 +51,7 @@
         (click)="selectTab('notes')"
         title="Diário & Segredos"
       >
-        <span class="icon">📜</span>
+        <span class="icon"><game-icon name="scroll" [size]="18"></game-icon></span>
         <span class="mini-label">Notas</span>
       </button>
 
@@ -61,7 +61,7 @@
         (click)="selectTab('dice')"
         title="Mesa de Dados"
       >
-        <span class="icon">🎲</span>
+        <span class="icon"><game-icon name="dice" [size]="18"></game-icon></span>
         <span class="mini-label">Dados</span>
       </button>
     }
@@ -72,7 +72,7 @@
       (click)="selectTab('settings')"
       title="Configurações"
     >
-      <span class="icon">⚙️</span>
+      <span class="icon"><game-icon name="settings" [size]="18"></game-icon></span>
       <span class="mini-label">Config</span>
     </button>
   </nav>
@@ -90,7 +90,7 @@
             [class.active]="activeTab === 'parties'"
             (click)="selectTab('parties')"
           >
-            <span class="item-icon">🏰</span>
+            <span class="item-icon"><game-icon name="castle" [size]="18"></game-icon></span>
             <div class="item-texts">
               <span class="item-title">Salas & Jogos</span>
               <span class="item-desc">Gerenciar e entrar em salas</span>
@@ -104,7 +104,7 @@
             [class.active]="activeTab === 'settings'"
             (click)="selectTab('settings')"
           >
-            <span class="item-icon">⚙️</span>
+            <span class="item-icon"><game-icon name="settings" [size]="18"></game-icon></span>
             <div class="item-texts">
               <span class="item-title">Configurações</span>
               <span class="item-desc">Áudio, visual e sistema</span>
@@ -133,7 +133,7 @@
           </div>
 
           <button type="button" class="btn-new-room" (click)="openCreateParty()">
-            ✨ Criar Nova Sala
+            <game-icon name="sparkles" [size]="14"></game-icon> Criar Nova Sala
           </button>
         </div>
       </div>
@@ -145,7 +145,7 @@
           [class.active]="activeTab === 'parties'"
           (click)="selectTab('parties')"
         >
-          <span class="tab-icon">🏰</span>
+          <span class="tab-icon"><game-icon name="castle" [size]="14"></game-icon></span>
           <span>Salas</span>
         </button>
 
@@ -154,7 +154,7 @@
           [class.active]="activeTab === 'players'"
           (click)="selectTab('players')"
         >
-          <span class="tab-icon">👥</span>
+          <span class="tab-icon"><game-icon name="users" [size]="14"></game-icon></span>
           <span>Heróis</span>
           <span class="tab-count" *ngIf="characters().length">{{ characters().length }}</span>
         </button>
@@ -164,7 +164,7 @@
           [class.active]="activeTab === 'notes'"
           (click)="selectTab('notes')"
         >
-          <span class="tab-icon">📜</span>
+          <span class="tab-icon"><game-icon name="scroll" [size]="14"></game-icon></span>
           <span>Diário</span>
         </button>
 
@@ -173,7 +173,7 @@
           [class.active]="activeTab === 'dice'"
           (click)="selectTab('dice')"
         >
-          <span class="tab-icon">🎲</span>
+          <span class="tab-icon"><game-icon name="dice" [size]="14"></game-icon></span>
           <span>Dados</span>
         </button>
 
@@ -182,7 +182,7 @@
           [class.active]="activeTab === 'settings'"
           (click)="selectTab('settings')"
         >
-          <span class="tab-icon">⚙️</span>
+          <span class="tab-icon"><game-icon name="settings" [size]="14"></game-icon></span>
           <span>Config</span>
         </button>
       </div>
@@ -194,7 +194,7 @@
           <!-- Active Session Card -->
           <div class="active-room-card" *ngIf="party()?.code; else noActiveRoomTpl">
             <div class="card-top-row">
-              <span class="theme-tag">⚔️ {{ party()?.themeTitle || party()?.themeKey }}</span>
+              <span class="theme-tag"><game-icon name="crossed-swords" [size]="12"></game-icon> {{ party()?.themeTitle || party()?.themeKey }}</span>
               <span class="status-indicator" [class.in-progress]="party()?.status === 'IN_PROGRESS'">
                 {{ party()?.status === 'IN_PROGRESS' ? 'Em Aventura' : 'No Lobby' }}
               </span>
@@ -208,40 +208,49 @@
             <span class="code-label">Código da Sala:</span>
             <div class="code-row" (click)="copyCode()">
               <span class="code-value">{{ party()?.code }}</span>
-              <button class="mini-copy-btn">{{ codeCopied() ? 'Copiado! ✅' : 'Copiar' }}</button>
+              <button class="mini-copy-btn">
+                @if (codeCopied()) {
+                  <game-icon name="check" [size]="11"></game-icon> Copiado!
+                } @else {
+                  Copiar
+                }
+              </button>
             </div>
           </div>
 
           <!-- Invite link quick copy -->
           <button class="invite-link-btn" (click)="copyInvite()">
-            <span>🔗 {{ linkCopied() ? 'Link de Convite Copiado!' : 'Copiar Link para Jogadores' }}</span>
+            <span>
+              <game-icon name="link" [size]="13"></game-icon>
+              {{ linkCopied() ? 'Link de Convite Copiado!' : 'Copiar Link para Jogadores' }}
+            </span>
           </button>
 
           <!-- Quick Navigation Actions -->
           <div class="room-actions-grid">
             <button class="action-card-btn primary" (click)="goToLobby()">
-              🏰 Ir para o Lobby
+              <game-icon name="castle" [size]="14"></game-icon> Ir para o Lobby
             </button>
             <button
               class="action-card-btn accent"
               *ngIf="party()?.status !== 'IN_PROGRESS'"
               (click)="startAdventure()"
             >
-              🚀 Iniciar Aventura
+              <game-icon name="spear-feather" [size]="14"></game-icon> Iniciar Aventura
             </button>
             <button
               class="action-card-btn success"
               *ngIf="party()?.status === 'IN_PROGRESS'"
               (click)="goToGame()"
             >
-              🗺️ Ir ao Battlemap
+              <game-icon name="treasure-map" [size]="14"></game-icon> Ir ao Battlemap
             </button>
           </div>
         </div>
 
         <ng-template #noActiveRoomTpl>
           <div class="no-room-box">
-            <span class="empty-icon">🏰</span>
+            <span class="empty-icon"><game-icon name="castle" [size]="32" color="#475569"></game-icon></span>
             <h4>Nenhuma Sala Selecionada</h4>
             <p>Crie uma nova sessão de RPG ou conecte-se a uma sala existente usando o código.</p>
           </div>
@@ -269,7 +278,9 @@
         <div class="sidebar-block" *ngIf="myParties().length">
           <div class="flex items-center justify-between">
             <h4 class="block-title font-rpg">Minhas Campanhas ({{ myParties().length }})</h4>
-            <span class="text-[10px] text-amber-400 font-bold">👑 Mestre</span>
+            <span class="text-[10px] text-amber-400 font-bold flex items-center gap-1">
+              <game-icon name="crown" [size]="12" color="#f1c40f"></game-icon> Mestre
+            </span>
           </div>
           <div class="recent-list">
             <div
@@ -286,8 +297,8 @@
                   </span>
                 </div>
                 <span class="recent-name">{{ room.title }}</span>
-                <span class="text-[10px] text-slate-400 font-sans" *ngIf="room.characters?.length">
-                  👥 {{ room.characters?.length }} herói(s)
+                <span class="text-[10px] text-slate-400 font-sans flex items-center gap-1" *ngIf="room.characters?.length">
+                  <game-icon name="users" [size]="11"></game-icon> {{ room.characters?.length }} herói(s)
                 </span>
               </div>
               <span class="recent-arrow">➔</span>
@@ -317,7 +328,7 @@
         <!-- Create New Campaign Button -->
         <div class="sidebar-footer-action">
           <button class="create-campaign-btn" (click)="openCreateParty()">
-            <span>✨ Criar Nova Campanha</span>
+            <span><game-icon name="sparkles" [size]="14"></game-icon> Criar Nova Campanha</span>
           </button>
         </div>
       </section>
@@ -326,14 +337,14 @@
       <section class="tab-section" *ngIf="activeTab === 'players'">
         <div class="players-header">
           <div class="stats-summary">
-            <span class="total-heroes">⚔️ <strong>{{ characters().length }}</strong> heróis na mesa</span>
+            <span class="total-heroes"><game-icon name="swords" [size]="14"></game-icon> <strong>{{ characters().length }}</strong> heróis na mesa</span>
             <span class="ready-badge" [class.all-ready]="characters().length > 0 && readyCount === characters().length">
               {{ readyCount }}/{{ characters().length }} Prontos
             </span>
           </div>
 
           <button class="invite-quick-btn" (click)="copyInvite()" title="Copiar Link de Convite">
-            🔗 {{ linkCopied() ? 'Copiado!' : 'Convidar' }}
+            <game-icon name="link" [size]="12"></game-icon> {{ linkCopied() ? 'Copiado!' : 'Convidar' }}
           </button>
         </div>
 
@@ -353,7 +364,7 @@
                 <div class="hero-name-row">
                   <span class="name">{{ char.name }}</span>
                   <span class="ready-dot" [class.is-ready]="char.isReady" [title]="char.isReady ? 'Pronto' : 'Preparando'">
-                    {{ char.isReady ? '✔' : '⏳' }}
+                    <game-icon [name]="char.isReady ? 'check' : 'hourglass'" [size]="10"></game-icon>
                   </span>
                 </div>
                 <div class="hero-subtext">
@@ -390,11 +401,11 @@
 
         <ng-template #noHeroesTpl>
           <div class="no-heroes-box">
-            <span class="empty-icon">🧙‍♂️</span>
+            <span class="empty-icon"><game-icon name="wizard" [size]="36" color="#475569"></game-icon></span>
             <h4>Nenhum herói entrou ainda</h4>
             <p>Envie o link de convite para os jogadores criarem seus personagens para esta aventura.</p>
             <button class="invite-link-btn" (click)="copyInvite()">
-              🔗 Copiar Link de Convite
+              <game-icon name="link" [size]="13"></game-icon> Copiar Link de Convite
             </button>
           </div>
         </ng-template>
@@ -405,7 +416,7 @@
         <div class="notes-header">
           <h4 class="section-title font-rpg">Diário Secreto do Mestre</h4>
           <button class="add-note-btn" (click)="openNewNote()">
-            ➕ Nova Nota
+            <game-icon name="plus" [size]="12"></game-icon> Nova Nota
           </button>
         </div>
 
@@ -423,28 +434,28 @@
             [class.active]="noteFilter() === 'plot'"
             (click)="noteFilter.set('plot')"
           >
-            📜 Enredo
+            <game-icon name="scroll" [size]="12"></game-icon> Enredo
           </button>
           <button
             class="chip-btn"
             [class.active]="noteFilter() === 'npc'"
             (click)="noteFilter.set('npc')"
           >
-            👤 NPCs
+            <game-icon name="users" [size]="12"></game-icon> NPCs
           </button>
           <button
             class="chip-btn"
             [class.active]="noteFilter() === 'secret'"
             (click)="noteFilter.set('secret')"
           >
-            🗝️ Segredos
+            <game-icon name="key" [size]="12"></game-icon> Segredos
           </button>
           <button
             class="chip-btn"
             [class.active]="noteFilter() === 'loot'"
             (click)="noteFilter.set('loot')"
           >
-            💎 Tesouros
+            <game-icon name="gem" [size]="12"></game-icon> Tesouros
           </button>
         </div>
 
@@ -453,11 +464,25 @@
           <div class="note-card" *ngFor="let note of filteredNotes">
             <div class="note-card-top">
               <span class="category-tag" [attr.data-cat]="note.category">
-                {{ note.category === 'plot' ? '📜 Enredo' : note.category === 'npc' ? '👤 NPC' : note.category === 'secret' ? '🗝️ Segredo' : note.category === 'loot' ? '💎 Tesouro' : '📝 Geral' }}
+                @if (note.category === 'plot') {
+                  <game-icon name="scroll" [size]="11"></game-icon> Enredo
+                } @else if (note.category === 'npc') {
+                  <game-icon name="users" [size]="11"></game-icon> NPC
+                } @else if (note.category === 'secret') {
+                  <game-icon name="key" [size]="11"></game-icon> Segredo
+                } @else if (note.category === 'loot') {
+                  <game-icon name="gem" [size]="11"></game-icon> Tesouro
+                } @else {
+                  <game-icon name="scroll" [size]="11"></game-icon> Geral
+                }
               </span>
               <div class="note-actions">
-                <button class="icon-action-btn" (click)="editNote(note)" title="Editar Nota">✏️</button>
-                <button class="icon-action-btn danger" (click)="deleteNote(note.id)" title="Excluir Nota">🗑️</button>
+                <button class="icon-action-btn" (click)="editNote(note)" title="Editar Nota">
+                  <game-icon name="scroll" [size]="12"></game-icon>
+                </button>
+                <button class="icon-action-btn danger" (click)="deleteNote(note.id)" title="Excluir Nota">
+                  <game-icon name="trash" [size]="12"></game-icon>
+                </button>
               </div>
             </div>
 
@@ -468,11 +493,11 @@
 
         <ng-template #noNotesTpl>
           <div class="no-notes-box">
-            <span class="empty-icon">📜</span>
+            <span class="empty-icon"><game-icon name="scroll" [size]="36" color="#475569"></game-icon></span>
             <h4>Nenhuma anotação nesta categoria</h4>
             <p>Anote ganchos de trama, segredos de masmorras, fichas rápidas de monstros ou ideias de tesouros.</p>
             <button class="add-note-btn" (click)="openNewNote()">
-              ✨ Criar Primeira Anotação
+              <game-icon name="sparkles" [size]="14"></game-icon> Criar Primeira Anotação
             </button>
           </div>
         </ng-template>
@@ -495,8 +520,12 @@
             <div class="roll-details">
               <span *ngIf="r.diceCount > 1">Resultados: [{{ r.rolls.join(', ') }}]</span>
               <span *ngIf="r.modifier !== 0">Modificador: {{ r.modifier > 0 ? '+' + r.modifier : r.modifier }}</span>
-              <span class="crit-badge" *ngIf="r.isCritical">💥 SUCESSO DECISIVO (20 CRÍTICO)!</span>
-              <span class="fumble-badge" *ngIf="r.isFumble">💀 FALHA CRÍTICA (1 NATURAL)!</span>
+              <span class="crit-badge flex items-center gap-1" *ngIf="r.isCritical">
+                <game-icon name="sparkles" [size]="12"></game-icon> SUCESSO DECISIVO (20 CRÍTICO)!
+              </span>
+              <span class="fumble-badge flex items-center gap-1" *ngIf="r.isFumble">
+                <game-icon name="skull" [size]="12"></game-icon> FALHA CRÍTICA (1 NATURAL)!
+              </span>
             </div>
           </div>
 
@@ -525,31 +554,31 @@
           <!-- Visual Dice Grid -->
           <div class="dice-grid">
             <button class="dice-btn d20" (click)="roll(20)">
-              <span class="dice-icon">⬡</span>
+              <span class="dice-icon"><game-icon name="d20" [size]="18"></game-icon></span>
               <span class="dice-name">D20</span>
             </button>
             <button class="dice-btn d12" (click)="roll(12)">
-              <span class="dice-icon">⬢</span>
+              <span class="dice-icon"><game-icon name="dice" [size]="18"></game-icon></span>
               <span class="dice-name">D12</span>
             </button>
             <button class="dice-btn d10" (click)="roll(10)">
-              <span class="dice-icon">◈</span>
+              <span class="dice-icon"><game-icon name="dice" [size]="18"></game-icon></span>
               <span class="dice-name">D10</span>
             </button>
             <button class="dice-btn d8" (click)="roll(8)">
-              <span class="dice-icon">◇</span>
+              <span class="dice-icon"><game-icon name="dice" [size]="18"></game-icon></span>
               <span class="dice-name">D8</span>
             </button>
             <button class="dice-btn d6" (click)="roll(6)">
-              <span class="dice-icon">▢</span>
+              <span class="dice-icon"><game-icon name="dice" [size]="18"></game-icon></span>
               <span class="dice-name">D6</span>
             </button>
             <button class="dice-btn d4" (click)="roll(4)">
-              <span class="dice-icon">▲</span>
+              <span class="dice-icon"><game-icon name="dice" [size]="18"></game-icon></span>
               <span class="dice-name">D4</span>
             </button>
             <button class="dice-btn d100" (click)="roll(100)">
-              <span class="dice-icon">⚪</span>
+              <span class="dice-icon"><game-icon name="dice" [size]="18"></game-icon></span>
               <span class="dice-name">D100%</span>
             </button>
           </div>
@@ -578,12 +607,14 @@
       <!-- TAB 5: CONFIGURAÇÕES -->
       <section class="tab-section settings-section" *ngIf="activeTab === 'settings'">
         <div class="settings-panel">
-          <h4 class="section-title font-rpg">⚙️ Configurações</h4>
+          <h4 class="section-title font-rpg"><game-icon name="settings" [size]="14"></game-icon> Configurações</h4>
 
           <!-- Audio & SFX -->
           <div class="setting-item">
             <div class="setting-info">
-              <span class="setting-title">🔊 Efeitos Sonoros 8-Bit</span>
+              <span class="setting-title flex items-center gap-1.5">
+                <game-icon name="game-icons:sound-waves" [size]="14"></game-icon> Efeitos Sonoros 8-Bit
+              </span>
               <span class="setting-desc">Áudio retro de rolagem e cliques</span>
             </div>
             <button
@@ -599,7 +630,9 @@
           <!-- CRT Scanlines -->
           <div class="setting-item">
             <div class="setting-info">
-              <span class="setting-title">📺 Scanlines CRT Retro</span>
+              <span class="setting-title flex items-center gap-1.5">
+                <game-icon name="game-icons:retro-controller" [size]="14"></game-icon> Scanlines CRT Retro
+              </span>
               <span class="setting-desc">Filtro visual de arcade/CRT</span>
             </div>
             <button
@@ -616,7 +649,9 @@
           <!-- Master Profile Info -->
           <div class="setting-item col profile-box">
             <div class="setting-info">
-              <span class="setting-title">👑 Perfil do Mestre</span>
+              <span class="setting-title flex items-center gap-1.5">
+                <game-icon name="crown" [size]="14" color="#f1c40f"></game-icon> Perfil do Mestre
+              </span>
             </div>
             <div class="profile-details">
               <div class="profile-row">
@@ -637,7 +672,9 @@
           <!-- Danger / Maintenance Zone -->
           <div class="setting-item col danger-box">
             <div class="setting-info">
-              <span class="setting-title">🧹 Manutenção Local</span>
+              <span class="setting-title flex items-center gap-1.5">
+                <game-icon name="game-icons:broom" [size]="14"></game-icon> Manutenção Local
+              </span>
             </div>
             <div class="danger-actions">
               <button type="button" class="danger-btn" (click)="masterTools.clearAllRecentRooms()">
@@ -657,7 +694,7 @@
   <!-- Modal: Criar Nova Campanha (Acessível de qualquer lugar) -->
   <app-modal
     [isOpen]="isCreateModalOpen()"
-    title="👑 Criar Nova Campanha de RPG"
+    title="Criar Nova Campanha de RPG"
     maxWidth="560px"
     (close)="isCreateModalOpen.set(false)"
   >
@@ -697,7 +734,7 @@
           Cancelar
         </button>
         <button type="submit" class="btn-primary" [disabled]="createPartyMutation.isPending()">
-          {{ createPartyMutation.isPending() ? 'Criando...' : '✨ Criar Campanha' }}
+          {{ createPartyMutation.isPending() ? 'Criando...' : 'Criar Campanha' }}
         </button>
       </div>
     </form>
@@ -706,7 +743,7 @@
   <!-- Modal: Editor de Anotação do Mestre -->
   <app-modal
     [isOpen]="isNoteEditorOpen()"
-    [title]="editingNoteId() ? '✏️ Editar Anotação Secreta' : '📜 Nova Anotação do Mestre'"
+    [title]="editingNoteId() ? 'Editar Anotação Secreta' : 'Nova Anotação do Mestre'"
     maxWidth="520px"
     (close)="isNoteEditorOpen.set(false)"
   >
@@ -725,11 +762,11 @@
       <div class="form-group">
         <label>Categoria:</label>
         <select [(ngModel)]="noteForm.category" name="noteCat">
-          <option value="plot">📜 Enredo & Roteiro</option>
-          <option value="npc">👤 NPC / Monstro</option>
-          <option value="secret">🗝️ Segredo / Pista</option>
-          <option value="loot">💎 Tesouro / Recompensa</option>
-          <option value="general">📝 Geral</option>
+          <option value="plot">Enredo & Roteiro</option>
+          <option value="npc">NPC / Monstro</option>
+          <option value="secret">Segredo / Pista</option>
+          <option value="loot">Tesouro / Recompensa</option>
+          <option value="general">Geral</option>
         </select>
       </div>
 
@@ -749,7 +786,7 @@
           Cancelar
         </button>
         <button type="submit" class="btn-primary">
-          💾 Salvar Anotação
+          <game-icon name="save" [size]="14"></game-icon> Salvar Anotação
         </button>
       </div>
     </form>

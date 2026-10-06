@@ -2,22 +2,25 @@ import { Component, Input, Output, EventEmitter, signal, OnChanges, SimpleChange
 import { CommonModule } from '@angular/common';
 import * as QRCode from 'qrcode';
 import { DialogComponent } from './dialog.component';
+import { GameIconComponent } from '../game-icon/game-icon.component';
 
 @Component({
   selector: 'app-qr-code-modal',
   standalone: true,
-  imports: [CommonModule, DialogComponent],
+  imports: [CommonModule, DialogComponent, GameIconComponent],
   template: `
     <app-modal
       [isOpen]="isOpen"
-      title="📱 QR CODE DE CONVITE DA SALA"
+      title="QR CODE DE CONVITE DA SALA"
       maxWidth="500px"
       (close)="close.emit()"
     >
       <div class="qr-modal-content">
         <!-- Room Title & Theme -->
         <div class="qr-header-info">
-          <span class="theme-badge">🏰 SALA: {{ roomCode }}</span>
+          <span class="theme-badge">
+            <game-icon name="castle" [size]="12"></game-icon> SALA: {{ roomCode }}
+          </span>
           <h3 class="room-name">{{ roomTitle || 'Campanha de RPG' }}</h3>
         </div>
 
@@ -33,8 +36,9 @@ import { DialogComponent } from './dialog.component';
         </div>
 
         <!-- Scan Prompt -->
-        <p class="scan-prompt">
-          📷 <strong>Aponte a câmera do celular</strong> para entrar instantaneamente na mesa e criar seu personagem!
+        <p class="scan-prompt flex items-center justify-center gap-1.5">
+          <game-icon name="camera" [size]="14"></game-icon>
+          <span><strong>Aponte a câmera do celular</strong> para entrar instantaneamente na mesa e criar seu personagem!</span>
         </p>
 
         <!-- Room Code & URL Box -->
@@ -43,13 +47,21 @@ import { DialogComponent } from './dialog.component';
             <span class="lbl">CÓDIGO:</span>
             <strong class="val-code">{{ roomCode }}</strong>
             <button class="copy-mini-btn" (click)="copyCode()">
-              {{ codeCopied() ? 'Copiado! ✅' : 'Copiar' }}
+              @if (codeCopied()) {
+                <game-icon name="check" [size]="11"></game-icon> Copiado!
+              } @else {
+                Copiar
+              }
             </button>
           </div>
           <div class="info-row url-row">
             <span class="url-text">{{ inviteUrl }}</span>
             <button class="copy-mini-btn" (click)="copyUrl()">
-              {{ urlCopied() ? 'Copiado! ✅' : 'Copiar Link' }}
+              @if (urlCopied()) {
+                <game-icon name="check" [size]="11"></game-icon> Copiado!
+              } @else {
+                Copiar Link
+              }
             </button>
           </div>
         </div>
@@ -62,7 +74,7 @@ import { DialogComponent } from './dialog.component';
               [download]="'rpg_qrcode_' + roomCode + '.png'"
               class="btn-download"
             >
-              💾 Baixar QR Code
+              <game-icon name="save" [size]="14"></game-icon> Baixar QR Code
             </a>
           }
           <button type="button" class="btn-close" (click)="close.emit()">

@@ -122,14 +122,14 @@ export class MasterToolsService {
     return [
       {
         id: 'default_1',
-        title: '💀 Encontro com Emboscada',
+        title: 'Encontro com Emboscada',
         content: '3 Goblins arqueiros escondidos nas árvores (CA 13, HP 7 cada). O líder possui um pergaminho arcano com símbolos desconhecidos.',
         category: 'plot',
         updatedAt: Date.now(),
       },
       {
         id: 'default_2',
-        title: '🗝️ Segredo da Masmorra',
+        title: 'Segredo da Masmorra',
         content: 'A tocha de ferro na parede leste aciona uma passagem secreta que leva ao baú contendo a Espada Rúnica.',
         category: 'secret',
         updatedAt: Date.now(),

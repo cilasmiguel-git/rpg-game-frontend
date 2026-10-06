@@ -7,11 +7,12 @@ import { ApiConfig } from './core/config/api.config';
 import { MasterSidebarComponent } from './shared/components/master-sidebar/master-sidebar.component';
 import { PartySidebarComponent } from './features/game-session/components/party-sidebar/party-sidebar.component';
 import { GameSessionService } from './core/services/game-session.service';
+import { GameIconComponent } from './shared/components/game-icon/game-icon.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, MasterSidebarComponent, PartySidebarComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, MasterSidebarComponent, PartySidebarComponent, GameIconComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

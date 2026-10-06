@@ -2,11 +2,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Phase } from '../../../../data/schemas/phase.schema';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
+import { GameIconComponent } from '../../../../shared/components/game-icon/game-icon.component';
 
 @Component({
   selector: 'app-phase-narrative',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, GameIconComponent],
   template: `
     <div class="narrative-modal-card">
       @if (phase) {
@@ -19,20 +20,24 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 
         <div class="content-body">
           <div class="narration-box">
-            <h4 class="section-label">📜 Narração do Cenário (IA)</h4>
+            <h4 class="section-label flex items-center gap-1.5">
+              <game-icon name="scroll" [size]="14"></game-icon> Narração do Cenário (IA)
+            </h4>
             <p class="narration-p">"{{ phase.formattedNarration }}"</p>
           </div>
 
           @if (phase.aiAtmosphere) {
             <div class="atmosphere-box">
-              <span class="atmosphere-icon">🕯️</span>
+              <span class="atmosphere-icon"><game-icon name="game-icons:candle-flame" [size]="14"></game-icon></span>
               <span class="atmosphere-text"><strong>Atmosfera Sensorial:</strong> {{ phase.aiAtmosphere }}</span>
             </div>
           }
 
           @if (phase.suggestedHooks && phase.suggestedHooks.length > 0) {
             <div class="hooks-box">
-              <h4 class="section-label">🎯 Ações e Ganchos Táticos Recomendados</h4>
+              <h4 class="section-label flex items-center gap-1.5">
+                <game-icon name="game-icons:target-arrows" [size]="14"></game-icon> Ações e Ganchos Táticos Recomendados
+              </h4>
               <div class="hooks-grid">
                 @for (hook of phase.suggestedHooks; track $index) {
                   <div class="hook-card">
@@ -46,7 +51,9 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 
           @if (isMaster) {
             <div class="master-tools">
-              <h4 class="section-label">👑 Painel do Mestre</h4>
+              <h4 class="section-label flex items-center gap-1.5">
+                <game-icon name="crown" [size]="14" color="#f1c40f"></game-icon> Painel do Mestre
+              </h4>
               <div class="master-notes-preview">
                 <strong>Suas Anotações:</strong> {{ phase.masterNotes }}
               </div>
@@ -57,14 +64,14 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
                   [loading]="isGeneratingImage"
                   (onClick)="onGenerateImage.emit(phase.id)"
                 >
-                  🎨 Regenerar Ilustração IA
+                  <game-icon name="game-icons:palette" [size]="14"></game-icon> Regenerar Ilustração IA
                 </app-button>
                 <app-button
                   variant="primary"
                   size="sm"
                   (onClick)="onAdvancePhase.emit()"
                 >
-                  ⏩ Avançar para Nova Fase
+                  <game-icon name="game-icons:fast-forward-button" [size]="14"></game-icon> Avançar para Nova Fase
                 </app-button>
               </div>
             </div>

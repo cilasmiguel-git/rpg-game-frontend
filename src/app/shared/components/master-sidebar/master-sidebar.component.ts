@@ -9,11 +9,12 @@ import { StorageService } from '../../../core/services/storage.service';
 import { GameSessionService } from '../../../core/services/game-session.service';
 import { DialogComponent } from '../ui/dialog.component';
 import { CreatePartyInput } from '../../../data/schemas/party.schema';
+import { GameIconComponent } from '../game-icon/game-icon.component';
 
 @Component({
   selector: 'app-master-sidebar',
   standalone: true,
-  imports: [CommonModule, FormsModule, DialogComponent],
+  imports: [CommonModule, FormsModule, DialogComponent, GameIconComponent],
   templateUrl: './master-sidebar.component.html',
   styleUrls: ['./master-sidebar.component.scss'],
 })

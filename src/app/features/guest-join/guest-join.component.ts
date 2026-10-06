@@ -14,6 +14,7 @@ import {
   CardContentComponent,
   BadgeComponent,
 } from '../../shared/components/ui';
+import { GameIconComponent } from '../../shared/components/game-icon/game-icon.component';
 
 type PlayerJoinMode = 'register' | 'login' | 'guest';
 
@@ -30,12 +31,15 @@ type PlayerJoinMode = 'register' | 'login' | 'guest';
     CardDescriptionComponent,
     CardContentComponent,
     BadgeComponent,
+    GameIconComponent,
   ],
   template: `
     <div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-[#110f0c]">
       <ui-card customClass="w-full max-w-md border-[#3a322a] bg-[#1a1612]/95 backdrop-blur-md shadow-2xl shadow-black">
         <ui-card-header customClass="text-center items-center pb-2">
-          <div class="text-4xl mb-1 filter drop-shadow-[0_0_12px_rgba(197,160,89,0.4)]">📜✉️</div>
+          <div class="mb-2 filter drop-shadow-[0_0_12px_rgba(197,160,89,0.4)]">
+            <game-icon name="scroll" [size]="40" color="#c5a059"></game-icon>
+          </div>
           
           <ui-badge variant="gold" customClass="mb-2">Convite Para Campanha</ui-badge>
 
@@ -94,8 +98,9 @@ type PlayerJoinMode = 'register' | 'login' | 'guest';
           </div>
 
           @if (errorMessage()) {
-            <div class="bg-[#8b0000]/20 border border-[#8b0000]/60 text-[#fca5a5] text-xs p-3 rounded font-body shadow-inner shadow-black">
-              ⚠️ {{ errorMessage() }}
+            <div class="bg-[#8b0000]/20 border border-[#8b0000]/60 text-[#fca5a5] text-xs p-3 rounded font-body shadow-inner shadow-black flex items-center gap-2">
+              <game-icon name="shield" [size]="14" color="#fca5a5"></game-icon>
+              <span>{{ errorMessage() }}</span>
             </div>
           }
 
@@ -149,9 +154,12 @@ type PlayerJoinMode = 'register' | 'login' | 'guest';
                 [fullWidth]="true"
                 [loading]="isSubmitting()"
               >
-                @if (mode() === 'register') { ⚔️ Criar conta e entrar }
-                @else if (mode() === 'login') { ⚔️ Entrar na sala }
-                @else { ⚔️ Ingressar como convidado }
+                <div class="flex items-center justify-center gap-2">
+                  <game-icon name="swords" [size]="16"></game-icon>
+                  @if (mode() === 'register') { <span>Criar conta e entrar</span> }
+                  @else if (mode() === 'login') { <span>Entrar na sala</span> }
+                  @else { <span>Ingressar como convidado</span> }
+                </div>
               </app-button>
             </div>
           </form>

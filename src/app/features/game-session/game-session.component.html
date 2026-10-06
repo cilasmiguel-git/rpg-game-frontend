@@ -15,19 +15,19 @@
     <div class="dice-bar">
       <span class="dice-label">Dados:</span>
       <button class="dice-btn d20" (click)="rollDice(20)" title="Rolar D20">
-        🎲 D20
+        <game-icon name="d20" [size]="15"></game-icon> D20
       </button>
       <button class="dice-btn" (click)="rollDice(12)" title="Rolar D12">
-        D12
+        <game-icon name="dice" [size]="14"></game-icon> D12
       </button>
       <button class="dice-btn" (click)="rollDice(8)" title="Rolar D8">
-        D8
+        <game-icon name="dice" [size]="14"></game-icon> D8
       </button>
       <button class="dice-btn" (click)="rollDice(6)" title="Rolar D6">
-        D6
+        <game-icon name="dice" [size]="14"></game-icon> D6
       </button>
       <button class="dice-btn" (click)="rollDice(100)" title="Rolar D100">
-        D100
+        <game-icon name="dice" [size]="14"></game-icon> D100
       </button>
 
       @if (lastDiceRoll(); as roll) {
@@ -42,43 +42,29 @@
     <!-- Topbar Actions -->
     <div class="topbar-actions">
       @if (currentPhase()) {
-        <button class="lore-view-btn" (click)="isLoreModalOpen.set(true)">
-          📜 Ver Narração IA
+        <button class="lore-view-btn flex items-center gap-1.5" (click)="isLoreModalOpen.set(true)">
+          <game-icon name="scroll" [size]="15"></game-icon> Ver Narração IA
         </button>
       }
       @if (isMaster) {
-        <button class="master-phase-btn" (click)="openPhaseModal()">
-          ✨ Nova Fase (IA)
+        <button class="master-phase-btn flex items-center gap-1.5" (click)="openPhaseModal()">
+          <game-icon name="sparkles" [size]="15"></game-icon> Nova Fase (IA)
         </button>
       }
     </div>
   </header>
 
-  <!-- Main Playing Area: Grid + Sidebar -->
+  <!-- Main Playing Area: Battlemap Grid -->
   <div class="session-body">
-    <!-- Main Left: Battlemap + Logs -->
     <main class="battlemap-area">
       <app-battlemap-grid></app-battlemap-grid>
-
-      <!-- Combat & Session Activity Log -->
-      <div class="session-log-card">
-        <div class="log-header">
-          <span class="log-title">📜 Registro de Ações & Batalha</span>
-          <span class="log-count">{{ sessionLog().length }} eventos</span>
-        </div>
-        <div class="log-entries">
-          @for (log of sessionLog(); track $index) {
-            <div class="log-line">{{ log }}</div>
-          }
-        </div>
-      </div>
     </main>
   </div>
 
   <!-- Modal: Criar Nova Fase com IA (Apenas Mestre) -->
   <app-modal
     [isOpen]="isPhaseModalOpen()"
-    title="👑 Criar Nova Fase com Narração e Imagem de IA"
+    title="Criar Nova Fase com Narração e Imagem de IA"
     maxWidth="650px"
     (close)="isPhaseModalOpen.set(false)"
   >
@@ -104,7 +90,7 @@
           required
         ></textarea>
         <small class="helper-text">
-          💡 A IA preservará seus acontecimentos e aplicará o tom do tema escolhido.
+          A IA preservará seus acontecimentos e aplicará o tom do tema escolhido.
         </small>
       </div>
 
@@ -132,7 +118,7 @@
           type="submit"
           [loading]="createPhaseMutation.isPending()"
         >
-          ✨ Criar e Narrar Fase
+          <game-icon name="sparkles" [size]="15"></game-icon> Criar e Narrar Fase
         </app-button>
       </div>
     </form>
@@ -141,7 +127,7 @@
   <!-- Modal: Visualizador Completo de Lore e Imagem da Fase Atual -->
   <app-modal
     [isOpen]="isLoreModalOpen()"
-    title="📜 Cena & Narração Atual"
+    title="Cena & Narração Atual"
     maxWidth="750px"
     (close)="isLoreModalOpen.set(false)"
   >

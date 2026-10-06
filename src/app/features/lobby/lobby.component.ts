@@ -9,11 +9,12 @@ import { MasterToolsService } from '../../core/services/master-tools.service';
 import { ButtonComponent, BadgeComponent, CardComponent, DialogComponent, QrCodeModalComponent } from '../../shared/components/ui';
 import { Character } from '../../data/schemas/character.schema';
 import { CreatePartyInput } from '../../data/schemas/party.schema';
+import { GameIconComponent } from '../../shared/components/game-icon/game-icon.component';
 
 @Component({
   selector: 'app-lobby',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonComponent, DialogComponent, QrCodeModalComponent],
+  imports: [CommonModule, FormsModule, ButtonComponent, DialogComponent, QrCodeModalComponent, GameIconComponent],
   template: `
     <div class="lobby-page">
       <div class="lobby-container">
@@ -26,7 +27,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
               [class.active]="masterTools.activeTab() === 'parties'"
               (click)="masterTools.setActiveTab('parties')"
             >
-              <span class="pill-icon">🏰</span>
+              <span class="pill-icon"><game-icon name="castle" [size]="16"></game-icon></span>
               <span class="pill-label">Salas & Campanhas</span>
             </button>
             <button
@@ -35,7 +36,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
               [class.active]="masterTools.activeTab() === 'settings'"
               (click)="masterTools.setActiveTab('settings')"
             >
-              <span class="pill-icon">⚙️</span>
+              <span class="pill-icon"><game-icon name="settings" [size]="16"></game-icon></span>
               <span class="pill-label">Configurações do Sistema</span>
             </button>
           </div>
@@ -46,7 +47,10 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
           <!-- Top Status & Actions Header -->
           <div class="lobby-header-card">
             <div class="header-left">
-              <span class="theme-pill">⚔️ {{ party()?.themeTitle || party()?.themeKey || 'RPG Party' }}</span>
+              <span class="theme-pill flex items-center gap-1.5">
+                <game-icon name="crossed-swords" [size]="13"></game-icon>
+                {{ party()?.themeTitle || party()?.themeKey || 'RPG Party' }}
+              </span>
               <h1 class="party-title">{{ party()?.title || 'Sala de Espera do RPG' }}</h1>
               <p class="party-desc">{{ party()?.description || 'Aguarde os aventureiros entrarem e ficarem prontos.' }}</p>
             </div>
@@ -58,15 +62,21 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                   <div class="flex items-center gap-2">
                     <div class="code-copy-row" (click)="copyPartyCode()">
                       <span class="party-code">{{ party()?.code }}</span>
-                      <button class="copy-btn">{{ codeCopied() ? 'Copiado! ✅' : 'Copiar 📋' }}</button>
+                      <button class="copy-btn">
+                        @if (codeCopied()) {
+                          <game-icon name="check" [size]="12"></game-icon> Copiado!
+                        } @else {
+                          <game-icon name="scroll" [size]="12"></game-icon> Copiar
+                        }
+                      </button>
                     </div>
                     <button
                       type="button"
-                      class="qr-header-btn"
+                      class="qr-header-btn flex items-center gap-1"
                       (click)="isQrModalOpen.set(true)"
                       title="Exibir QR Code para Celular"
                     >
-                      📱 QR Code
+                      <game-icon name="camera" [size]="14"></game-icon> QR Code
                     </button>
                   </div>
                 </div>
@@ -75,7 +85,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
               <div class="action-buttons">
                 @if (isMaster) {
                   <app-button variant="secondary" size="md" (onClick)="isCreatePartyModalOpen.set(true)">
-                    ➕ Nova Sala
+                    <game-icon name="plus" [size]="14"></game-icon> Nova Sala
                   </app-button>
                   <app-button
                     variant="primary"
@@ -83,7 +93,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                     [disabled]="!party()?.code"
                     (onClick)="startAdventure()"
                   >
-                    🚀 Iniciar Aventura
+                    <game-icon name="spear-feather" [size]="14"></game-icon> Iniciar Aventura
                   </app-button>
                 } @else {
                   <app-button
@@ -92,7 +102,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                     [disabled]="!party()?.code"
                     (onClick)="goToGame()"
                   >
-                    🗺️ Ir para o Battlemap
+                    <game-icon name="treasure-map" [size]="14"></game-icon> Ir para o Battlemap
                   </app-button>
                 }
               </div>
@@ -102,7 +112,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
           @if (party()?.code && isMaster) {
             <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3 shadow-lg">
               <div class="flex items-center gap-3">
-                <span class="text-2xl">🔗</span>
+                <game-icon name="link" [size]="24" color="#f59e0b"></game-icon>
                 <div>
                   <div class="text-sm font-bold text-amber-300 font-rpg">Link Customizado & QR Code Para os Jogadores</div>
                   <div class="text-xs text-muted-foreground font-mono select-all mt-0.5">{{ getInviteLink() }}</div>
@@ -111,10 +121,14 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
               </div>
               <div class="flex items-center gap-2">
                 <app-button variant="secondary" size="sm" (onClick)="isQrModalOpen.set(true)">
-                  📱 Ver QR Code
+                  <game-icon name="camera" [size]="13"></game-icon> Ver QR Code
                 </app-button>
                 <app-button variant="primary" size="sm" (onClick)="copyInviteLink()">
-                  {{ linkCopied() ? 'Link Copiado! ✅' : 'Copiar Link Customizado 📋' }}
+                  @if (linkCopied()) {
+                    <game-icon name="check" [size]="12"></game-icon> Link Copiado!
+                  } @else {
+                    <game-icon name="scroll" [size]="12"></game-icon> Copiar Link Customizado
+                  }
                 </app-button>
               </div>
             </div>
@@ -124,11 +138,13 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
             <div class="my-parties-card">
               <div class="flex items-center justify-between mb-4">
                 <div>
-                  <h2 class="text-xl font-bold font-rpg text-amber-400">👑 Suas Campanhas Criadas ({{ myParties().length }})</h2>
+                  <h2 class="text-xl font-bold font-rpg text-amber-400 flex items-center gap-2">
+                    <game-icon name="crown" [size]="18" color="#f1c40f"></game-icon> Suas Campanhas Criadas ({{ myParties().length }})
+                  </h2>
                   <p class="text-xs text-muted-foreground">Selecione uma das suas salas para gerenciar os heróis e iniciar a aventura:</p>
                 </div>
                 <app-button variant="primary" size="sm" (onClick)="isCreatePartyModalOpen.set(true)">
-                  ➕ Nova Sala
+                  <game-icon name="plus" [size]="13"></game-icon> Nova Sala
                 </app-button>
               </div>
 
@@ -141,8 +157,8 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                   >
                     <div>
                       <div class="flex items-center justify-between gap-2 mb-2">
-                        <span class="text-[11px] font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
-                          ⚔️ {{ p.themeTitle || p.themeKey }}
+                        <span class="text-[11px] font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 flex items-center gap-1">
+                          <game-icon name="crossed-swords" [size]="11"></game-icon> {{ p.themeTitle || p.themeKey }}
                         </span>
                         <span
                           class="text-[10px] font-semibold px-2 py-0.5 rounded-full"
@@ -159,7 +175,9 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
 
                     <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-xs">
                       <span class="font-mono text-amber-300 font-bold tracking-wider">Código: {{ p.code }}</span>
-                      <span class="text-slate-400">👥 {{ p.characters?.length || 0 }} heróis</span>
+                      <span class="text-slate-400 flex items-center gap-1">
+                        <game-icon name="users" [size]="12"></game-icon> {{ p.characters?.length || 0 }} heróis
+                      </span>
                     </div>
                   </div>
                 }
@@ -168,11 +186,11 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
           } @else if (!party()?.code && isMaster) {
             <!-- Master without party banner -->
             <div class="no-party-card">
-              <div class="empty-icon">🏰</div>
+              <div class="empty-icon"><game-icon name="castle" [size]="48" color="#475569"></game-icon></div>
               <h2>Você ainda não criou uma sala ativa</h2>
               <p>Crie uma sala de RPG, escolha a temática (Fantasia Sombria, Cyberpunk, Terror) e compartilhe o código com seus amigos!</p>
               <app-button variant="primary" size="lg" (onClick)="isCreatePartyModalOpen.set(true)">
-                ✨ Criar Primeira Sala
+                <game-icon name="sparkles" [size]="14"></game-icon> Criar Primeira Sala
               </app-button>
             </div>
           }
@@ -191,7 +209,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                   size="sm"
                   (onClick)="goToCharacterCreator()"
                 >
-                  🧙‍♂️ Criar Novo Herói
+                  <game-icon name="wizard" [size]="14"></game-icon> Criar Novo Herói
                 </app-button>
               </div>
             </div>
@@ -212,7 +230,11 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                       <span class="hero-player">Jogador: <strong>{{ char.playerName }}</strong></span>
                     </div>
                     <div class="ready-tag" [class.is-ready]="char.isReady">
-                      {{ char.isReady ? '✔ PRONTO' : '⏳ PREPARANDO' }}
+                      @if (char.isReady) {
+                        <game-icon name="check" [size]="10"></game-icon> PRONTO
+                      } @else {
+                        <game-icon name="hourglass" [size]="10"></game-icon> PREPARANDO
+                      }
                     </div>
                   </div>
 
@@ -260,7 +282,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                 <div class="no-heroes-card">
                   <p>Nenhum personagem foi criado ainda.</p>
                   <app-button variant="primary" size="md" (onClick)="goToCharacterCreator()">
-                    🧙‍♂️ Criar Primeiro Herói
+                    <game-icon name="wizard" [size]="14"></game-icon> Criar Primeiro Herói
                   </app-button>
                 </div>
               }
@@ -272,7 +294,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
         @if (masterTools.activeTab() === 'settings' && isMaster) {
           <div class="central-settings-container">
             <div class="settings-header-card">
-              <div class="icon">⚙️</div>
+              <div class="icon"><game-icon name="settings" [size]="24"></game-icon></div>
               <div>
                 <h1 class="settings-page-title">Painel de Configurações do Sistema</h1>
                 <p class="settings-page-desc">Personalize o comportamento do áudio retro, efeitos visuais 8-bit e o motor gráfico da sua mesa.</p>
@@ -282,7 +304,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
             <div class="settings-grid">
               <!-- Card 1: Áudio & Efeitos Sonoros -->
               <div class="central-setting-card">
-                <div class="card-icon">🔊</div>
+                <div class="card-icon"><game-icon name="game-icons:sound-waves" [size]="24"></game-icon></div>
                 <div class="card-content">
                   <h3 class="setting-title">Efeitos Sonoros 8-Bit</h3>
                   <p class="setting-desc">Toca efeitos sonoros sintetizados estilo chiptune ao rolar dados e executar ações táticas.</p>
@@ -301,7 +323,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
 
               <!-- Card 2: Filtro CRT Scanlines -->
               <div class="central-setting-card">
-                <div class="card-icon">📺</div>
+                <div class="card-icon"><game-icon name="game-icons:retro-controller" [size]="24"></game-icon></div>
                 <div class="card-content">
                   <h3 class="setting-title">Scanlines CRT Retrô</h3>
                   <p class="setting-desc">Aplica uma textura suave de linhas de varredura CRT sobre a interface para a autêntica sensação de TV arcade dos anos 90.</p>
@@ -318,11 +340,9 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
                 </div>
               </div>
 
-
-
               <!-- Card 4: Perfil do Mestre & Permissões -->
               <div class="central-setting-card wide profile-card">
-                <div class="card-icon">👑</div>
+                <div class="card-icon"><game-icon name="crown" [size]="24" color="#f1c40f"></game-icon></div>
                 <div class="card-content">
                   <h3 class="setting-title">Credenciais da Mesa</h3>
                   <p class="setting-desc">Informações da sessão ativa e autenticação do Mestre no MongoDB Atlas.</p>
@@ -345,7 +365,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
 
               <!-- Card 5: Limpeza e Manutenção -->
               <div class="central-setting-card wide danger-card">
-                <div class="card-icon">🧹</div>
+                <div class="card-icon"><game-icon name="game-icons:broom" [size]="24"></game-icon></div>
                 <div class="card-content">
                   <h3 class="setting-title">Manutenção Local & Cache</h3>
                   <p class="setting-desc">Limpe histórico de salas recentes ou rolagens de dados armazenadas localmente no navegador.</p>
@@ -376,7 +396,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
       <!-- Modal de Criação de Sala pelo Mestre -->
       <app-modal
         [isOpen]="isCreatePartyModalOpen()"
-        title="👑 Criar Nova Campanha de RPG"
+        title="Criar Nova Campanha de RPG"
         maxWidth="600px"
         (close)="isCreatePartyModalOpen.set(false)"
       >
@@ -426,7 +446,7 @@ import { CreatePartyInput } from '../../data/schemas/party.schema';
               Cancelar
             </app-button>
             <app-button variant="primary" type="submit" [loading]="createPartyMutation.isPending()">
-              ✨ Criar Sala
+              <game-icon name="sparkles" [size]="14"></game-icon> Criar Sala
             </app-button>
           </div>
         </form>

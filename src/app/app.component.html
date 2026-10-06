@@ -9,7 +9,9 @@
     <header class="app-navbar">
       <div class="navbar-brand">
         <a routerLink="/lobby" class="brand-link">
-          <span class="brand-icon">🛡️⚔️</span>
+          <span class="brand-icon">
+            <game-icon name="crossed-swords" [size]="22" color="#f1c40f"></game-icon>
+          </span>
           <div class="brand-text">
             <span class="brand-title">RPG BATTLEMAP</span>
             <span class="brand-subtitle">Party & Lore AI</span>
@@ -22,12 +24,16 @@
         @if (currentUser(); as user) {
           <div class="user-pill">
             <span class="role-tag" [class.master]="user.role === 'MASTER'">
-              {{ user.role === 'MASTER' ? '👑 Mestre' : '🎲 Jogador' }}
+              @if (user.role === 'MASTER') {
+                <game-icon name="crown" [size]="12" color="#f1c40f"></game-icon> Mestre
+              } @else {
+                <game-icon name="dice" [size]="12"></game-icon> Jogador
+              }
             </span>
             <span class="user-name">{{ user.username || user.playerName || 'Aventureiro' }}</span>
           </div>
           <button class="logout-btn" (click)="logout()" title="Sair da sessão">
-            🚪 Sair
+            <game-icon name="logout" [size]="14"></game-icon> Sair
           </button>
         } @else {
           <a routerLink="/auth" class="login-link">Entrar</a>

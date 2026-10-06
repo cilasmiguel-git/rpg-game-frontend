@@ -8,6 +8,7 @@ import { Phase } from '../../../../data/schemas/phase.schema';
 import { StorageService } from '../../../../core/services/storage.service';
 import { GameSessionService } from '../../../../core/services/game-session.service';
 import { QrCodeModalComponent } from '../../../../shared/components/ui';
+import { GameIconComponent } from '../../../../shared/components/game-icon/game-icon.component';
 
 export interface ChatMessage {
   id: string;
@@ -22,19 +23,28 @@ export interface ChatMessage {
 @Component({
   selector: 'app-party-sidebar',
   standalone: true,
-  imports: [CommonModule, FormsModule, QrCodeModalComponent],
+  imports: [CommonModule, FormsModule, QrCodeModalComponent, GameIconComponent],
   template: `
     <aside class="sidebar-container">
       <!-- 1. Cabeçalho da Mesa (64px de altura para alinhar com o Header) -->
       <div class="party-header">
         <div class="party-title-group">
-          <span class="theme-tag">🏰 {{ activeParty()?.themeTitle || activeParty()?.themeKey || 'RPG' }}</span>
+          <span class="theme-tag flex items-center gap-1">
+            <game-icon name="castle" [size]="12"></game-icon>
+            {{ activeParty()?.themeTitle || activeParty()?.themeKey || 'RPG' }}
+          </span>
           <h2 class="title">{{ activeParty()?.title || 'Sessão de Jogo' }}</h2>
         </div>
         <div class="header-code-actions">
           <div class="code-pill" (click)="copyCode()" title="Clique para copiar código">
             <span>SALA: <strong>{{ activeParty()?.code }}</strong></span>
-            <button class="btn-icon">{{ copied() ? '✅' : '📋' }}</button>
+            <button class="btn-icon">
+              @if (copied()) {
+                <game-icon name="check" [size]="12"></game-icon>
+              } @else {
+                <game-icon name="scroll" [size]="12"></game-icon>
+              }
+            </button>
           </div>
           <button
             type="button"
@@ -42,7 +52,7 @@ export interface ChatMessage {
             (click)="isQrModalOpen.set(true)"
             title="Exibir QR Code para Celular"
           >
-            📱
+            <game-icon name="camera" [size]="14"></game-icon>
           </button>
         </div>
       </div>
@@ -55,7 +65,7 @@ export interface ChatMessage {
           [class.active]="activeTab() === 'jitsi'"
           (click)="activeTab.set('jitsi')"
         >
-          <span class="tab-icon">📹</span>
+          <span class="tab-icon"><game-icon name="game-icons:video-camera" [size]="14"></game-icon></span>
           <span class="tab-text">Chamada</span>
         </button>
 
@@ -65,7 +75,7 @@ export interface ChatMessage {
           [class.active]="activeTab() === 'chat'"
           (click)="activeTab.set('chat')"
         >
-          <span class="tab-icon">💬</span>
+          <span class="tab-icon"><game-icon name="game-icons:speech-bubble" [size]="14"></game-icon></span>
           <span class="tab-text">Chat</span>
           @if (unreadChatCount() > 0 && activeTab() !== 'chat') {
             <span class="unread-badge">{{ unreadChatCount() }}</span>
@@ -78,7 +88,7 @@ export interface ChatMessage {
           [class.active]="activeTab() === 'heroes'"
           (click)="activeTab.set('heroes')"
         >
-          <span class="tab-icon">👥</span>
+          <span class="tab-icon"><game-icon name="users" [size]="14"></game-icon></span>
           <span class="tab-text">Mesa ({{ activeCharacters().length }})</span>
         </button>
       </nav>
@@ -100,7 +110,7 @@ export interface ChatMessage {
                 (click)="reloadJitsi()"
                 title="Recarregar Chamada"
               >
-                🔄 Recarregar
+                <game-icon name="rotate" [size]="12"></game-icon> Recarregar
               </button>
               <a
                 class="jitsi-tool-btn popout"
@@ -109,7 +119,7 @@ export interface ChatMessage {
                 rel="noopener noreferrer"
                 title="Abrir em Nova Aba / Pop-out"
               >
-                ↗️ Pop-out
+                Pop-out
               </a>
             </div>
           </div>
@@ -133,7 +143,7 @@ export interface ChatMessage {
 
           <!-- Dica de microfone/câmera e WebRTC em HTTP -->
           <div class="jitsi-hint">
-            <small>💡 Se o navegador bloquear WebRTC via IP/HTTP, use o botão <strong>[ ↗️ Pop-out ]</strong> acima para abrir a câmera diretamente!</small>
+            <small>Se o navegador bloquear WebRTC via IP/HTTP, use o botão <strong>[ Pop-out ]</strong> acima para abrir a câmera diretamente!</small>
           </div>
         </div>
       }
@@ -146,8 +156,11 @@ export interface ChatMessage {
             @for (msg of chatMessages(); track msg.id) {
               <div class="chat-msg" [class.system]="msg.role === 'SYSTEM'" [class.master]="msg.role === 'MASTER'">
                 <div class="msg-header">
-                  <span class="msg-sender" [class.gold]="msg.role === 'MASTER'">
-                    {{ msg.role === 'MASTER' ? '👑 ' : '' }}{{ msg.sender }}
+                  <span class="msg-sender flex items-center gap-1" [class.gold]="msg.role === 'MASTER'">
+                    @if (msg.role === 'MASTER') {
+                      <game-icon name="crown" [size]="11" color="#f1c40f"></game-icon>
+                    }
+                    {{ msg.sender }}
                   </span>
                   <span class="msg-time">{{ msg.timestamp }}</span>
                 </div>
@@ -160,10 +173,18 @@ export interface ChatMessage {
 
           <!-- Chat Quick Actions (Dice & Emotes) -->
           <div class="chat-quick-actions">
-            <button class="quick-btn" (click)="sendQuickDice(20)" title="Rolar D20 no Chat">🎲 D20</button>
-            <button class="quick-btn" (click)="sendQuickDice(6)" title="Rolar D6 no Chat">🎲 D6</button>
-            <button class="quick-btn" (click)="sendQuickAction('🛡️ Entrou em postura de Defesa!')">🛡️ Defesa</button>
-            <button class="quick-btn" (click)="sendQuickAction('⚔️ Declarou Ataque contra o alvo!')">⚔️ Ataque</button>
+            <button class="quick-btn" (click)="sendQuickDice(20)" title="Rolar D20 no Chat">
+              <game-icon name="d20" [size]="12"></game-icon> D20
+            </button>
+            <button class="quick-btn" (click)="sendQuickDice(6)" title="Rolar D6 no Chat">
+              <game-icon name="dice" [size]="12"></game-icon> D6
+            </button>
+            <button class="quick-btn" (click)="sendQuickAction('Entrou em postura de Defesa!')">
+              <game-icon name="shield" [size]="12"></game-icon> Defesa
+            </button>
+            <button class="quick-btn" (click)="sendQuickAction('Declarou Ataque contra o alvo!')">
+              <game-icon name="swords" [size]="12"></game-icon> Ataque
+            </button>
           </div>
 
           <!-- Chat Input Row -->
@@ -227,7 +248,11 @@ export interface ChatMessage {
 
                 <!-- Status Pronto -->
                 <div class="ready-badge" [class.active]="char.isReady">
-                  {{ char.isReady ? '✔ PRONTO' : '⏳ ESPERA' }}
+                  @if (char.isReady) {
+                    <game-icon name="check" [size]="10"></game-icon> PRONTO
+                  } @else {
+                    <game-icon name="hourglass" [size]="10"></game-icon> ESPERA
+                  }
                 </div>
               </div>
             } @empty {
@@ -814,17 +839,9 @@ export class PartySidebarComponent {
   activeCharacters = computed(() => (this.characters && this.characters.length > 0) ? this.characters : this.gameSession.characters());
   selectedCharId = computed(() => this.selectedCharacterId || this.gameSession.selectedCharacter()?.id);
 
-  // Chat local state
+  // Chat state from GameSessionService
   chatInputText = '';
-  chatMessages = signal<ChatMessage[]>([
-    {
-      id: 'msg_init',
-      sender: 'Sistema RPG',
-      role: 'SYSTEM',
-      text: '⚔️ Chat da sessão e chamada Jitsi Meet integrados!',
-      timestamp: this.formatTime(),
-    },
-  ]);
+  chatMessages = computed(() => this.gameSession.chatMessages());
 
   get currentUser() {
     return this.storage.currentUser();
@@ -884,7 +901,7 @@ export class PartySidebarComponent {
       const diceParam = parts[1] || 'd20';
       const sides = parseInt(diceParam.replace('d', ''), 10) || 20;
       const roll = Math.floor(Math.random() * sides) + 1;
-      this.addMessage(this.displayName, `🎲 Rolou D${sides} e obteve [ ${roll} ]!`, this.isMaster ? 'MASTER' : 'PLAYER', true);
+      this.addMessage(this.displayName, `Rolou D${sides} e obteve [ ${roll} ]!`, this.isMaster ? 'MASTER' : 'PLAYER', true);
     } else {
       this.addMessage(this.displayName, text, this.isMaster ? 'MASTER' : 'PLAYER');
     }
@@ -894,7 +911,7 @@ export class PartySidebarComponent {
 
   sendQuickDice(sides: number) {
     const roll = Math.floor(Math.random() * sides) + 1;
-    this.addMessage(this.displayName, `🎲 Rolou D${sides}: resultado [ ${roll} ]!`, this.isMaster ? 'MASTER' : 'PLAYER', true);
+    this.addMessage(this.displayName, `Rolou D${sides}: resultado [ ${roll} ]!`, this.isMaster ? 'MASTER' : 'PLAYER', true);
   }
 
   sendQuickAction(actionText: string) {
@@ -902,23 +919,10 @@ export class PartySidebarComponent {
   }
 
   private addMessage(sender: string, text: string, role: 'MASTER' | 'PLAYER' | 'SYSTEM', isDice = false) {
-    const newMsg: ChatMessage = {
-      id: 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
-      sender,
-      role,
-      text,
-      timestamp: this.formatTime(),
-      isDice,
-    };
-    this.chatMessages.update((list) => [...list, newMsg]);
+    this.gameSession.addMessage(sender, text, role, isDice);
 
     if (this.activeTab() !== 'chat') {
       this.unreadChatCount.update((c) => c + 1);
     }
-  }
-
-  private formatTime(): string {
-    const now = new Date();
-    return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   }
 }

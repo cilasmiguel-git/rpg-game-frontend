@@ -12,6 +12,7 @@ import {
   CardDescriptionComponent,
   CardContentComponent,
 } from '../../shared/components/ui';
+import { GameIconComponent } from '../../shared/components/game-icon/game-icon.component';
 
 type MasterAuthTab = 'login-master' | 'register-master';
 
@@ -27,17 +28,21 @@ type MasterAuthTab = 'login-master' | 'register-master';
     CardTitleComponent,
     CardDescriptionComponent,
     CardContentComponent,
+    GameIconComponent,
   ],
   template: `
     <div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-[#110f0c]">
       <ui-card customClass="w-full max-w-lg border-[#3a322a] bg-[#1a1612]/95 backdrop-blur-md shadow-2xl shadow-black">
         <ui-card-header customClass="text-center items-center pb-3">
-          <div class="text-4xl mb-1 filter drop-shadow-[0_0_12px_rgba(197,160,89,0.4)]">⚔️📜</div>
+          <div class="mb-2 filter drop-shadow-[0_0_12px_rgba(197,160,89,0.4)]">
+            <game-icon name="crossed-swords" [size]="40" color="#c5a059"></game-icon>
+          </div>
           <ui-card-title customClass="text-2xl font-bold font-rpg text-[#eae3d2] tracking-wider">
             RPG Battlemap
           </ui-card-title>
-          <ui-card-description customClass="text-[#c5a059] text-sm max-w-sm font-rpg tracking-wide mt-1">
-            Vamos iniciar uma nova aventura ⚔️
+          <ui-card-description customClass="text-[#c5a059] text-sm max-w-sm font-rpg tracking-wide mt-1 flex items-center justify-center gap-1.5">
+            <span>Vamos iniciar uma nova aventura</span>
+            <game-icon name="swords" [size]="14"></game-icon>
           </ui-card-description>
           <p class="text-xs text-[#8c7f6f] italic font-body mt-1">
             "Que os dados rolem e as canções ecoem pelas tavernas do reino."
@@ -57,7 +62,7 @@ type MasterAuthTab = 'login-master' | 'register-master';
               [class.text-[#8c7f6f]]="activeTab() !== 'login-master'"
               (click)="activeTab.set('login-master')"
             >
-              <span>🗡️</span> Entrar
+              <game-icon name="sword" [size]="14"></game-icon> Entrar
             </button>
             <button
               type="button"
@@ -69,13 +74,13 @@ type MasterAuthTab = 'login-master' | 'register-master';
               [class.text-[#8c7f6f]]="activeTab() !== 'register-master'"
               (click)="activeTab.set('register-master')"
             >
-              <span>✨</span> Criar Conta
+              <game-icon name="sparkles" [size]="14"></game-icon> Criar Conta
             </button>
           </div>
 
           @if (errorMessage()) {
-            <div class="bg-[#8b0000]/20 border border-[#8b0000]/60 text-[#fca5a5] text-xs p-3 rounded font-body shadow-inner shadow-black">
-              ⚠️ {{ errorMessage() }}
+            <div class="bg-[#8b0000]/20 border border-[#8b0000]/60 text-[#fca5a5] text-xs p-3 rounded font-body shadow-inner shadow-black flex items-center gap-1.5">
+              <game-icon name="info" [size]="12"></game-icon> {{ errorMessage() }}
             </div>
           }
 
@@ -114,7 +119,7 @@ type MasterAuthTab = 'login-master' | 'register-master';
                   [fullWidth]="true"
                   [loading]="loginMasterMutation.isPending()"
                 >
-                  ⚔️ Iniciar Aventura
+                  <game-icon name="spear-feather" [size]="16"></game-icon> Iniciar Aventura
                 </app-button>
               </div>
             </form>
@@ -167,7 +172,7 @@ type MasterAuthTab = 'login-master' | 'register-master';
                   [fullWidth]="true"
                   [loading]="registerMasterMutation.isPending()"
                 >
-                  ✨ Forjar Nova Lenda
+                  <game-icon name="sparkles" [size]="16"></game-icon> Forjar Nova Lenda
                 </app-button>
               </div>
             </form>
@@ -175,9 +180,11 @@ type MasterAuthTab = 'login-master' | 'register-master';
 
           <!-- Rodapé Explicativo Para Jogadores -->
           <div class="border-t border-[#3a322a] pt-3 text-center">
-            <p class="text-xs text-[#a89b88] font-body">
-              🎲 <strong>Convocado por uma guilda?</strong>
-              <br />
+            <p class="text-xs text-[#a89b88] font-body flex items-center justify-center gap-1">
+              <game-icon name="dice" [size]="13"></game-icon>
+              <strong>Convocado por uma guilda?</strong>
+            </p>
+            <p class="text-xs text-[#a89b88] font-body mt-1">
               Peça o pergaminho de convite da taverna (ex: <code class="text-[#c5a059] font-mono">/party/join/CODIGO</code>) para tomar seu lugar à mesa.
             </p>
           </div>
