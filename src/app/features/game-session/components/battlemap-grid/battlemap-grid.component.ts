@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal, computed, OnInit, inject, effect } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, computed, OnInit, inject, effect, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -423,10 +423,11 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
 
             <!-- LAYER 2: PLACED MULTI-TILE ASSETS (HOUSES, CASTLES, PROPS) -->
             <div class="multi-assets-layer">
-              @for (placed of placedAssets(); track placed.id) {
+              @for (placed of placedAssets(); track (placed.id + '_' + $index)) {
                 <div 
                   class="placed-multi-asset"
                   [class.selected]="selectedPlacedAsset()?.id === placed.id"
+                  [class.is-dragging]="isDraggingAsset() === placed.id"
                   [class.layer-over]="placed.layer === 'over'"
                   [style.left.%]="(placed.gridX / gridSize()) * 100"
                   [style.top.%]="(placed.gridY / gridSize()) * 100"
@@ -434,6 +435,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   [style.height.%]="(placed.heightTiles / gridSize()) * 100"
                   [style.opacity]="placed.opacity"
                   [style.transform]="'rotate(' + placed.rotation + 'deg)'"
+                  (pointerdown)="onPlacedAssetPointerDown(placed, $event)"
                   (click)="selectPlacedAsset(placed, $event)">
                   
                   <img [src]="placed.imageUrl" [alt]="placed.name" class="placed-image" draggable="false" />
@@ -445,6 +447,17 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
 
                   @if (selectedPlacedAsset()?.id === placed.id) {
                     <div class="selection-outline"></div>
+
+                    <!-- FLOATING QUICK ACTION TOOLBAR (DELETE & ROTATE & DRAG HINT) -->
+                    <div class="floating-asset-toolbar" (click)="$event.stopPropagation()" (pointerdown)="$event.stopPropagation()">
+                      <button type="button" class="floating-btn delete-btn" (click)="removePlacedAsset(placed.id)" title="Excluir Construção (Del)">
+                        🗑️ Excluir
+                      </button>
+                      <button type="button" class="floating-btn rotate-btn" (click)="rotatePlacedAsset(placed.id, 90)" title="Girar 90°">
+                        ↻ Girar
+                      </button>
+                      <span class="drag-handle-hint" title="Clique e arraste pelo mapa">✋ Arraste</span>
+                    </div>
                   }
                 </div>
               }
@@ -461,6 +474,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
                   [style.width.%]="(token.size / gridSize()) * 100"
                   [style.height.%]="(token.size / gridSize()) * 100"
                   [style.--token-color]="token.color"
+                  (pointerdown)="onTokenPointerDown(token, $event)"
                   (click)="selectToken(token, $event)">
                   
                   <div class="token-avatar-ring">
@@ -1303,12 +1317,25 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
     .placed-multi-asset {
       position: absolute;
       pointer-events: auto;
-      cursor: pointer;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
       display: flex;
       align-items: center;
       justify-content: center;
       transform-origin: center center;
-      transition: transform 0.15s ease, filter 0.1s;
+      transition: filter 0.1s;
+
+      &:active {
+        cursor: grabbing;
+      }
+
+      &.is-dragging {
+        cursor: grabbing !important;
+        z-index: 50 !important;
+        filter: drop-shadow(0 0 14px #e67e22) brightness(1.1);
+        opacity: 0.85;
+      }
 
       &:hover {
         filter: drop-shadow(0 0 6px rgba(241, 196, 15, 0.8));
@@ -1316,7 +1343,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
 
       &.selected {
         filter: drop-shadow(0 0 10px #f1c40f);
-        z-index: 4;
+        z-index: 10;
       }
 
       .placed-image {
@@ -1324,6 +1351,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
         height: 100%;
         object-fit: fill;
         image-rendering: pixelated;
+        pointer-events: none;
       }
 
       .placed-badge {
@@ -1336,6 +1364,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
         padding: 2px 4px;
         border: 1px solid #333;
         display: none;
+        pointer-events: none;
       }
 
       &:hover .placed-badge,
@@ -1350,6 +1379,66 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
         border: 2px dashed #f1c40f;
         pointer-events: none;
         animation: pixel-pulse 1.2s infinite alternate;
+      }
+
+      .floating-asset-toolbar {
+        position: absolute;
+        bottom: calc(100% + 6px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(17, 20, 28, 0.95);
+        border: 2px solid #f1c40f;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+        padding: 3px 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+        z-index: 100;
+        pointer-events: auto;
+
+        .floating-btn {
+          border: 1px solid #000;
+          padding: 3px 6px;
+          font-size: 8px;
+          font-family: inherit;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 2px;
+          display: flex;
+          align-items: center;
+          gap: 3px;
+          transition: transform 0.05s, filter 0.1s;
+
+          &:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+          }
+          &:active {
+            transform: scale(0.95);
+          }
+
+          &.delete-btn {
+            background: #e74c3c;
+            color: #fff;
+            border-color: #c0392b;
+          }
+
+          &.rotate-btn {
+            background: #3498db;
+            color: #fff;
+            border-color: #2980b9;
+          }
+        }
+
+        .drag-handle-hint {
+          font-size: 7px;
+          color: #94a3b8;
+          cursor: grab;
+          user-select: none;
+          padding: 0 2px;
+        }
       }
     }
 
@@ -1917,6 +2006,8 @@ export class BattlemapGridComponent implements OnInit {
   ]);
 
   selectedPlacedAsset = signal<PlacedMultiTileAsset | null>(null);
+  isDraggingAsset = signal<string | null>(null);
+  isDraggingToken = signal<string | null>(null);
   hoverCell = signal<{ x: number; y: number } | null>(null);
 
   tokens = signal<GridToken[]>([
@@ -2396,6 +2487,140 @@ export class BattlemapGridComponent implements OnInit {
     const updated = this.placedAssets().find(a => a.id === id);
     if (updated) this.selectedPlacedAsset.set(updated);
     this.triggerAutoSave();
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    const activeTag = (document.activeElement?.tagName || '').toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea' || activeTag === 'select') {
+      return;
+    }
+
+    if (event.key === 'Delete' || event.key === 'Backspace') {
+      const selected = this.selectedPlacedAsset();
+      if (selected) {
+        event.preventDefault();
+        this.removePlacedAsset(selected.id);
+      }
+    }
+  }
+
+  onPlacedAssetPointerDown(placed: PlacedMultiTileAsset, event: PointerEvent): void {
+    if (event.button !== 0) return;
+
+    const target = event.target as HTMLElement;
+    if (target.closest('.floating-asset-toolbar')) {
+      return;
+    }
+
+    this.selectedPlacedAsset.set(placed);
+    this.isDraggingAsset.set(placed.id);
+
+    const boardEl = (event.currentTarget as HTMLElement).closest('.battlemap-board') as HTMLElement;
+    if (!boardEl) return;
+
+    const startClientX = event.clientX;
+    const startClientY = event.clientY;
+    const initialGridX = placed.gridX;
+    const initialGridY = placed.gridY;
+
+    let hasMoved = false;
+
+    const onPointerMove = (moveEvt: PointerEvent) => {
+      const rect = boardEl.getBoundingClientRect();
+      const cellSize = rect.width / this.gridSize();
+      if (cellSize <= 0) return;
+
+      const deltaX = moveEvt.clientX - startClientX;
+      const deltaY = moveEvt.clientY - startClientY;
+
+      if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+        hasMoved = true;
+      }
+
+      const gridDeltaX = Math.round(deltaX / cellSize);
+      const gridDeltaY = Math.round(deltaY / cellSize);
+
+      const targetX = Math.max(0, Math.min(this.gridSize() - placed.widthTiles, initialGridX + gridDeltaX));
+      const targetY = Math.max(0, Math.min(this.gridSize() - placed.heightTiles, initialGridY + gridDeltaY));
+
+      if (targetX !== placed.gridX || targetY !== placed.gridY) {
+        this.placedAssets.update(all =>
+          all.map(item => item.id === placed.id ? { ...item, gridX: targetX, gridY: targetY } : item)
+        );
+        const updated = this.placedAssets().find(a => a.id === placed.id);
+        if (updated) this.selectedPlacedAsset.set(updated);
+      }
+    };
+
+    const onPointerUp = () => {
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      this.isDraggingAsset.set(null);
+
+      if (hasMoved) {
+        this.triggerAutoSave();
+      }
+    };
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+  }
+
+  onTokenPointerDown(token: GridToken, event: PointerEvent): void {
+    if (event.button !== 0) return;
+    this.selectedToken.set(token);
+    this.isDraggingToken.set(token.id);
+
+    const boardEl = (event.currentTarget as HTMLElement).closest('.battlemap-board') as HTMLElement;
+    if (!boardEl) return;
+
+    const startClientX = event.clientX;
+    const startClientY = event.clientY;
+    const initialGridX = token.x;
+    const initialGridY = token.y;
+
+    let hasMoved = false;
+
+    const onPointerMove = (moveEvt: PointerEvent) => {
+      const rect = boardEl.getBoundingClientRect();
+      const cellSize = rect.width / this.gridSize();
+      if (cellSize <= 0) return;
+
+      const deltaX = moveEvt.clientX - startClientX;
+      const deltaY = moveEvt.clientY - startClientY;
+
+      if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+        hasMoved = true;
+      }
+
+      const gridDeltaX = Math.round(deltaX / cellSize);
+      const gridDeltaY = Math.round(deltaY / cellSize);
+
+      const targetX = Math.max(0, Math.min(this.gridSize() - 1, initialGridX + gridDeltaX));
+      const targetY = Math.max(0, Math.min(this.gridSize() - 1, initialGridY + gridDeltaY));
+
+      if (targetX !== token.x || targetY !== token.y) {
+        this.tokens.update(all =>
+          all.map(t => t.id === token.id ? { ...t, x: targetX, y: targetY } : t)
+        );
+        const updated = this.tokens().find(t => t.id === token.id);
+        if (updated) this.selectedToken.set(updated);
+      }
+    };
+
+    const onPointerUp = () => {
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      this.isDraggingToken.set(null);
+
+      if (hasMoved) {
+        this.triggerAutoSave();
+      }
+    };
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
   }
 
   removePlacedAsset(id: string): void {
