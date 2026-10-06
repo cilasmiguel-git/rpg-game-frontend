@@ -15,7 +15,7 @@ export const CharacterAppearanceSchema = z.object({
   mainWeapon: z.string().nullable().optional(),
   headgear: z.string().nullable().optional(),
   accessory: z.string().nullable().optional(),
-  avatarUrl: z.string().url().nullable().optional(),
+  avatarUrl: z.string().nullable().optional(),
 });
 
 export const CharacterSchema = z.preprocess(

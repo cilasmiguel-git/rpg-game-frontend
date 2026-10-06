@@ -8,11 +8,11 @@ export const PartySchema = z.object({
   code: z.string(),
   title: z.string(),
   description: z.string().nullable().optional(),
-  themeKey: z.string(),
+  themeKey: z.string().optional().default('medieval'),
   themeTitle: z.string().optional().default('Aventura Épica'),
-  status: PartyStatusSchema,
+  status: PartyStatusSchema.default('IN_PROGRESS'),
   currentPhaseNumber: z.number().default(1),
-  masterId: z.string(),
+  masterId: z.string().optional().default(''),
   characters: z.array(CharacterSchema).optional().default([]),
 });
 

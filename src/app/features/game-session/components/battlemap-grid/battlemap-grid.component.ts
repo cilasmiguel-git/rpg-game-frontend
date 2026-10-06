@@ -341,7 +341,7 @@ const FALLBACK_DEFAULT_ASSETS: MultiTileAssetItem[] = [
 
             <!-- 1 SINGLE COLUMN VERTICAL LIST -->
             <div class="asset-grid-scroll single-column-list">
-              @for (asset of filteredCatalog(); track asset.id) {
+              @for (asset of filteredCatalog(); track (asset.id + '_' + $index)) {
                 <div 
                   class="asset-card single-row-card" 
                   [class.active]="selectedAssetToPlace()?.id === asset.id"
@@ -2180,7 +2180,16 @@ export class BattlemapGridComponent implements OnInit {
     this.http.get<AssetManifest>('/assets/battlemap/manifest.json').subscribe({
       next: (manifest) => {
         if (manifest && manifest.assets) {
-          this.catalogAssets.set(manifest.assets);
+          const seen = new Set<string>();
+          const sanitized = manifest.assets.map((asset, idx) => {
+            let uId = asset.id || `asset_${idx}`;
+            if (seen.has(uId)) {
+              uId = `${uId}_${idx}`;
+            }
+            seen.add(uId);
+            return { ...asset, id: uId };
+          });
+          this.catalogAssets.set(sanitized);
         }
         this.loadCustomAssetsFromStorage();
       },

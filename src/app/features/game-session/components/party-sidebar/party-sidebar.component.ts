@@ -121,8 +121,7 @@ export interface ChatMessage {
                 #jitsiFrame
                 [src]="url"
                 class="jitsi-iframe"
-                allow="camera; microphone; fullscreen; display-capture; autoplay; clipboard-write; ambient-light-sensor"
-                allowfullscreen
+                allow="camera; microphone; fullscreen; display-capture; autoplay; clipboard-write"
                 title="Jitsi Meet Video Call"
               ></iframe>
             } @else {

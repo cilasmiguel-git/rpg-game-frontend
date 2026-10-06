@@ -11,7 +11,7 @@ export const PhaseSchema = z.object({
   formattedNarration: z.string().default(''),
   aiAtmosphere: z.string().nullable().optional(),
   imagePrompt: z.string().nullable().optional(),
-  imageUrl: z.string().url().nullable().optional(),
+  imageUrl: z.string().nullable().optional(),
   suggestedHooks: z.array(z.string()).default([]),
   status: PhaseStatusSchema.default('PUBLISHED'),
 });
