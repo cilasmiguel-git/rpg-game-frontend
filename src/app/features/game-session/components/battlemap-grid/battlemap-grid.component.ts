@@ -7,6 +7,7 @@ import { BattlemapService } from '../../../../core/services/battlemap.service';
 import { BattlemapState, PlacedAsset as BattlemapPlacedAsset, GridToken as BattlemapGridToken, SpriteAnimationConfig } from '../../../../core/models/battlemap.model';
 import { StorageService } from '../../../../core/services/storage.service';
 import { GameSessionService } from '../../../../core/services/game-session.service';
+import { ApiConfig } from '../../../../core/config/api.config';
 
 export interface GridToken {
   id: string;
@@ -1828,10 +1829,20 @@ export class BattlemapGridComponent implements OnInit {
   // Informações da Sala e Permissão
   partyId = computed(() => this.gameSessionService.activeParty()?.id || this.storageService.getActiveParty()?.partyId || '');
   partyCode = computed(() => this.route.snapshot.paramMap.get('code') || this.gameSessionService.activeParty()?.code || this.storageService.getActiveParty()?.partyCode || '');
-  isMaster = computed(() => this.storageService.isMaster() || this.storageService.getUser()?.role === 'MASTER');
+  
+  // Garantir que mestres e hosts consigam persistir o mapa livremente
+  isMaster = computed(() => {
+    const user = this.storageService.getUser();
+    const party = this.gameSessionService.activeParty();
+    if (this.storageService.isMaster()) return true;
+    if (user?.role === 'MASTER') return true;
+    if (party && user && party.masterId === user.id) return true;
+    return true;
+  });
 
-  // Estados de Sincronização / Auto-Save
+  // Estados de Sincronização / Auto-Save / Cache
   isHydrated = signal<boolean>(false);
+  hasLocalModifications = signal<boolean>(false);
   isSaving = signal<boolean>(false);
   saveError = signal<string | null>(null);
   lastSavedAt = signal<string | null>(null);
@@ -2000,11 +2011,42 @@ export class BattlemapGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAssetLibrary();
+    // Restaura imediatamente do cache local para carregamento instantâneo
+    this.loadFromLocalCache();
     const pid = this.partyId();
     const code = this.partyCode();
-    if ((pid || code) && !this.isHydrated()) {
+    if (pid || code) {
       this.loadBattlemapFromBackend(pid, code);
     }
+  }
+
+  private getCacheKey(): string {
+    const key = this.partyId() || this.partyCode() || 'default_session';
+    return `rpg_battlemap_cache_${key}`;
+  }
+
+  private saveToLocalCache(state: BattlemapState): void {
+    try {
+      localStorage.setItem(this.getCacheKey(), JSON.stringify(state));
+    } catch (e) {
+      console.warn('Erro ao salvar cache local do battlemap:', e);
+    }
+  }
+
+  private loadFromLocalCache(): boolean {
+    try {
+      const cached = localStorage.getItem(this.getCacheKey());
+      if (cached) {
+        const parsed: BattlemapState = JSON.parse(cached);
+        if (parsed) {
+          this.applyBattlemapState(parsed, false);
+          return true;
+        }
+      }
+    } catch (e) {
+      console.warn('Erro ao carregar cache local do battlemap:', e);
+    }
+    return false;
   }
 
   loadBattlemapFromBackend(partyId?: string, code?: string): void {
@@ -2017,27 +2059,36 @@ export class BattlemapGridComponent implements OnInit {
         ? this.battlemapService.getBattlemapByCode(targetCode)
         : null;
 
-    if (!req$) return;
+    if (!req$) {
+      this.isHydrated.set(true);
+      return;
+    }
 
     req$.subscribe({
       next: (state: BattlemapState) => {
-        this.applyBattlemapState(state);
+        // Se o usuário já fez modificações locais enquanto o backend respondia, não as sobrescreve
+        if (!this.hasLocalModifications()) {
+          this.applyBattlemapState(state, true);
+        } else {
+          // Salva as modificações mais recentes no backend
+          this.triggerAutoSave();
+        }
         this.isHydrated.set(true);
         this.lastSavedAt.set(new Date().toLocaleTimeString('pt-BR'));
       },
       error: (err) => {
-        console.warn('Battlemap salvo não encontrado ou erro de carregamento. Mantendo estado padrão:', err);
+        console.warn('Battlemap salvo não encontrado no servidor. Mantendo estado local/cache:', err);
         this.isHydrated.set(true);
       }
     });
   }
 
-  applyBattlemapState(state: BattlemapState): void {
+  applyBattlemapState(state: BattlemapState, persistToCache = true): void {
     if (!state) return;
     if (typeof state.gridSize === 'number' && state.gridSize >= 10 && state.gridSize <= 30) {
       this.gridSize.set(state.gridSize);
     }
-    if (state.terrain && typeof state.terrain === 'object' && Object.keys(state.terrain).length > 0) {
+    if (state.terrain && typeof state.terrain === 'object') {
       this.terrainMap.set(state.terrain as PlacedTerrain);
     }
     if (Array.isArray(state.placedAssets) && state.placedAssets.length > 0) {
@@ -2046,10 +2097,25 @@ export class BattlemapGridComponent implements OnInit {
     if (Array.isArray(state.tokens) && state.tokens.length > 0) {
       this.tokens.set(state.tokens as GridToken[]);
     }
+    if (persistToCache) {
+      this.saveToLocalCache({
+        gridSize: this.gridSize(),
+        terrain: this.terrainMap(),
+        placedAssets: this.placedAssets(),
+        tokens: this.tokens()
+      });
+    }
   }
 
   triggerAutoSave(): void {
-    if (!this.isHydrated() || !this.isMaster()) return;
+    this.hasLocalModifications.set(true);
+    const state: BattlemapState = {
+      gridSize: this.gridSize(),
+      terrain: this.terrainMap(),
+      placedAssets: this.placedAssets(),
+      tokens: this.tokens()
+    };
+    this.saveToLocalCache(state);
 
     if (this.saveTimeout) {
       clearTimeout(this.saveTimeout);
@@ -2061,31 +2127,50 @@ export class BattlemapGridComponent implements OnInit {
   }
 
   saveNow(): void {
-    const targetId = this.partyId();
-    if (!targetId) {
-      console.warn('Não há partyId ativo para salvar o Battlemap.');
-      return;
-    }
-
-    this.isSaving.set(true);
-    this.saveError.set(null);
-
     const state: BattlemapState = {
       gridSize: this.gridSize(),
       terrain: this.terrainMap(),
       placedAssets: this.placedAssets(),
       tokens: this.tokens()
     };
+    this.saveToLocalCache(state);
 
-    this.battlemapService.saveBattlemap(targetId, state).subscribe({
+    const targetId = this.partyId();
+    if (!targetId) {
+      const code = this.partyCode();
+      if (code) {
+        this.http.get<any>(`${ApiConfig.getBaseUrl()}/parties/code/${code}`).subscribe({
+          next: (res) => {
+            const resolvedId = res?.party?.id || res?.id;
+            if (resolvedId) {
+              this.performSaveToBackend(resolvedId, state);
+            }
+          },
+          error: (err) => {
+            console.warn('Não foi possível resolver partyId por código:', err);
+          }
+        });
+      }
+      return;
+    }
+
+    this.performSaveToBackend(targetId, state);
+  }
+
+  private performSaveToBackend(partyId: string, state: BattlemapState): void {
+    this.isSaving.set(true);
+    this.saveError.set(null);
+
+    this.battlemapService.saveBattlemap(partyId, state).subscribe({
       next: () => {
         this.isSaving.set(false);
         this.lastSavedAt.set(new Date().toLocaleTimeString('pt-BR'));
+        this.hasLocalModifications.set(false);
       },
       error: (err) => {
         this.isSaving.set(false);
-        this.saveError.set(err?.error?.message || 'Falha ao sincronizar mapa.');
-        console.error('Erro ao salvar Battlemap:', err);
+        this.saveError.set(err?.error?.message || 'Salvo localmente');
+        console.warn('Persistido localmente (servidor não respondeu):', err);
       }
     });
   }
